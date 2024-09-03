@@ -1,0 +1,93 @@
+.login {
+    width: 300px;
+    margin: 40px auto;
+}
+
+.login-form {
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px rgb(60, 59, 59);
+}
+
+.login-txt {
+    font-size: 1rem;
+    background-color: #3367d6;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 5px 5px 0 0;
+}
+
+.login__form-area {
+    padding: 40px;
+}
+
+.container {
+    height: 4rem;
+}
+
+.input-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.img {
+    width:7%;
+}
+
+.mail_input,
+.password_input {
+    width: 90%;
+    height: 2rem;
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
+
+.error {
+    display: block;
+    color: red;
+}
+.login__form-btn {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.login__form-btn-txt {
+    width: 90px;
+    background-color: #3367d6;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+/* タブレットサイズ（482～769px以内の場合） */
+@media screen and (min-width:481px) {
+    .login {
+    width: 400px;
+    margin: 40px auto;
+    }
+
+    .login-form {
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+    }
+
+}
+
+@media screen and (min-width:769px) {
+    .login{
+    width: 500px;
+    margin: 40px auto;
+    }
+
+    .login-form {
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+    }
+
+}

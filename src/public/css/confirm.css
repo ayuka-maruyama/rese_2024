@@ -1,0 +1,67 @@
+.confirm {
+    width: 300px;
+    margin: 40px auto;
+}
+
+.confirm-form {
+    width: 100%;
+    height: 250px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 40px 10px;
+    box-shadow: 2px 2px 4px rgb(60, 59, 59);
+    text-align: center;
+}
+
+.confirm-txt {
+    font-size: 1rem;
+    border: none;
+    padding: 1.5rem;
+    border-radius: 5px 5px 0 0;
+}
+
+.confirm-msg {
+    color: red;
+    padding-bottom: 20px;
+    font-size: 0.5em;
+    text-indent: 1rem;
+}
+
+.confirm__form-btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.confirm__form-btn-txt {
+    width: 100px;
+    background-color: #3367d6;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.5rem;
+}
+
+/* タブレットサイズ（482～769px以内の場合） */
+@media screen and (min-width:769px) {
+    .confirm {
+        width: 500px;
+        margin: 40px auto;
+    }
+
+    .confirm-form {
+        width: 100%;
+        height: 300px;
+        background-color: white;
+        border-radius: 5px;
+    }
+
+    .confirm-txt {
+        font-size: 1.5rem;
+        border: none;
+        padding: 1.5rem;
+        border-radius: 5px 5px 0 0;
+    }
+
+}

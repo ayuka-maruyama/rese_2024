@@ -1,0 +1,77 @@
+body {
+    margin: 10px;
+    padding: 0;
+    background-color: #f0f0f0;
+    font-family: 'Arial', sans-serif;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #f0f0f0;
+}
+
+.menu-button {
+    background-color: #3367d6;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-button i {
+    font-size: 18px;
+}
+
+.logo {
+    margin-left: 10px;
+    font-size: 24px;
+    color: #3367d6;
+    font-weight: bold;
+}
+
+.menu-button {
+    background-color: #3367d6;
+    color: white;
+    border: none;
+    padding: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 15px; /* ボタンの高さを調整 */
+    width: 15px; /* ボタンの幅を調整 */
+}
+
+.menu-button::before, .menu-button::after, .menu-line {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 1px;
+    background-color: white;
+}
+
+.menu-button::before {
+    width: 40%;
+    top: 10px; /* 最上部の線 */
+    left: 15%;
+}
+
+.menu-button::after {
+    width: 60%;
+    top: 20px; /* 真ん中の線 */
+    left: 15%;
+}
+
+.menu-line {
+    width: 25%;
+    top: 30px; /* 最下部の線 */
+    left: 15%;
+}
