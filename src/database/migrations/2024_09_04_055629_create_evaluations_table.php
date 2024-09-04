@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('evaluations', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
+            $table->foreignId('shop_id');
+            $table->integer('evaluation');
+            $table->string('comment');
             $table->timestamps();
         });
     }

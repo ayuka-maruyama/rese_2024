@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('shops', function (Blueprint $table) {
             $table->id();
+            $table->string('shop_name');
+            $table->foreignId('area_id');
+            $table->foreignId('genre_id');
+            $table->string('summary');
             $table->timestamps();
         });
     }
