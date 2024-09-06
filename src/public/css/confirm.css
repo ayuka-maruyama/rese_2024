@@ -43,7 +43,7 @@
     font-size: 0.5rem;
 }
 
-/* タブレットサイズ（482～769px以内の場合） */
+/* レスポンシブデザイン（769px以上の場合） */
 @media screen and (min-width:769px) {
     .confirm {
         width: 500px;
@@ -64,4 +64,13 @@
         border-radius: 5px 5px 0 0;
     }
 
+    .confirm__form-btn-txt {
+    width: 120px;
+    background-color: #3367d6;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    font-size: 1rem;
+    }
 }
