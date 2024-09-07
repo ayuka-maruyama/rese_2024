@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('area_id');
             $table->foreignId('genre_id');
             $table->string('summary');
+            $table->string('image');
             $table->timestamps();
         });
     }
