@@ -26,6 +26,6 @@ class RegisterController extends Controller
         // event(new Registered($user));
 
         // return redirect('/email/verify');
-        return view('auth/confirm');
+        return redirect('/thanks');
     }
 }
