@@ -10,16 +10,16 @@ class Shop extends Model
     use HasFactory;
 
     protected $table = 'shops';
-    protected $fillable = ['shop_name', 'area_id', 'genre_id', 'summary'];
+    protected $fillable = ['shop_name', 'area_id', 'genre_id', 'summary', 'image'];
     protected $dates = ['created_at', 'updated_at'];
 
-    public function Area()
+    public function area()
     {
-        return $this->hasMany(Area::class);
+        return $this->belongsTo(Area::class);
     }
 
-    public function Genre()
+    public function genre()
     {
-        return $this->hasMany(Genre::class);
+        return $this->belongsTo(Genre::class);
     }
 }

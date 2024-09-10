@@ -15,19 +15,16 @@
     <header class="header">
         <div class="navbar">
             <button class="menu-button">
-                <i class="fas fa-bars"></i>
-                <span class="menu-line"></span>
+                <p class="menu-line"></p>
             </button>
             <h1 class="logo">Rese</h1>
+            @yield('header')
         </div>
     </header>
 
     <main class="main">
         @yield('content')
     </main>
-
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <script src="{{ asset('js/script.js') }}"></script>
 </body>
 
 </html>

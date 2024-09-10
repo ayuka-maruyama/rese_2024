@@ -1,5 +1,5 @@
 body {
-    margin: 10px;
+    margin: 1vw 10vw;
     padding: 0;
     background-color: #f0f0f0;
     font-family: 'Arial', sans-serif;
@@ -8,8 +8,6 @@ body {
 .navbar {
     display: flex;
     align-items: center;
-    padding: 10px;
-    background-color: #f0f0f0;
 }
 
 .menu-button {
@@ -17,61 +15,79 @@ body {
     color: white;
     border: none;
     padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.menu-button i {
-    font-size: 18px;
-}
-
-.logo {
-    margin-left: 10px;
-    font-size: 24px;
-    color: #3367d6;
-    font-weight: bold;
-}
-
-.menu-button {
-    background-color: #3367d6;
-    color: white;
-    border: none;
-    padding: 20px;
     border-radius: 5px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    height: 15px; /* ボタンの高さを調整 */
-    width: 15px; /* ボタンの幅を調整 */
 }
 
 .menu-button::before, .menu-button::after, .menu-line {
     content: '';
     position: absolute;
-    width: 80%;
-    height: 1px;
+    height: 1.5px;
     background-color: white;
 }
 
+/* 上の線 */
 .menu-button::before {
     width: 40%;
-    top: 10px; /* 最上部の線 */
-    left: 15%;
+    top: 5px;
+    left: 20%;
 }
 
-.menu-button::after {
-    width: 60%;
-    top: 20px; /* 真ん中の線 */
-    left: 15%;
-}
-
+/* 真ん中の線 */
 .menu-line {
-    width: 25%;
-    top: 30px; /* 最下部の線 */
-    left: 15%;
+    width: 60%;
+    top: 10px;
+    left: 20%;
+}
+
+/* 下の線 */
+.menu-button::after {
+    width: 20%;
+    top: 14px;
+    left: 20%;
+}
+
+.logo {
+    width: 20vw;
+    margin-left: 10px;
+    font-size: 5vw;
+    color: #3367d6;
+    font-weight: bold;
+}
+
+.main {
+    margin-top: 2vw;
+}
+
+/* レスポンシブデザイン（768px以上の場合） */
+@media screen and (min-width:768px) {
+    .menu-button {
+        width: 0.5vw;
+        height: 1vh;
+        padding: 1.5vw;
+    }
+
+    .menu-button::before {
+        top: 20%;
+    }
+
+    /* 真ん中の線 */
+    .menu-line {
+        top: 50%;
+    }
+
+    /* 下の線 */
+    .menu-button::after {
+        top: 80%;
+    }
+
+    .logo {
+        width: 20vw;
+        font-size: 2.5vw;
+    }
+
 }
