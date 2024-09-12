@@ -11,7 +11,7 @@
 </head>
 
 <body>
-
+    <!-- header部分の共通レイアウト -->
     <header class="header">
         <div class="navbar">
             <button class="menu-button">
@@ -22,9 +22,13 @@
         </div>
     </header>
 
+    <!-- main部分の共通レイアウト差し込み -->
     <main class="main">
         @yield('content')
     </main>
+
+    <!-- JavaScript読み込み部分 -->
+    @yield('script')
 </body>
 
 </html>

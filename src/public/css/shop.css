@@ -1,9 +1,8 @@
 .search {
-    width: 70vw;
     margin: 0 0 0 auto;
 }
 
-.search-form {
+#search-form {
     width: 100%;
     background-color: white;
     border-radius: 5px;
@@ -25,9 +24,8 @@
 }
 
 .search-form__item-input {
-    width: 17vw;
+    width: 15vw;
     padding: 5px 0 5px 15px;
-    border-radius: 5px;
     font-size: 7px;
     background-color: white;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='rgb(175, 174, 174)' d='M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16a6.471 6.471 0 0 0 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C8.01 14 7 12.99 7 11.5S8.01 9 9.5 9s2.5 1.01 2.5 2.5S10.99 14 9.5 14z'/%3E%3C/svg%3E");
@@ -79,6 +77,7 @@
 .shop-card__btn {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-size: 3vw;
 }
 
@@ -98,10 +97,6 @@
 
 /* レスポンシブデザイン（768px以上の場合） */
 @media screen and (min-width:768px) {
-    .search {
-        width: 50vw;
-    }
-
     .search-form__item-select {
         width: 10vw;
         padding: 0.5vw;
