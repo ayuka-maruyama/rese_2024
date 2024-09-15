@@ -1,5 +1,5 @@
 .register {
-    width: 300px;
+    width: 100%;
     margin: 40px auto;
 }
 
@@ -20,39 +20,42 @@
 }
 
 .register__form-area {
-    padding: 40px;
+    padding: 35px 40px;
 }
 
 .container {
-    height: 4rem;
+    height: 60px;
 }
 
 .input-container {
     display: flex;
     justify-content: space-around;
+    align-items: end;
 }
 
 .img {
-    width:7%;
+    width:25px;
 }
 
 .user_input,
 .mail_input,
 .password_input {
     width: 90%;
-    height: 2rem;
-    padding: 10px;
+    padding: 5px 10px 0;
     border-bottom: 1px solid black;
 }
 
 .error {
     display: block;
     color: red;
+    font-size: small;
+    padding: 5px 0;
 }
 .register__form-btn {
     width: 100%;
     display: flex;
     justify-content: flex-end;
+    margin-top: 10px;
 }
 
 .register__form-btn-txt {
@@ -64,31 +67,34 @@
     text-align: center;
 }
 
-/* タブレットサイズ（482～769px以内の場合） */
-@media screen and (min-width:481px) {
-    .register {
-    width: 400px;
-    margin: 40px auto;
-    }
-
+/* レスポンシブデザイン */
+@media screen and (min-width:768px) {
     .register-form {
-    width: 100%;
-    background-color: white;
-    border-radius: 5px;
+        width: 400px;
+        margin: 0 auto;
     }
 
-}
-
-@media screen and (min-width:769px) {
-    .register {
-    width: 500px;
-    margin: 40px auto;
+    .register-txt {
+        font-size: 20px;
+        padding: 1rem;
     }
 
-    .register-form {
-    width: 100%;
-    background-color: white;
-    border-radius: 5px;
+    .register__form-area {
+        padding: 38px;
+    }
+
+    .img {
+        width:30px;
+    }
+
+    .user_input,
+    .mail_input,
+    .password_input {
+        font-size: 20px;
+    }
+
+    .error {
+        font-size: 15px;
     }
 
 }
