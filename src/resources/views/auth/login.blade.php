@@ -12,7 +12,7 @@
             @csrf
             <div class="container">
                 <div class="input-container">
-                    <img class="img" src="{{ asset('img/mail.jpg') }}" alt="mail">
+                    <img class="img" src="{{ asset('img/mail.svg') }}" alt="mail">
                     <input class="mail_input" type="email" name="email" placeholder="Email" value="{{ old('email') }}">
                 </div>
                 <div class="error">
@@ -23,7 +23,7 @@
             </div>
             <div class="container">
                 <div class="input-container">
-                    <img class="img" src="{{ asset('img/key.jpg') }}" alt="password">
+                    <img class="img" src="{{ asset('img/lock.svg') }}" alt="password">
                     <input class="password_input" type="password" name="password" placeholder="Password" value="{{ old('password') }}">
                 </div>
                 <div class="error">
