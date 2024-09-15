@@ -30,7 +30,7 @@
 <div class="shop-card__wrap">
     @foreach($shops as $shop)
     <div class="shop-card">
-        <form class="shop-card__form" action="/detail/{{ $shop->id }}" method="post">
+        <form class="shop-card__form" action="/detail/{{ $shop->id }}" method="get">
             @csrf
             <div class="shop-card__img">
                 <img class="shop-card__img" src="{{ $shop->image }}" alt="{{ $shop->shop_name }}">
