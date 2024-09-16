@@ -94,6 +94,17 @@ body {
     text-align: center;
     margin: 10px 0;
     text-decoration: none;
+    cursor: pointer;
+}
+
+/* ボタンのスタイル */
+.menu__item-button {
+    background: none;
+    border: none;
+    color: inherit; /* 親要素の色を継承 */
+    cursor: pointer;
+    font-size: inherit; /* 親要素のフォントサイズを継承 */
+    padding: 0; /* ボタンの余白を無くす */
 }
 
 .logo {

@@ -6,10 +6,22 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MypageController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\ReserveController;
 use Illuminate\Http\Request;
 
+Route::get('/menu', function () {
+    return view('menu');
+});
+
+
 // TOP画面の表示
-Route::get('/', [ShopController::class, 'index']);
+Route::get('/', [ShopController::class, 'index'])->name('home');
+
+// 検索
+Route::get('/search', [ShopController::class, 'search'])->name('shop.search');
+
+// 店舗詳細ページへのアクセス
+Route::get('/detail/{shop_id}', [ReserveController::class, 'detail']);
 
 // 新規会員登録
 Route::get('/register', [RegisterController::class, 'open'])->name('register');
