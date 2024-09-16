@@ -14,9 +14,16 @@
     <!-- header部分の共通レイアウト -->
     <header class="header">
         <div class="navbar">
-            <button class="menu-button">
-                <p class="menu-line"></p>
+            <button class="menu-button" type="button">
+                <span class="menu-line line1"></span>
+                <span class="menu-line line2"></span>
+                <span class="menu-line line3"></span>
             </button>
+            <div class="menu">
+                <a href="/" class="menu__item">Home</a>
+                <a href="/register" class="menu__item">Registration</a>
+                <a href="/login" class="menu__item">Login</a>
+            </div>
             <h1 class="logo">Rese</h1>
             @yield('header')
         </div>
@@ -28,7 +35,7 @@
     </main>
 
     <!-- JavaScript読み込み部分 -->
-    @yield('script')
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 
 </html>
