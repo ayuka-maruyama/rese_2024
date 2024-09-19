@@ -1,0 +1,245 @@
+.reserve-content {
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+
+.shop-detail {
+    width: 48%;
+    margin-top: 20px;
+}
+
+.shop-detail__txt {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.back-btn {
+    padding: 5px;
+    background-color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 25px;
+    text-align: center;
+}
+
+.shop-name {
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 5px;
+}
+
+img {
+    width: 100%;
+}
+
+.shop-detail__hash {
+    display: flex;
+    margin: 20px 0;
+    font-size: 14px;
+}
+
+.hash-area,
+.hash-genre {
+    margin-right: 5px;
+}
+
+.summary {
+    font-size: 14px;
+    overflow-wrap: break-word;
+}
+
+.reserve-card {
+    position: absolute;
+    top: -10%;
+    left: 55%;
+    width: 45%;
+    height: 500px;
+    background-color: #507bd9;
+    border-radius: 5px;
+}
+
+.reserve-card__form {
+    color: white;
+}
+
+.reserve-area {
+    margin: 20px 10px;
+}
+
+.reserve__txt {
+    font-size: 20px;
+    font-weight: 300;
+    padding: 0 0 10px;
+}
+
+.custom-date,
+.select {
+    display: flex;
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+    color: black;
+    font-size: 14px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.date,
+#time,
+#gest {
+    width: 100%;
+    padding: 5px;
+    z-index: 1000;
+}
+
+.calendar-icon {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    width: 10px;
+}
+
+.toggle {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    width: 10px;
+    z-index: 900;
+}
+
+.reserve-detail {
+    background-color: #7297e6;
+    font-size: 14px;
+    padding: 20px 5px 10px;
+}
+
+.reserve__table {
+    width: 100%;
+    table-layout: fixed;  /* 幅の自動調整を無効化 */
+    font-size: 14px;
+}
+
+tr {
+    height: 35px;
+}
+
+th, td {
+    width: 50%;
+    font-size: small;
+}
+
+.reserve__btn {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    cursor: pointer;
+}
+
+.btn {
+    padding: 5px;
+    font-size: 14px;
+}
+
+/* レスポンシブデザイン（768px以上の場合） */
+@media screen and (min-width:768px) {
+    .shop-detail {
+        margin-top: 5px;
+    }
+
+    .back-btn {
+        font-size: 20px;
+        width: 30px;
+    }
+
+    .shop-name {
+        font-size: 22px;
+        padding-left: 10px;
+    }
+
+    .shop-detail__hash {
+        font-size: 18px;
+    }
+
+    .hash-area,
+    .hash-genre {
+        margin-right: 10px;
+    }
+
+    .summary {
+        font-size: 18px;
+    }
+
+    .reserve-card {
+        height: 650px;
+    }
+
+    .reserve-area {
+        margin: 20px;
+    }
+
+    .reserve__txt {
+        font-size: 22px;
+        padding: 0 0 20px;
+    }
+
+    .custom-date {
+        width: 50%;
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+
+    .select {
+        width: 97%;
+        font-size: 16px;
+    }
+
+    .calendar-icon {
+        position: absolute;
+        top: 8px;
+        right: 10px;
+        width: 15px;
+    }
+
+    .toggle {
+        width: 15px;
+    }
+
+    .reserve-detail {
+        background-color: #7297e6;
+        font-size: 14px;
+        padding: 20px 5px 10px;
+    }
+
+    .reserve__table {
+        font-size: 18px;
+    }
+
+    tr {
+        height: 35px;
+    }
+
+    th, td {
+        width: 45%;
+        font-size: 18px;
+    }
+
+    .reserve__btn {
+        height: 50px;
+    }
+
+    .btn {
+        padding: 5px;
+        font-size: 18px;
+    }
+
+}

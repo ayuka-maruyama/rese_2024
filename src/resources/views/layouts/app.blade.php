@@ -56,6 +56,7 @@
 
     <!-- JavaScript読み込み部分 -->
     <script src="{{ asset('js/app.js') }}"></script>
+    @yield('js')
 </body>
 
 </html>
