@@ -1,0 +1,65 @@
+.reserve-confirm {
+    width: 300px;
+    margin: 40px auto;
+}
+
+.message {
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+    padding: 40px 10px;
+    box-shadow: 2px 2px 4px rgb(60, 59, 59);
+    text-align: center;
+}
+
+.message-txt {
+    font-size: 1rem;
+    border: none;
+    padding: 1.5rem;
+    border-radius: 5px 5px 0 0;
+}
+
+.btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-txt {
+    width: 100px;
+    background-color: #3367d6;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.5rem;
+}
+
+/* レスポンシブデザイン（769px以上の場合） */
+@media screen and (min-width:768px) {
+    .reserve-confirm {
+        width: 550px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .message {
+        width: 90%;
+        padding: 80px 10px;
+    }
+
+    .message-txt {
+        font-size: 30px;
+    }
+
+    .btn {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .btn-txt {
+        width: 140px;
+        font-size: 16px;
+    }
+}

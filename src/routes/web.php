@@ -32,6 +32,10 @@ Route::get('/thanks', function () {
     return view('auth.confirm');
 });
 
+Route::post('/done', function () {
+    return view('reserve-confirm');
+});
+
 // ログイン、ログアウト
 Route::get('/login', [LoginController::class, 'open'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);
