@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MypageController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ReserveController;
+use App\Http\Controllers\FavoriteController;
 use Illuminate\Http\Request;
 
 Route::get('/menu', function () {
@@ -35,6 +36,9 @@ Route::get('/thanks', function () {
 Route::post('/done', function () {
     return view('reserve-confirm');
 });
+
+// お気に入り登録
+Route::post('/favorite/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorite.toggle');
 
 // ログイン、ログアウト
 Route::get('/login', [LoginController::class, 'open'])->name('login');

@@ -1,6 +1,7 @@
 @extends('layouts/app')
 
 @section('css')
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <link rel="stylesheet" href="{{ asset('css/shop.css') }}">
 @endsection
 
@@ -42,8 +43,13 @@
                     <p class="shop-card_genre">#{{ $shop->genre->genre_name }}</p>
                 </div>
                 <div class="shop-card__btn">
+                    <!-- 詳しくみるボタン -->
                     <button class="btn-submit" type="submit">詳しくみる</button>
-                    <button class="favorite-btn" type="button" data-id="{{ $shop->id }}">❤</button>
+
+                    <!-- お気に入りボタン -->
+                    <button class="favorite-btn {{ in_array($shop->id, $favoriteShopIds) ? 'favorited' : '' }}" data-id="{{ $shop->id }}">
+                        ❤
+                    </button>
                 </div>
             </div>
         </form>
@@ -52,6 +58,6 @@
 </div>
 @endsection
 
-@section('script')
+@section('js')
 <script src="{{ asset('js/shop.js') }}" defer></script>
 @endsection

@@ -92,7 +92,12 @@
 
 .favorite-btn {
     font-size: 5vw;
-    color: rgb(175, 174, 174);
+    color: gray; /* デフォルト */
+    padding-right: 10px;
+}
+
+.favorite-btn.favorited {
+    color: red; /* お気に入りの時 */
 }
 
 /* レスポンシブデザイン（768px以上の場合） */

@@ -10,7 +10,7 @@
     <title>Rese</title>
 </head>
 
-<body>
+<body data-is-logged-in="{{ Auth::check() ? 'true' : 'false' }}">
     <!-- header部分の共通レイアウト -->
     <header class="header">
         <div class="navbar">
