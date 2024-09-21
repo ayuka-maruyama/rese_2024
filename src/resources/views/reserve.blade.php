@@ -26,22 +26,19 @@
             @csrf
             <div class="reserve-area">
                 <h3 class="reserve__txt">予約</h3>
+
                 <div class="custom-date" id="date-picker">
-                    <input type="date" id="date" class="date" name="date" readonly>
+                    <input type="date" id="date" class="date" name="date" value="{{ date('Y-m-d') }}" readonly>
                     <img src="{{ asset('img/calendar-regular.svg') }}" class="calendar-icon"></img>
                 </div>
+
                 <div class="select" id="time-picker">
                     <select name="time" id="time">
-                        <option value="18:00">18:00</option>
-                        <option value="18:30">18:30</option>
-                        <option value="19:00">19:00</option>
-                        <option value="19:30">19:30</option>
-                        <option value="20:00">20:00</option>
-                        <option value="20:30">20:30</option>
-                        <option value="21:00">21:00</option>
+                        <!-- この部分に動的にオプションを挿入 -->
                     </select>
                     <img src="{{ asset('img/caret-down-solid.svg') }}" class="toggle"></img>
                 </div>
+
                 <div class="select" id="gest-picker">
                     <select name="gest" id="gest">
                         <option value="1">1</option>
@@ -64,8 +61,9 @@
             </div>
         </form>
     </div>
-    @endsection
+</div>
+@endsection
 
-    @section('js')
-    <script src="{{ asset('js/reserve.js') }}"></script>
-    @endsection
+@section('js')
+<script src="{{ asset('js/reserve.js') }}"></script>
+@endsection
