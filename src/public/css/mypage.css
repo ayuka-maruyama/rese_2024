@@ -1,0 +1,142 @@
+.mypage {
+    width: 100%;
+}
+
+.login-user {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.user-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.reserve {
+    width: 100%;
+}
+
+.reserve-ttl,
+.favorite-ttl {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.reserve-card {
+    width: 100%;
+    border: none;
+    background-color: #3367d6;
+    color: white;
+    padding: 15px;
+    line-height: 2rem;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.clock {
+    width: 25px;
+    background-color: white;
+    border-radius: 20px;
+    margin-right: 15px;
+}
+
+.justify {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.reserve-number {
+    font-size: 16px;
+}
+
+.close {
+    width: 20px;
+    border-radius: 20px;
+    padding: 4px;
+    margin: 0 0 5px 15px;
+    border: 2px solid white;
+    cursor: pointer;
+    position: absolute;
+    top: 25%;  /* 任意の位置を指定 */
+    right: 5px; /* 任意の位置を指定 */
+}
+
+.reserve-table {
+    width: 100%;
+}
+
+.table-header {
+    width: 35%;
+}
+
+.table-date {
+    width: 65%;
+}
+
+
+/* レスポンシブデザイン（768px以上の場合） */
+@media screen and (min-width:768px) {
+    .login-user {
+        margin: 30px auto;
+    }
+
+    .user-name {
+        font-size: 35px;
+    }
+
+    .mypage-content {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .reserve {
+        width: 37%;
+    }
+
+    .reserve-card {
+        line-height: 4.4vw;
+        padding: 18px 20px;
+        margin-bottom: 20px;
+        font-size: 20px;
+    }
+
+    .reserve-ttl,
+    .favorite-ttl {
+        font-size: 22px;
+    }
+
+    .clock {
+        width: 35px;
+        margin-right: 20px;
+    }
+
+    .reserve-number {
+        font-size: 20px;
+    }
+
+    .close {
+        width: 25px;
+        padding: 4px;
+        margin: 0 0 6px 15px;
+    }
+
+    .favorite {
+        width: 55%;
+    }
+    .shop-card {
+        width: 46%;
+        line-height: 1.5rem;
+    }
+
+
+}
