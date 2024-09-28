@@ -4,7 +4,8 @@
 }
 
 .register-form {
-    width: 100%;
+    width: 300px;
+    margin: 0 auto;
     background-color: white;
     border-radius: 5px;
     box-shadow: 2px 2px 4px rgb(60, 59, 59);
@@ -20,7 +21,7 @@
 }
 
 .register__form-area {
-    padding: 35px 40px;
+    padding: 30px 35px;
 }
 
 .container {
