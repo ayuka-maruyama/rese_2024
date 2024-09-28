@@ -13,14 +13,10 @@ return new class extends Migration
     {
         Schema::create('favorites', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->foreignId('shop_id');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');  // 外部キー制約
+            $table->foreignId('shop_id')->constrained('shops')->onDelete('cascade');  // 外部キー制約
             $table->timestamps();
         });
-
-        // 外部キー制約
-        $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-        $table->foreign('shop_id')->references('id')->on('shops')->onDelete('cascade');
     }
 
     /**

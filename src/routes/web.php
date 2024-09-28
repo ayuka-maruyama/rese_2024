@@ -33,7 +33,9 @@ Route::get('/thanks', function () {
     return view('auth.confirm');
 });
 
-Route::post('/done', function () {
+
+Route::post('/reservations', [ReserveController::class, 'store']);
+Route::get('/done', function () {
     return view('reserve-confirm');
 });
 

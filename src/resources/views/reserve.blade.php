@@ -22,8 +22,9 @@
         </form>
     </div>
     <div class="reserve-card">
-        <form action="/done" class="reserve-card__form" method="post">
+        <form action="/reservations" class="reserve-card__form" method="post">
             @csrf
+            <input type="hidden" name="shop_id" value="{{ $shop->id }}">
             <div class="reserve-area">
                 <h3 class="reserve__txt">予約</h3>
 
@@ -40,7 +41,7 @@
                 </div>
 
                 <div class="select" id="gest-picker">
-                    <select name="gest" id="gest">
+                    <select name="number_gest" id="number_gest">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>

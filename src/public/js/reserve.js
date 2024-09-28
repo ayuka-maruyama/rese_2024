@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ゲスト数選択ドロップダウン表示トリガー
     const gestPicker = document.getElementById('gest-picker');
-    const gestSelect = document.getElementById('gest');
+    const gestSelect = document.getElementById('number_gest');
     gestPicker.addEventListener('click', function() {
         gestSelect.focus(); // ドロップダウン表示
     });
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const reserveDetailElement = document.querySelector('.reserve-detail');
     const dateDisplay = document.getElementById('date');
     const timeDisplay = document.getElementById('time');
-    const gestDisplay = document.getElementById('gest');
+    const gestDisplay = document.getElementById('number_gest');
 
     // 時間オプションを動的に生成する関数
     function generateTimeOptions(selectedDate) {
