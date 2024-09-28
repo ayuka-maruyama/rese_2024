@@ -1,5 +1,5 @@
 body {
-    margin: 2vw 8vw;
+    margin: 20px;
     padding: 0;
     background-color: #f0f0f0;
     font-family: 'Arial', sans-serif;
@@ -120,6 +120,10 @@ body {
 
 /* レスポンシブ対応（768px以上の場合） */
 @media screen and (min-width: 768px) {
+    body {
+        margin: 2vw 8vw;
+    }
+
     .menu-button {
         height: 45px;
         width: 45px;

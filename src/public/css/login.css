@@ -4,7 +4,8 @@
 }
 
 .login-form {
-    width: 100%;
+    width: 300px;
+    margin: 0 auto;
     background-color: white;
     border-radius: 5px;
     box-shadow: 2px 2px 4px rgb(60, 59, 59);
@@ -24,7 +25,7 @@
 }
 
 .container {
-    height: 80px;
+    height: 60px;
 }
 
 .input-container {
@@ -81,6 +82,10 @@
 
     .login__form-area {
         padding: 38px;
+    }
+
+    .container {
+        height: 80px;
     }
 
     .img {
