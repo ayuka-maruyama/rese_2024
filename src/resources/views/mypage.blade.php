@@ -15,8 +15,9 @@
             <h3 class="reserve-ttl">予約状況</h3>
             @foreach($reservations as $reservation)
             <div class="reserve-card">
-                <form action="" method="post">
+                <form action="/reserve-delete" method="post">
                     @csrf
+                    <input type="hidden" name="reservation_id" value="{{ $reservation->id }}">
                     <div class="card-header">
                         <img class="clock" src="{{ asset('img/clock.svg') }}" alt="clock">
                         <div class="justify">

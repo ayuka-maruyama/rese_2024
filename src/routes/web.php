@@ -14,7 +14,6 @@ Route::get('/menu', function () {
     return view('menu');
 });
 
-
 // TOP画面の表示
 Route::get('/', [ShopController::class, 'index'])->name('home');
 
@@ -33,11 +32,17 @@ Route::get('/thanks', function () {
     return view('auth.confirm');
 });
 
-
+// 予約情報ページの表示
 Route::post('/reservations', [ReserveController::class, 'store']);
+
+// 予約完了ページの表示
 Route::get('/done', function () {
     return view('reserve-confirm');
 });
+
+// 予約の削除
+Route::post('/reserve-delete', [ReserveController::class, 'delete'])->name('reserve.delete');
+
 
 // お気に入り登録
 Route::post('/favorite/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorite.toggle');

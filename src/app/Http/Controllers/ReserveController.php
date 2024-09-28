@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Shop;
 use App\Http\Requests\ReservationRequest; // 追加
 use App\Models\Reservation;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -44,5 +45,21 @@ class ReserveController extends Controller
             // /done ページへリダイレクト
             return redirect('/done');
         }
+    }
+
+    public function delete(Request $request)
+    {
+        // リクエストから予約IDを取得する
+        $reservationId = $request->input('reservation_id');
+
+        // 予約データを検索して削除
+        $reservation = Reservation::find($reservationId);
+
+        if ($reservation) {
+            $reservation->delete();
+        }
+
+        // マイページへリダイレクト
+        return redirect()->back();
     }
 }
