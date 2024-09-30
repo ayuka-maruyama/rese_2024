@@ -23,7 +23,10 @@
                         <img class="clock" src="{{ asset('img/clock.svg') }}" alt="clock">
                         <div class="justify">
                             <span class="reserve-number">予約{{ $loop->iteration }}</span>
-                            <button class="delete">
+                            <button name="editing" class="editing" type="submit" formaction="/reserve/change">
+                                <img class="editing__img" src="{{ asset('img/editing.svg') }}" alt="editing">
+                            </button>
+                            <button name="delete" class="delete" type="submit">
                                 <img class="close" src="{{ asset('img/close.svg') }}" alt="close">
                             </button>
                         </div>
