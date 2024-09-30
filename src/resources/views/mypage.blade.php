@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('css')
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <link rel="stylesheet" href="{{ asset('css/shop.css') }}">
 <link rel="stylesheet" href="{{ asset('css/mypage.css') }}">
 @endsection
@@ -84,4 +85,8 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('js')
+<script src="{{ asset('js/mypage.js') }}" defer></script>
 @endsection
