@@ -1,4 +1,4 @@
-@extends('layouts/app')
+@extends('layouts.app')
 
 @section('css')
 <meta name="csrf-token" content="{{ csrf_token() }}">
