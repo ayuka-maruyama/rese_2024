@@ -47,6 +47,6 @@ class ReserveChangeController extends Controller
         ]);
 
         // 更新後、マイページにリダイレクト
-        return redirect('/mypage')->with('status', '予約情報を更新しました');
+        return redirect('/mypage')->with('alert', '予約情報を更新しました');
     }
 }
