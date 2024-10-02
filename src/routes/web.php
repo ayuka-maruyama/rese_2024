@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MypageController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ReserveController;
+use App\Http\Controllers\ReserveChangeController;
 use App\Http\Controllers\FavoriteController;
 use Illuminate\Http\Request;
 
@@ -43,6 +44,8 @@ Route::get('/done', function () {
 // 予約の削除
 Route::post('/reserve-delete', [ReserveController::class, 'delete'])->name('reserve.delete');
 
+// 予約の変更
+Route::post('/reserve/change', [ReserveChangeController::class, 'index']);
 
 // お気に入り登録
 Route::post('/favorite/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorite.toggle');
