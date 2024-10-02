@@ -25,4 +25,28 @@ class ReserveChangeController extends Controller
 
         return view('reserve-change', compact('user', 'reserveNow'));
     }
+
+    public function update(Request $request, $id)
+    {
+        // ログインしているユーザーのIDを取得
+        $user = Auth::id();
+
+        // 更新対象の予約情報を取得
+        $reserveNow = Reservation::where('id', $id)->where('user_id', $user)->first();
+
+        // 予約情報が存在しない場合は404エラーページなどにリダイレクト
+        if (!$reserveNow) {
+            return redirect('/mypage')->withErrors('予約が見つかりませんでした');
+        }
+
+        // 予約情報を更新
+        $reserveNow->update([
+            'date' => $request->input('date'),
+            'time' => $request->input('time'),
+            'number_gest' => $request->input('number_gest'),
+        ]);
+
+        // 更新後、マイページにリダイレクト
+        return redirect('/mypage')->with('status', '予約情報を更新しました');
+    }
 }

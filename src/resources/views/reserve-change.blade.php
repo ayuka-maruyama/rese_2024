@@ -45,8 +45,9 @@
             </table>
         </div>
         <div class="reserve-change">
-            <form action="/done" method="post">
+            <form action="{{ route('reservation.update', $reserveNow->id) }}" method="POST">
                 @csrf
+                @method('PUT')
                 <h3 class="reserve-change__ttl">変更内容</h3>
                 <div class="custom-date" id="date-picker">
                     <input type="date" id="date" class="date" name="date" value="{{ date('Y-m-d') }}" readonly>

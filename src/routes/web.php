@@ -47,6 +47,9 @@ Route::post('/reserve-delete', [ReserveController::class, 'delete'])->name('rese
 // 予約の変更
 Route::post('/reserve/change', [ReserveChangeController::class, 'index']);
 
+// 予約の更新用のPUTメソッド
+Route::put('/reservation/{id}/update', [ReserveChangeController::class, 'update'])->name('reservation.update');
+
 // お気に入り登録
 Route::post('/favorite/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorite.toggle');
 
