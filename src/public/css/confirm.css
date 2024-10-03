@@ -13,17 +13,16 @@
 }
 
 .confirm-txt {
-    font-size: 1rem;
+    font-size: 18px;
+    font-weight: 500;
     border: none;
-    padding: 1.5rem;
-    border-radius: 5px 5px 0 0;
 }
 
 .confirm-msg {
     color: red;
-    padding-bottom: 20px;
-    font-size: 0.5em;
-    text-indent: 1rem;
+    padding: 15px;
+    font-size: 12px;
+    text-align: start;
 }
 
 .confirm__form-btn {
@@ -33,13 +32,13 @@
 }
 
 .confirm__form-btn-txt {
-    width: 100px;
+    width: 60%;
     background-color: #3367d6;
     color: white;
     border-radius: 5px;
-    padding: 10px;
+    padding: 5px;
     text-align: center;
-    font-size: 0.5rem;
+    font-size: 10px;
 }
 
 /* レスポンシブデザイン（769px以上の場合） */
@@ -59,14 +58,11 @@
         font-size: 30px;
     }
 
-    .confirm__form-btn {
-        width: 100%;
-        display: flex;
-        justify-content: center;
+    .confirm-msg {
+        padding: 25px;
+        font-size: 16px;
     }
-
     .confirm__form-btn-txt {
-        width: 140px;
         font-size: 16px;
     }
 }
