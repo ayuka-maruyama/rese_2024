@@ -36,14 +36,14 @@
 
 .shop-card__wrap {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
     margin: 0 auto;
 }
 
 .shop-card {
     width: 48%;
-    margin-bottom: 20px;
+    margin: 1% 0.5%;
     border-radius: 5px;
     box-shadow: 2px 2px 4px rgb(60, 59, 59);
 }

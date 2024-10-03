@@ -10,13 +10,13 @@
     <form id="search-form" action="{{ route('shop.search') }}" method="post">
         @csrf
         <select class="search-form__item-select" name="area" id="area">
-            <option disabled selected>All area</option>
+            <option value="all" selected>All area</option>
             @foreach($areas as $area)
             <option value="{{ $area->id }}">{{ $area->area_name }}</option>
             @endforeach
         </select>
         <select class="search-form__item-select" name="genre" id="genre">
-            <option disabled selected>All genre</option>
+            <option value="all" selected>All genre</option>
             @foreach($genres as $genre)
             <option value="{{ $genre->id }}">{{ $genre->genre_name }}</option>
             @endforeach
@@ -30,7 +30,7 @@
 @section('content')
 <div class="shop-card__wrap">
     @foreach($shops as $shop)
-    <div class="shop-card">
+    <div class="shop-card" data-area-id="{{ $shop->area->id }}" data-genre-id="{{ $shop->genre->id }}">
         <form class="shop-card__form" action="/detail/{{ $shop->id }}" method="get">
             @csrf
             <div class="shop-card__img">
@@ -60,4 +60,5 @@
 
 @section('js')
 <script src="{{ asset('js/shop.js') }}" defer></script>
+<script src="{{asset('js/search.js') }}" defer></script>
 @endsection
