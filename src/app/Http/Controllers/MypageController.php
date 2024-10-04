@@ -9,6 +9,7 @@ use App\Models\Area;
 use App\Models\Genre;
 use App\Models\Favorite;
 use App\Models\Reservation;
+use Carbon\Carbon;
 
 class MypageController extends Controller
 {
@@ -23,7 +24,10 @@ class MypageController extends Controller
         $favoriteShops = Shop::whereIn('id', $favoriteShopIds)->with('area', 'genre')->get();
 
         // 予約情報の店舗IDを取得
-        $reservations = $user ? Reservation::where('user_id', $user->id)->with('shop')->get() : [];
+        $reservations = $user ? Reservation::where([
+            ['user_id', $user->id],
+            ['date', '>=', Carbon::today()],
+        ])->with('shop')->get() : [];
 
         return view('mypage', compact('user', 'favoriteShops', 'favoriteShopIds', 'reservations'));
     }
