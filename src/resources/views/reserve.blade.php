@@ -17,9 +17,10 @@
                 <div class="detail-right">
                     <!-- ログイン済ユーザーのみレビューを記入することができる -->
                     @if($user)
-                    <button name="evaluation" class="evaluation" type="submit" formaction="/evaluation">
+                    <button name="evaluation" class="evaluation" type="submit" formaction="/evaluation" formmethod="post">
                         レビューする
                     </button>
+                    <input type="hidden" name="shop_id" value="{{ $shop->id }}">
                     @endif
                 </div>
             </div>
