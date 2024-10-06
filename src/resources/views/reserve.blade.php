@@ -10,8 +10,18 @@
         <form class="shop-detail__form" action="/" method="get">
             @csrf
             <div class="shop-detail__txt">
-                <button class="back-btn" type="submit">&lt;</button>
-                <h1 class="shop-name">{{ $shop->shop_name }}</h1>
+                <div class="detail-left">
+                    <button class="back-btn" type="submit">&lt;</button>
+                    <h1 class="shop-name">{{ $shop->shop_name }}</h1>
+                </div>
+                <div class="detail-right">
+                    <!-- ログイン済ユーザーのみレビューを記入することができる -->
+                    @if($user)
+                    <button name="evaluation" class="evaluation" type="submit" formaction="/evaluation">
+                        レビューする
+                    </button>
+                    @endif
+                </div>
             </div>
             <img src="{{ $shop->image }}" alt="{{ $shop->shop_name }}">
             <div class="shop-detail__hash">

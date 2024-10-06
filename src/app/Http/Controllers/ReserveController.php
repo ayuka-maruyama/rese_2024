@@ -14,6 +14,8 @@ class ReserveController extends Controller
     // アクセスしているIDをキーにその詳細情報を取得する
     public function detail($shop_id)
     {
+        $user = Auth::user();
+
         // $shop_id から対応するショップを取得
         $shop = Shop::find($shop_id);
 
@@ -22,8 +24,10 @@ class ReserveController extends Controller
             return redirect()->back()->with('error', '店舗が見つかりませんでした。');
         }
 
+        // dd($user, $shop);
+
         // ビューに店舗情報を渡す
-        return view('reserve', ['shop' => $shop]);
+        return view('reserve', compact('user', 'shop'));
     }
 
     public function store(ReservationRequest $request) // ReservationRequestを使う
