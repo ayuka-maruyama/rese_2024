@@ -9,16 +9,16 @@ class Evaluation extends Model
 {
     use HasFactory;
 
-    protected $table = 'Evaluations';
+    protected $table = 'evaluations';
     protected $fillable = ['user_id', 'shop_id', 'evaluation', 'comment'];
     protected $dates = ['created_at', 'updated_at'];
 
-    public function Users()
+    public function users()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function Shop()
+    public function shop()
     {
         return $this->belongsTo(Shop::class);
     }

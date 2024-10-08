@@ -24,7 +24,7 @@ Route::get('/', [ShopController::class, 'index'])->name('home');
 Route::get('/search', [ShopController::class, 'search'])->name('shop.search');
 
 // 店舗詳細ページへのアクセス
-Route::get('/detail/{shop_id}', [ReserveController::class, 'detail']);
+Route::get('/detail/{shop_id}', [ReserveController::class, 'detail'])->name('shop.detail');
 
 // 新規会員登録
 Route::get('/register', [RegisterController::class, 'open'])->name('register');
@@ -40,6 +40,13 @@ Route::post('/reservations', [ReserveController::class, 'store']);
 
 // レビュー画面の表示
 Route::post('/evaluation', [EvaluationController::class, 'show']);
+
+// レビュー画面の送信
+Route::post('/evaluation-confirm', [EvaluationController::class, 'store'])->name('evaluation.confirm');
+Route::get('/review-thanks', function () {
+    return view('review-thanks');
+});
+
 
 // 予約完了ページの表示
 Route::get('/done', function () {

@@ -10,7 +10,9 @@
         <h3 class="evaluation__ttl">お店レビュー</h3>
         <img class="shop_img" src="{{ $shop->image }}" alt="{{ $shop->shop_name }}">
         <div class="evaluation__table">
-            <form action="/evaluation-confirm" method="post">
+            <form action="{{ route('evaluation.confirm') }}" method="post">
+                @csrf
+                <input type="hidden" name="shop_id" value="{{ $shop->id }}"> <!-- 修正: shop_idの値を正しく設定 -->
                 <table class="evaluation__table-area">
                     <tr class="table-row__shop">
                         <th class="table-header">店名</th>
@@ -23,7 +25,7 @@
                         </th>
                         <td class="table-data">
                             <div class="rating">
-                                <input type="hidden" class="rating" id="rating-value">
+                                <input type="hidden" class="rating" id="rating-value" name="evaluation"> <!-- 修正: nameをevaluationにする -->
                                 <span class="star" data-value="1">★</span>
                                 <span class="star" data-value="2">★</span>
                                 <span class="star" data-value="3">★</span>
@@ -48,6 +50,15 @@
                     <button class="back-button" type="button" onClick="history.back();">戻る</button>
                 </div>
             </form>
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
         </div>
     </div>
 </div>
