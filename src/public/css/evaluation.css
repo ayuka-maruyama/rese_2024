@@ -1,0 +1,151 @@
+.evaluation {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.evaluation-card {
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px 10px;
+    box-shadow: 2px 2px 4px rgb(60, 59, 59);
+    text-align: center;
+    margin-top: 20px;
+}
+
+.evaluation__ttl {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.shop_img {
+    width: 80%;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.evaluation__table-area {
+    width: 100%;
+    table-layout: fixed;
+    line-height: 2rem;
+    text-align: start;
+    margin-top: 20px;
+}
+
+.table-row__shop {
+    height: 55px;
+    margin-bottom: 10px;
+}
+
+.table-row__require {
+    height: 80px;
+}
+
+.table-header {
+    width: 30%;
+    font-size: 14px;
+}
+
+.table-data {
+    width: 70%;
+    font-size: 18px;
+    padding-left: 10px;
+}
+
+.require {
+    color: white;
+    background-color: red;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.rating {
+    display: flex;
+    justify-content: space-between;
+}
+
+.star {
+    font-size: 28px;
+    color: #ccc; /* デフォルトの星の色 */
+    cursor: pointer;
+}
+
+.star.selected {
+    color: #f5c518; /* 選択された星の色 */
+}
+
+.txt {
+    font-size: 11px;
+}
+
+.evaluation-txtarea {
+    width: 100%;
+    border: 1px solid black;
+}
+
+.button-area {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    margin: 15px auto 5px;
+}
+
+.evaluation-submit {
+    width: 45%;
+    background-color: #507bd9;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.back-button {
+    width: 45%;
+    background-color: rgb(145, 144, 144);
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* レスポンシブデザイン（768px以上の場合） */
+@media screen and (min-width:768px) {
+    .evaluation {
+        width: 600px;
+    }
+
+    .evaluation-card {
+        padding: 20px;
+        margin-top: 40px;
+    }
+
+    .evaluation__ttl {
+        font-size: 24px;
+    }
+
+    .shop_img {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .table-header {
+        font-size: 22px;
+    }
+
+    .table-data {
+        font-size: 24px;
+    }
+
+    .star {
+        font-size: 45px;
+    }
+
+    .txt {
+        font-size: 16px;
+    }
+
+    .evaluation-submit {
+        font-size: 20px;
+    }
+
+    .back-button {
+        font-size: 20px;
+    }
+}

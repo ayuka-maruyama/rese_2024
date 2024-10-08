@@ -10,6 +10,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ReserveController;
 use App\Http\Controllers\ReserveChangeController;
 use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\EvaluationController;
 use Illuminate\Http\Request;
 
 Route::get('/menu', function () {
@@ -37,6 +38,9 @@ Route::get('/thanks', function () {
 // 予約情報ページの表示
 Route::post('/reservations', [ReserveController::class, 'store']);
 
+// レビュー画面の表示
+Route::post('/evaluation', [EvaluationController::class, 'show']);
+
 // 予約完了ページの表示
 Route::get('/done', function () {
     return view('reserve-confirm');
@@ -59,18 +63,12 @@ Route::get('/login', [LoginController::class, 'open'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);
 Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
 
-
 // 認証済みユーザーのみアクセス可能
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/mypage', [MypageController::class, 'index'])->name('mypage');
 });
 
-
-
-
-//  メール認証用ルート（基本実装項目が終わったら再度取り掛かる）
-//  9･7現在メール認証のメールは遅れるが、認証ボタンを押してもDBに反映されない状況
-
+// メール認証部分
 Route::get('/email/verify', function () {
     return view('email-verify');
 })->middleware('auth')->name('verification.notice');
