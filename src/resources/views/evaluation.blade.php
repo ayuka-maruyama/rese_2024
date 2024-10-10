@@ -6,13 +6,23 @@
 
 @section('content')
 <div class="evaluation">
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
     <div class="evaluation-card">
         <h3 class="evaluation__ttl">お店レビュー</h3>
         <img class="shop_img" src="{{ $shop->image }}" alt="{{ $shop->shop_name }}">
         <div class="evaluation__table">
-            <form action="{{ route('evaluation.confirm') }}" method="post">
+            <form id="evaluation-form" action="{{ route('evaluation.confirm') }}" method="post">
                 @csrf
-                <input type="hidden" name="shop_id" value="{{ $shop->id }}"> <!-- 修正: shop_idの値を正しく設定 -->
+                <input type="hidden" name="shop_id" value="{{ $shop->id }}">
                 <table class="evaluation__table-area">
                     <tr class="table-row__shop">
                         <th class="table-header">店名</th>
@@ -25,12 +35,12 @@
                         </th>
                         <td class="table-data">
                             <div class="rating">
-                                <input type="hidden" class="rating" id="rating-value" name="evaluation"> <!-- 修正: nameをevaluationにする -->
                                 <span class="star" data-value="1">★</span>
                                 <span class="star" data-value="2">★</span>
                                 <span class="star" data-value="3">★</span>
                                 <span class="star" data-value="4">★</span>
                                 <span class="star" data-value="5">★</span>
+                                <input type="hidden" id="rating-value" name="evaluation" value="">
                             </div>
                             <p class="txt">星をクリックして入力してください</p>
                         </td>
@@ -41,7 +51,7 @@
                             <span class="require">必須</span>
                         </th>
                         <td class="table-data">
-                            <textarea class="evaluation-txtarea" name="comment" id="comment" cols="50" rows="10"></textarea>
+                            <textarea class="evaluation-txtarea" name="comment" id="comment" cols="50" rows="10" placeholder="コメントを入力してください">{{ old('comment') }}</textarea>
                         </td>
                     </tr>
                 </table>
@@ -50,20 +60,11 @@
                     <button class="back-button" type="button" onClick="history.back();">戻る</button>
                 </div>
             </form>
-            @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-            @endif
         </div>
     </div>
 </div>
 @endsection
 
 @section('js')
-<script src="{{ asset('js/evaluation.js') }}"></script>
+<script src="{{ asset('js/evaluation.js') }}" defer></script>
 @endsection

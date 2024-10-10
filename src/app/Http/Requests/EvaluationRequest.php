@@ -23,7 +23,7 @@ class EvaluationRequest extends FormRequest
     {
         return [
             'shop_id' => 'required|integer|exists:shops,id',
-            'evaluation' => 'required|integer|between:1,5',
+            'evaluation' => 'required|integer|min:1|max:5',
             'comment' => 'required|string|min:10'
         ];
     }
@@ -38,5 +38,4 @@ class EvaluationRequest extends FormRequest
             'shop_id.exists' => '選択された店舗が存在しません。',
         ];
     }
-
 }

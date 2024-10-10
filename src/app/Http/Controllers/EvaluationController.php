@@ -39,6 +39,6 @@ class EvaluationController extends Controller
         ]);
 
         // 保存完了後、リダイレクト
-        return redirect('/review-thanks');
+        return redirect()->route('evaluation.thanks');
     }
 }

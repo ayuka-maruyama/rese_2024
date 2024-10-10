@@ -42,10 +42,10 @@ Route::post('/reservations', [ReserveController::class, 'store']);
 Route::post('/evaluation', [EvaluationController::class, 'show']);
 
 // レビュー画面の送信
-Route::post('/evaluation-confirm', [EvaluationController::class, 'store'])->name('evaluation.confirm');
+Route::post('/evaluation/confirm', [EvaluationController::class, 'store'])->name('evaluation.confirm');
 Route::get('/review-thanks', function () {
     return view('review-thanks');
-});
+})->name('evaluation.thanks');
 
 
 // 予約完了ページの表示
