@@ -2,6 +2,10 @@
     justify-content: space-between;
 }
 
+.shop-detail__txt{
+    justify-content: start;
+}
+
 .reserve-area {
     width: 45%;
 }
