@@ -10,13 +10,11 @@ services:
       - ./src:/var/www/
     depends_on:
       - php
-    restart: always
 
   php:
     build: ./docker/php
     volumes:
       - ./src:/var/www/
-    restart: always
 
   mysql:
     image: mysql:latest
@@ -28,7 +26,6 @@ services:
     volumes:
       - ./docker/mysql/data:/var/lib/mysql
       - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
-    restart: always
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
@@ -41,12 +38,10 @@ services:
       - mysql
     ports:
       - 8080:80
-    restart: always
 
   mailhog:
     container_name: mailhog_rese
     image: mailhog/mailhog:latest
     ports:
       - "8025:8025"
-    restart: always
 
