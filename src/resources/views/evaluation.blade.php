@@ -1,24 +1,29 @@
 @extends('layouts.app')
 
 @section('css')
+<link rel="stylesheet" href="{{ asset('css/reserve.css') }}">
 <link rel="stylesheet" href="{{ asset('css/evaluation.css') }}">
 @endsection
 
 @section('content')
-<div class="evaluation">
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+<div class="reserve-content">
+    <div class="shop-detail">
+        <form class="shop-detail__form" action="/" method="get">
+            @csrf
+            <div class="shop-detail__txt">
+                <button class="back-btn" type="submit">&lt;</button>
+                <h1 class="shop-name">{{ $shop->shop_name }}</h1>
+            </div>
+            <img src="{{ $shop->image }}" alt="{{ $shop->shop_name }}">
+            <div class="shop-detail__hash">
+                <p class="hash-area">#{{ $shop->area->area_name }}</p>
+                <p class="hash-genre">#{{ $shop->genre->genre_name }}</p>
+            </div>
+            <p class="summary">{{ $shop->summary }}</p>
+        </form>
     </div>
-    @endif
-
     <div class="evaluation-card">
         <h3 class="evaluation__ttl">お店レビュー</h3>
-        <img class="shop_img" src="{{ $shop->image }}" alt="{{ $shop->shop_name }}">
         <div class="evaluation__table">
             <form id="evaluation-form" action="{{ route('evaluation.confirm') }}" method="post">
                 @csrf
@@ -51,7 +56,7 @@
                             <span class="require">必須</span>
                         </th>
                         <td class="table-data">
-                            <textarea class="evaluation-txtarea" name="comment" id="comment" cols="50" rows="10" placeholder="コメントを入力してください">{{ old('comment') }}</textarea>
+                            <textarea class="evaluation-txtarea" name="comment" id="comment" cols="50" rows="8" placeholder="コメントを入力してください">{{ old('comment') }}</textarea>
                         </td>
                     </tr>
                 </table>

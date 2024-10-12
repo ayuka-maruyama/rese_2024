@@ -1,9 +1,23 @@
-.evaluation {
-    width: 80%;
-    margin: 0 auto;
+.reserve-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.shop-detail {
+    width: 40%;
+    margin-top: 20px;
+}
+
+.shop-detail__txt {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-bottom: 20px;
 }
 
 .evaluation-card {
+    width: 55%;
     background-color: white;
     border-radius: 5px;
     padding: 20px 10px;
@@ -83,10 +97,11 @@
 }
 
 .button-area {
-    width: 50%;
+    width: 70%;
     display: flex;
     justify-content: space-between;
     margin: 15px auto 5px;
+    font-size: 14px;
 }
 
 .evaluation-submit {
