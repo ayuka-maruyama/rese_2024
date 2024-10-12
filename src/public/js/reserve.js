@@ -1,49 +1,47 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function () {
     // カレンダー表示トリガー
-    const datePicker = document.getElementById('date-picker');
-    const dateInput = document.getElementById('date');
+    const datePicker = document.getElementById("date-picker");
+    const dateInput = document.getElementById("date");
     const today = new Date();
-    
+
     // 日付フォーマット関数
-    function dateFormat(today, format){
+    function dateFormat(today, format) {
         format = format.replace("YYYY", today.getFullYear());
-        format = format.replace("MM", ("0"+(today.getMonth() + 1)).slice(-2));
-        format = format.replace("DD", ("0"+ today.getDate()).slice(-2));
+        format = format.replace("MM", ("0" + (today.getMonth() + 1)).slice(-2));
+        format = format.replace("DD", ("0" + today.getDate()).slice(-2));
         return format;
     }
 
-    const todayFormatted = dateFormat(today, 'YYYY-MM-DD');
-
-    // 日付入力フィールドに最小日付を設定（今日以降を選択可能にする）
+    const todayFormatted = dateFormat(today, "YYYY-MM-DD");
     dateInput.setAttribute("min", todayFormatted);
 
     // カレンダーを表示
-    datePicker.addEventListener('click', function() {
-        dateInput.readOnly = false;  // readonly を一時的に解除
-        dateInput.showPicker();      // カレンダー表示
-        dateInput.readOnly = true;   // readonly を再度設定
+    datePicker.addEventListener("click", function () {
+        dateInput.readOnly = false;
+        dateInput.showPicker();
+        dateInput.readOnly = true;
     });
 
     // 時間選択ドロップダウン表示トリガー
-    const timePicker = document.getElementById('time-picker');
-    const timeSelect = document.getElementById('time');
-    timePicker.addEventListener('click', function() {
-        timeSelect.focus(); // ドロップダウン表示
+    const timePicker = document.getElementById("time-picker");
+    const timeSelect = document.getElementById("time");
+    timePicker.addEventListener("click", function () {
+        timeSelect.focus();
     });
 
     // ゲスト数選択ドロップダウン表示トリガー
-    const gestPicker = document.getElementById('gest-picker');
-    const gestSelect = document.getElementById('number_gest');
-    gestPicker.addEventListener('click', function() {
-        gestSelect.focus(); // ドロップダウン表示
+    const gestPicker = document.getElementById("gest-picker");
+    const gestSelect = document.getElementById("number_gest");
+    gestPicker.addEventListener("click", function () {
+        gestSelect.focus();
     });
 
     // 選択された値を表示するための要素を取得
-    const shopNameElement = document.querySelector('.shop-name').textContent;
-    const reserveDetailElement = document.querySelector('.reserve-detail');
-    const dateDisplay = document.getElementById('date');
-    const timeDisplay = document.getElementById('time');
-    const gestDisplay = document.getElementById('number_gest');
+    const shopNameElement = document.querySelector(".shop-name").textContent;
+    const reserveDetailElement = document.querySelector(".reserve-detail");
+    const dateDisplay = document.getElementById("date");
+    const timeDisplay = document.getElementById("time");
+    const gestDisplay = document.getElementById("number_gest");
 
     // 時間オプションを動的に生成する関数
     function generateTimeOptions(selectedDate) {
@@ -52,17 +50,17 @@ document.addEventListener('DOMContentLoaded', function() {
         const endTime = new Date();
         endTime.setHours(22, 0, 0); // PM 10:00
 
-        // 選択した日付が今日かどうかのチェック
         const isToday = selectedDate === todayFormatted;
+        timeSelect.innerHTML = ""; // 既存のオプションをクリア
 
-        // 既存のオプションをクリア
-        timeSelect.innerHTML = '';
+        for (
+            let time = new Date(startTime);
+            time <= endTime;
+            time.setMinutes(time.getMinutes() + 30)
+        ) {
+            const option = document.createElement("option");
+            const timeFormatted = time.toTimeString().slice(0, 5);
 
-        for (let time = new Date(startTime); time <= endTime; time.setMinutes(time.getMinutes() + 30)) {
-            const option = document.createElement('option');
-            const timeFormatted = time.toTimeString().slice(0, 5); // HH:mm 形式に変換
-
-            // 今日の場合、現在の時刻より前の時間は無効化
             if (isToday && time <= today) {
                 option.disabled = true; // 過去の時間は選択不可にする
             }
@@ -98,17 +96,40 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // 日付が変更されたときに時間オプションを更新
-    dateInput.addEventListener('change', function() {
+    dateInput.addEventListener("change", function () {
         const selectedDate = dateInput.value;
         generateTimeOptions(selectedDate);
         updateReservationDetails(); // 予約内容も更新
     });
 
     // 時間、ゲスト数が変更されたときに予約情報を更新
-    timeSelect.addEventListener('change', updateReservationDetails);
-    gestSelect.addEventListener('change', updateReservationDetails);
+    timeSelect.addEventListener("change", updateReservationDetails);
+    gestSelect.addEventListener("change", updateReservationDetails);
 
     // 初期表示時の処理
     generateTimeOptions(todayFormatted); // 時刻オプションを生成
     updateReservationDetails(); // 予約情報を初期表示
+
+    // Stripe Checkout の設定
+    const stripeButton = document.getElementById("stripe-button");
+    const unitPrice = 4000; // 1人あたりの単価
+    const numberOfGuestsSelect = document.getElementById("number_gest");
+
+    numberOfGuestsSelect.addEventListener("change", function () {
+        const numberOfGuests = parseInt(this.value); // 選択された人数を取得
+        const totalAmount = unitPrice * numberOfGuests; // 合計金額を計算
+
+        // Stripe Checkoutボタンに合計金額と説明を設定
+        stripeButton.setAttribute("data-amount", totalAmount);
+        stripeButton.setAttribute(
+            "data-description",
+            `${totalAmount}円を支払う`
+        ); // 説明を設定
+    });
+
+    // ページ読み込み時に初期値を設定
+    const initialGuests = parseInt(numberOfGuestsSelect.value);
+    const initialAmount = unitPrice * initialGuests;
+    stripeButton.setAttribute("data-amount", initialAmount); // 合計金額を設定
+    stripeButton.setAttribute("data-description", `${initialAmount}円を支払う`); // 初期の説明を設定
 });

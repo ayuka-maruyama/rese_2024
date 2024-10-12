@@ -11,6 +11,7 @@ use App\Http\Controllers\ReserveController;
 use App\Http\Controllers\ReserveChangeController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\EvaluationController;
+use App\Http\Controllers\StripeController;
 use Illuminate\Http\Request;
 
 Route::get('/menu', function () {
@@ -90,3 +91,9 @@ Route::post('/email/verification-notification', function (Request $request) {
 
     return back()->with('resent', true);  // セッションに 'resent' フラグを追加
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+
+// stripe実装
+Route::post('/charge', [StripeController::class, 'charge'])->name('stripe.charge');
+Route::get('/checkout', [StripeController::class, 'checkout'])->name('checkout');
+Route::post('/checkout/payment', [StripeController::class, 'payment'])->name('payment');

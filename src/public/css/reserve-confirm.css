@@ -13,10 +13,18 @@
 }
 
 .message-txt {
-    font-size: 1rem;
+    font-size: 16px;
     border: none;
     padding: 1.5rem;
     border-radius: 5px 5px 0 0;
+    font-weight: bold;
+}
+
+.message-txt-p {
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-align: start;
+    padding: 5px;
 }
 
 .btn {
@@ -52,6 +60,12 @@
         font-size: 30px;
     }
 
+    .message-txt-p {
+        margin-bottom: 20px;
+        font-size: 22px;
+        padding: 20px 35px;
+    }
+
     .btn {
         width: 100%;
         display: flex;
@@ -60,6 +74,6 @@
 
     .btn-txt {
         width: 140px;
-        font-size: 16px;
+        font-size: 22px;
     }
 }

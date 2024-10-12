@@ -33,7 +33,7 @@
         </form>
     </div>
     <div class="reserve-card">
-        <form action="/reservations" class="reserve-card__form" method="post">
+        <form class="reserve-card__form" action="{{ route('stripe.charge') }}" method="post">
             @csrf
             <input type="hidden" name="shop_id" value="{{ $shop->id }}">
             <div class="reserve-area">
@@ -69,7 +69,21 @@
                 <div class="reserve-detail"></div>
             </div>
             <div class="reserve__btn">
-                <button class="btn" type="submit">予約する</button>
+                <!-- <button class="btn" type="submit">予約する</button> -->
+                <!-- Stripe Checkoutボタンの追加 -->
+                <script
+                    class="stripe-button"
+                    src="https://checkout.stripe.com/checkout.js"
+                    id="stripe-button"
+                    data-key="{{ env('STRIPE_KEY') }}"
+                    data-name="お支払い画面"
+                    data-label="支払いを行う"
+                    data-description="現在はデモ画面です"
+                    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                    data-locale="auto"
+                    data-currency="JPY">
+                    支払いを行う
+                </script>
             </div>
         </form>
     </div>
