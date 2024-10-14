@@ -167,6 +167,11 @@ th, td {
     font-size: 14px;
 }
 
+li {
+    padding: 10px;
+}
+
+
 /* レスポンシブデザイン（768px以上の場合） */
 @media screen and (min-width:768px) {
     .shop-detail {
