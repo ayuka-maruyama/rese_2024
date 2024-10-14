@@ -37,17 +37,19 @@ class ReserveController extends Controller
         if (!$user) {
             return redirect('/login');
         } else {
-            // 予約情報の保存
-            reservation::create([
-                'user_id' => Auth::id(),  // ログインしているユーザーのIDを取得
-                'shop_id' => $request->shop_id,
-                'date' => $request->date,
-                'time' => $request->time,
-                'number_gest' => $request->number_gest,
-            ]);
+            // reservation::create([
+            //     'user_id' => Auth::id(),  // ログインしているユーザーのIDを取得
+            //     'shop_id' => $request->shop_id,
+            //     'date' => $request->date,
+            //     'time' => $request->time,
+            //     'number_gest' => $request->number_gest,
+            // ]);
 
-            // /done ページへリダイレクト
-            return redirect('/done');
+            // // /done ページへリダイレクト
+            // return redirect('/done');
+            $shop = Shop::find($request->shop_id);
+
+            return view('payment', compact('user', 'shop', 'request'));
         }
     }
 
