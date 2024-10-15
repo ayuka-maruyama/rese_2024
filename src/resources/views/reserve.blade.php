@@ -34,7 +34,7 @@
     </div>
     <div class="reserve-card">
         <!-- <form class="reserve-card__form" action="{{ route('stripe.charge') }}" method="post"> -->
-        <form class="reserve-card__form" action="/payment" method="post">
+        <form class="reserve-card__form" action="{{ route('payment.show') }}" method="post">
             @csrf
             <input type="hidden" name="shop_id" value="{{ $shop->id }}">
             <div class="reserve-area">

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Shop;
-use App\Http\Requests\ReservationRequest; // 追加
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\ReservationRequest; // 追加
 
 
 class ReserveController extends Controller
@@ -30,28 +30,45 @@ class ReserveController extends Controller
         return view('reserve', compact('user', 'shop'));
     }
 
-    public function store(ReservationRequest $request) // ReservationRequestを使う
+    public function submitReservation(ReservationRequest $request)
     {
-        $user = Auth::user(); // ログインユーザーがいるか確認
-
+        // ログインユーザーの確認
+        $user = Auth::user();
         if (!$user) {
-            return redirect('/login');
-        } else {
-            // reservation::create([
-            //     'user_id' => Auth::id(),  // ログインしているユーザーのIDを取得
-            //     'shop_id' => $request->shop_id,
-            //     'date' => $request->date,
-            //     'time' => $request->time,
-            //     'number_gest' => $request->number_gest,
-            // ]);
-
-            // // /done ページへリダイレクト
-            // return redirect('/done');
-            $shop = Shop::find($request->shop_id);
-
-            return view('payment', compact('user', 'shop', 'request'));
+            return redirect('/login'); // 未ログインの場合、ログインページへリダイレクト
         }
+        dd($request);
+        // 確認ページへのリダイレクト
+        return redirect()->route('payment.show')->withInput($request->validated());
     }
+
+    // StripeControllerへ移行
+    // public function store(ReservationRequest $request) // ReservationRequestを使う
+    // {
+    //     $user = Auth::user(); // ログインユーザーがいるか確認
+
+    //     if (!$user) {
+    //         return redirect('/login');
+    //     } else {
+    //         // reservation::create([
+    //         //     'user_id' => Auth::id(),  // ログインしているユーザーのIDを取得
+    //         //     'shop_id' => $request->shop_id,
+    //         //     'date' => $request->date,
+    //         //     'time' => $request->time,
+    //         //     'number_gest' => $request->number_gest,
+    //         // ]);
+
+    //         // // /done ページへリダイレクト
+    //         // return redirect('/done');
+    //         $shop = Shop::find($request->shop_id);
+
+    //         $unitPrice = 4000;
+    //         $totalAmount = $unitPrice * $request->number_gest;
+
+
+    //         return view('payment', compact('user', 'shop', 'request', 'unitPrice', 'totalAmount'));
+    //     }
+    // }
 
     public function delete(Request $request)
     {

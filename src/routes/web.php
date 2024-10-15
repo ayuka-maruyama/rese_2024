@@ -37,7 +37,12 @@ Route::get('/thanks', function () {
 });
 
 // 予約情報ページの表示
-Route::post('/reservations', [ReserveController::class, 'store']);
+Route::post('/payment/done', [StripeController::class, 'charge'])->name('payment.charge'); // 支払い処理を行うルート
+// 支払いページの表示
+Route::post('/payment', [StripeController::class, 'showPaymentPage'])->name('payment.show'); // 支払いページの表示
+// stripe実装
+Route::post('/payment/charge', [StripeController::class, 'charge'])->name('stripe.charge');
+
 
 // レビュー画面の表示
 Route::post('/evaluation', [EvaluationController::class, 'show']);
@@ -91,9 +96,3 @@ Route::post('/email/verification-notification', function (Request $request) {
 
     return back()->with('resent', true);  // セッションに 'resent' フラグを追加
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
-
-
-// stripe実装
-Route::post('/charge', [StripeController::class, 'charge'])->name('stripe.charge');
-Route::get('/checkout', [StripeController::class, 'checkout'])->name('checkout');
-Route::post('/checkout/payment', [StripeController::class, 'payment'])->name('payment');

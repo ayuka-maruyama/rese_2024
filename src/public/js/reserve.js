@@ -110,26 +110,4 @@ document.addEventListener("DOMContentLoaded", function () {
     generateTimeOptions(todayFormatted); // 時刻オプションを生成
     updateReservationDetails(); // 予約情報を初期表示
 
-    // Stripe Checkout の設定
-    const stripeButton = document.getElementById("stripe-button");
-    const unitPrice = 4000; // 1人あたりの単価
-    const numberOfGuestsSelect = document.getElementById("number_gest");
-
-    numberOfGuestsSelect.addEventListener("change", function () {
-        const numberOfGuests = parseInt(this.value); // 選択された人数を取得
-        const totalAmount = unitPrice * numberOfGuests; // 合計金額を計算
-
-        // Stripe Checkoutボタンに合計金額と説明を設定
-        stripeButton.setAttribute("data-amount", totalAmount);
-        stripeButton.setAttribute(
-            "data-description",
-            `${totalAmount}円を支払う`
-        ); // 説明を設定
-    });
-
-    // ページ読み込み時に初期値を設定
-    const initialGuests = parseInt(numberOfGuestsSelect.value);
-    const initialAmount = unitPrice * initialGuests;
-    stripeButton.setAttribute("data-amount", initialAmount); // 合計金額を設定
-    stripeButton.setAttribute("data-description", `${initialAmount}円を支払う`); // 初期の説明を設定
 });

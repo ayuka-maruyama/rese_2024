@@ -1,0 +1,41 @@
+.reserve-info {
+    width: 70%;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px rgb(60, 59, 59);
+    padding: 10px;
+}
+
+.info-ttl {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.info-table {
+    width: 100%;
+    table-layout: fixed;
+    line-height: 28px;
+}
+
+.table-header {
+    width: 40%;
+}
+
+.table-data {
+    width: 60%;
+}
+
+#card-element {
+    display: block;
+}
+
+#submit-button {
+    background-color: #507bd9;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: block;
+    margin: 10px auto;
+}
