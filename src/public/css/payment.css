@@ -1,5 +1,5 @@
 .reserve-info {
-    width: 70%;
+    width: 85%;
     margin: 20px auto;
     background-color: white;
     border-radius: 5px;
@@ -27,15 +27,63 @@
     width: 60%;
 }
 
-#card-element {
+.form-group {
+    margin-bottom: 20px; 
+}
+
+label {
+    font-weight: bold;
+}
+
+
+#card-number,
+#card-expiry,
+#card-cvc {
+    border: 1px solid #ccc; 
+    border-radius: 4px;
+    padding: 10px; 
+}
+
+#card-errors {
+    color: #fa755a;
+    margin-top: 10px;
+}
+
+.pay-btn {
+    width: 120px;
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+    margin: auto;
+    text-align: center;
     display: block;
 }
 
-#submit-button {
-    background-color: #507bd9;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    display: block;
-    margin: 10px auto;
+@media screen and (min-width:768px) {
+    .reserve-info {
+        width: 50%;
+        padding: 25px;
+        font-size: 18px;
+    }
+
+    .info-ttl {
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+
+    .info-table {
+        line-height: 28px;
+    }
+
+    .form-group {
+        margin: 10px 0 25px; 
+    }
+
+    .pay-btn {
+        width: 160px;
+        padding: 10px;
+        font-size: 20px;
+    }
+
 }

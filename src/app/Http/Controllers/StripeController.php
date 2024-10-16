@@ -31,80 +31,40 @@ class StripeController extends Controller
 
     public function charge(Request $request)
     {
-        // Stripeの秘密キーをセット
         Stripe::setApiKey(config('services.stripe.secret'));
 
-        // フォームから送信されたトークンを取得
         $token = $request->input('stripeToken');
-
-        // 決済金額（セント単位：例 4000円 = 400000）
+        $email = Auth::user()->email;
         $amount = 4000 * $request->input('number_gest');
 
         try {
-            // Stripeの決済を実行
+            // 顧客の取得または作成
+            $customer = \Stripe\Customer::create([
+                'email' => $email,
+                'source' => $token, // 顧客を作成する際にカード情報を指定
+            ]);
+
+            // 決済処理
             $charge = Charge::create([
                 'amount' => $amount,
                 'currency' => 'jpy',
-                'source' => $token,
-                'description' => 'Reservation payment'
+                'customer' => $customer->id, // 作成した顧客IDを使用
+                'description' => 'Rese',
+                'receipt_email' => $email,
             ]);
 
             // 予約情報の保存
-            $user = Auth::user();
             Reservation::create([
-                'user_id' => $user->id,
+                'user_id' => Auth::id(),
                 'shop_id' => $request->shop_id,
                 'date' => $request->date,
                 'time' => $request->time,
                 'number_gest' => $request->number_gest,
             ]);
 
-            // 成功メッセージとともに確認ページへリダイレクト
             return redirect('/done')->with('success', '決済が完了しました。');
         } catch (\Exception $e) {
-            // エラーメッセージとともに元のページにリダイレクト
             return back()->withErrors(['message' => '決済に失敗しました: ' . $e->getMessage()]);
         }
     }
-
-    // // Stripeの秘密鍵をセット
-    // Stripe::setApiKey(env('STRIPE_SECRET'));
-
-    // // フォームから人数を取得
-    // $numberOfGuests = $request->input('number_gest');
-
-    // // 1人あたりの単価
-    // $unitPrice = 4000;
-
-    // // 合計金額を計算
-    // $totalAmount = $unitPrice * $numberOfGuests;
-
-    // // 支払い処理
-    // try {
-    //     $charge = Charge::create([
-    //         'amount' => $totalAmount,
-    //         'currency' => 'jpy',
-    //         'source' => $request->stripeToken,
-    //     ]);
-
-    //     // ログインユーザーの確認
-    //     $user = Auth::user();
-    //     if (!$user) {
-    //         return redirect('/login');
-    //     }
-
-    // // 予約情報の保存
-    // Reservation::create([
-    //     'user_id' => $user->id,
-    //     'shop_id' => $request->shop_id,
-    //     'date' => $request->date,
-    //     'time' => $request->time,
-    //     'number_gest' => $numberOfGuests,
-    // ]);
-
-    //     // 予約完了ページへリダイレクト
-    //     return redirect('/done');
-    // } catch (\Exception $e) {
-    //     return back()->withErrors(['error' => '支払いに失敗しました: ' . $e->getMessage()]);
-    // }
 }

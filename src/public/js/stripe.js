@@ -1,13 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Bladeテンプレートから渡された公開可能キーを使用
     const stripe = Stripe(stripePublicKey);
     const elements = stripe.elements();
 
-    // カード入力フィールドのスタイル設定
     const style = {
         base: {
             color: "#32325d",
-            fontFamily: "Arial, sans-serif",
+            fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+            fontSmoothing: "antialiased",
             fontSize: "16px",
             "::placeholder": {
                 color: "#aab7c4",
@@ -19,48 +18,77 @@ document.addEventListener("DOMContentLoaded", function () {
         },
     };
 
-    // カード要素の作成
-    const card = elements.create("card", { style: style });
-    card.mount("#card-element");
+    const cardNumberElement = elements.create("cardNumber", { style: style });
+    cardNumberElement.mount("#card-number");
 
-    // カード情報が変わるたびにエラーメッセージを表示
-    card.on("change", function (event) {
-        const displayError = document.getElementById("card-errors");
+    const cardExpiryElement = elements.create("cardExpiry", { style: style });
+    cardExpiryElement.mount("#card-expiry");
+
+    const cardCvcElement = elements.create("cardCvc", { style: style });
+    cardCvcElement.mount("#card-cvc");
+
+    const cardBrandLogoElement = document.getElementById("card-brand-logo");
+    const errorElement = document.getElementById("card-errors");
+
+    cardNumberElement.on("change", function (event) {
         if (event.error) {
-            displayError.textContent = event.error.message;
+            errorElement.textContent = event.error.message;
         } else {
-            displayError.textContent = "";
+            errorElement.textContent = "";
+        }
+
+        // カードブランドの表示
+        if (event.brand) {
+            const logoUrl = getCardBrandLogo(event.brand);
+            if (logoUrl) {
+                cardBrandLogoElement.src = logoUrl;
+                cardBrandLogoElement.style.display = "inline"; // ロゴを表示
+            } else {
+                cardBrandLogoElement.style.display = "none"; // 不明なブランドの場合は非表示
+            }
+        } else {
+            cardBrandLogoElement.style.display = "none";
         }
     });
 
-    // フォーム送信時にトークンを生成し、サーバーに送信
+    // カードブランドに応じたロゴのURLを返す関数
+    function getCardBrandLogo(brand) {
+        switch (brand) {
+            case "visa":
+                return "/img/brands/visa.png";
+            case "mastercard":
+                return "/img/brands/mastercard.png";
+            case "amex":
+                return "/img/brands/amex.png";
+            case "discover":
+                return "/img/brands/discover.png";
+            case "jcb":
+                return "/img/brands/jcb.png";
+            default:
+                return null; // カードブランドが不明な場合はnullを返す
+        }
+    }
+
     const form = document.getElementById("payment-form");
     form.addEventListener("submit", function (event) {
         event.preventDefault();
 
-        stripe.createToken(card).then(function (result) {
+        stripe.createToken(cardNumberElement).then(function (result) {
             if (result.error) {
-                // エラーメッセージを表示
-                const errorElement = document.getElementById("card-errors");
                 errorElement.textContent = result.error.message;
             } else {
-                // トークンをサーバーに送信
                 stripeTokenHandler(result.token);
             }
         });
     });
 
-    // トークンをサーバーに送信する
     function stripeTokenHandler(token) {
-        // トークンをフォームに埋め込む
-        const form = document.getElementById("payment-form");
         const hiddenInput = document.createElement("input");
         hiddenInput.setAttribute("type", "hidden");
         hiddenInput.setAttribute("name", "stripeToken");
         hiddenInput.setAttribute("value", token.id);
         form.appendChild(hiddenInput);
 
-        // フォームを送信
         form.submit();
     }
 });
