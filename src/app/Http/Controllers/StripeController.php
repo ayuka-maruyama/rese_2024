@@ -16,6 +16,10 @@ class StripeController extends Controller
     public function showPaymentPage(ReservationRequest $request)
     {
         $user = Auth::user();
+        if (!$user) {
+            return redirect('/login'); // 未ログインの場合、ログインページへリダイレクト
+        }
+
         $shop = Shop::find($request->shop_id);
         $unitPrice = 4000;
         $totalAmount = $unitPrice * $request->number_gest; // 合計金額の計算

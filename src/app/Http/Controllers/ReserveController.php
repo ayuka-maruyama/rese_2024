@@ -30,17 +30,16 @@ class ReserveController extends Controller
         return view('reserve', compact('user', 'shop'));
     }
 
-    public function submitReservation(ReservationRequest $request)
-    {
-        // ログインユーザーの確認
-        $user = Auth::user();
-        if (!$user) {
-            return redirect('/login'); // 未ログインの場合、ログインページへリダイレクト
-        }
-        dd($request);
-        // 確認ページへのリダイレクト
-        return redirect()->route('payment.show')->withInput($request->validated());
-    }
+    // public function submitReservation(ReservationRequest $request)
+    // {
+    //     // ログインユーザーの確認
+    //     $user = Auth::user();
+    //     if (!$user) {
+    //         return redirect('/login'); // 未ログインの場合、ログインページへリダイレクト
+    //     }
+    //     // 確認ページへのリダイレクト
+    //     return redirect()->route('payment.show')->withInput($request->validated());
+    // }
 
     // StripeControllerへ移行
     // public function store(ReservationRequest $request) // ReservationRequestを使う
