@@ -23,7 +23,15 @@
                         <img class="clock" src="{{ asset('img/clock.svg') }}" alt="clock">
                         <div class="justify">
                             <span class="reserve-number">予約{{ $loop->iteration }}</span>
-                            <button name="editing" class="editing" type="submit" formaction="/reserve/change">
+                            @if (!$reservation->visited) <!-- ここでvisitedがfalseの時のみQRコードを表示 -->
+                            <a href="{{ route('reservation.qr', ['id' => $reservation->id]) }}" class="qr-code">
+                                <img class="qr-code__img" src="{{ asset('img/qrcode.svg') }}" alt="qr-code">
+                            </a>
+                            @else
+                            <span class="visited-message">
+                                <img class="qr-code__img-visited" src="{{ asset('img/qrcode.svg') }}" alt="qr-code">
+                            </span>
+                            @endif <button name="editing" class="editing" type="submit" formaction="/reserve/change">
                                 <img class="editing__img" src="{{ asset('img/editing.svg') }}" alt="editing">
                             </button>
                             <button name="delete" class="delete" type="submit">
@@ -101,4 +109,5 @@
 
 @section('js')
 <script src="{{ asset('js/mypage.js') }}" defer></script>
+<script src="{{ asset('js/closeQr.js') }}" defer></script>
 @endsection

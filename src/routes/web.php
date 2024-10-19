@@ -14,10 +14,6 @@ use App\Http\Controllers\EvaluationController;
 use App\Http\Controllers\StripeController;
 use Illuminate\Http\Request;
 
-Route::get('/menu', function () {
-    return view('menu');
-});
-
 // TOP画面の表示
 Route::get('/', [ShopController::class, 'index'])->name('home');
 
@@ -96,3 +92,9 @@ Route::post('/email/verification-notification', function (Request $request) {
 
     return back()->with('resent', true);  // セッションに 'resent' フラグを追加
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+// QRコード表示用のルート
+Route::get('/reservation/qr/{id}', [MypageController::class, 'showQrCode'])->name('reservation.qr');
+
+// チェックイン用のルート（既存）
+Route::get('/reservation/checkin/{id}', [MypageController::class, 'checkin'])->name('reservation.checkin');

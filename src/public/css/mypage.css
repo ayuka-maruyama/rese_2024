@@ -59,6 +59,18 @@
     font-size: 16px;
 }
 
+.qr-code__img,
+.qr-code__img-visited {
+    width: 20px;
+    position: absolute;
+    top: 30%;  /* 任意の位置を指定 */
+    right: 90px; /* 任意の位置を指定 */
+}
+
+.qr-code__img-visited {
+    filter: invert(50%) sepia(0%) saturate(11%) hue-rotate(143deg) brightness(101%) contrast(93%);
+}
+
 .editing__img {
     width: 20px;
     margin: 0 0 5px 15px;
