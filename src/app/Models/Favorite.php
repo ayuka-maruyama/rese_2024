@@ -13,12 +13,12 @@ class Favorite extends Model
     protected $fillable = ['user_id', 'shop_id'];
     protected $dates = ['created_at', 'updated_at'];
 
-    public function User()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function Shop()
+    public function shop()
     {
         return $this->belongsTo(Shop::class);
     }

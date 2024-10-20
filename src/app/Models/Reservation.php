@@ -13,12 +13,12 @@ class Reservation extends Model
     protected $fillable = ['user_id', 'shop_id', 'date', 'time', 'number_gest'];
     protected $dates = ['created_at', 'updated_at'];
 
-    public function Users()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function Shop()
+    public function shop()
     {
         return $this->belongsTo(Shop::class);
     }
