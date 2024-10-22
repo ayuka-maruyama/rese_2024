@@ -33,7 +33,4 @@ class AdminRegisterController extends Controller
         return redirect()->route('admin.login');
     }
 
-    public function loginOpen() {
-        return view('admin/admin-login');
-    }
 }
