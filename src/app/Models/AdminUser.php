@@ -24,6 +24,12 @@ class AdminUser extends Authenticatable
         'role_id',
     ];
 
+    // パスワードを取得するメソッド
+    public function getAuthPassword()
+    {
+        return $this->admin_password; // admin_passwordを返す
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
