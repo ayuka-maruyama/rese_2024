@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('admin_name');
             $table->string('admin_email')->unique();
             $table->string('admin_password');
-            $table->timestamp('email_verified_at')->nullable();
             $table->unsignedBigInteger('role_id');
             $table->foreign('role_id')->references('id')->on('roles');
             $table->timestamps();
