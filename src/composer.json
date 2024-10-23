@@ -8,7 +8,6 @@
         "php": "^8.2",
         "endroid/qr-code": "^5.1",
         "laravel/cashier": "^15.4",
-        "laravel/fortify": "^1.24",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9"
     },
