@@ -12,9 +12,6 @@ use App\Http\Controllers\ReserveChangeController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\EvaluationController;
 use App\Http\Controllers\StripeController;
-use App\Http\Controllers\AdminRegisterController;
-use App\Http\Controllers\AdminLoginController;
-use App\Http\Controllers\DashboardController;
 use Illuminate\Http\Request;
 
 // TOP画面の表示
@@ -102,12 +99,3 @@ Route::get('/reservation/qr/{id}', [MypageController::class, 'showQrCode'])->nam
 // チェックイン用のルート（既存）
 Route::get('/reservation/checkin/{id}', [MypageController::class, 'checkin'])->name('reservation.checkin');
 
-// 管理者ログイン、新規登録関係
-Route::get('/admin/register', [AdminRegisterController::class, 'registerOpen']);
-Route::post('/admin/register', [AdminRegisterController::class, 'register']);
-Route::get('/admin/login', [AdminLoginController::class, 'loginOpen']);
-Route::post('/admin/login', [AdminLoginController::class, 'login'])->name('admin.login');
-
-Route::middleware(['auth:admin'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-});
