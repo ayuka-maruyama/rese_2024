@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->integer('role')->after('email_verified_at');
-            $table->foreignId('shop_id')->after('role');
+            $table->foreignId('shop_id')->nullable()->after('role');
         });
     }
 
