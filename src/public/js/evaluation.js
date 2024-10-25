@@ -39,6 +39,9 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!commentInput.value.trim()) {
             // 空白のみの場合も検出
             errorMessages.push("コメントを入力してください。");
+        } else if (commentInput.value.length < 10) {
+            // 修正ポイント
+            errorMessages.push("コメントは10文字以上入力してください。");
         }
 
         // エラーメッセージがある場合は送信を防ぎ、アラート表示
