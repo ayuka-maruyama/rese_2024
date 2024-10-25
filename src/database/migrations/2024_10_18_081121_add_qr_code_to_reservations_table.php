@@ -9,8 +9,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('reservations', function (Blueprint $table) {
-            $table->boolean('visited')->default(false);
-            $table->string('qr_code_path')->nullable();
+            $table->boolean('visited')->default(false)->after('number_gest');
+            $table->string('qr_code_path')->nullable()->after('visited');
         });
     }
 
