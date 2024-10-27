@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->integer('role')->default(3)->after('email_verified_at');
-            $table->foreignId('shop_id')->nullable()->after('role');
         });
     }
 
@@ -24,7 +23,6 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('role');
-            $table->dropColumn('shop_id');
         });
     }
 };
