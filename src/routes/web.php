@@ -12,6 +12,8 @@ use App\Http\Controllers\ReserveChangeController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\EvaluationController;
 use App\Http\Controllers\StripeController;
+use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\OwnerDashboardController;
 use Illuminate\Http\Request;
 
 // TOP画面の表示
@@ -74,6 +76,8 @@ Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
 
 // 認証済みユーザーのみアクセス可能
 Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/admin/dashboard', [AdminDashboardController::class, 'openAdminDashboard'])->name('admin.dashboard');
+    Route::get('/owner/dashboard', [OwnerDashboardController::class, 'openOwnerDashboard'])->name('admin.dashboard');
     Route::get('/mypage', [MypageController::class, 'index'])->name('mypage');
 });
 
@@ -98,4 +102,3 @@ Route::get('/reservation/qr/{id}', [MypageController::class, 'showQrCode'])->nam
 
 // チェックイン用のルート（既存）
 Route::get('/reservation/checkin/{id}', [MypageController::class, 'checkin'])->name('reservation.checkin');
-
