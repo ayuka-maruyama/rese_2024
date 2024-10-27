@@ -12,9 +12,14 @@ services:
       - php
 
   php:
-    build: ./docker/php
+    build:
+      context: .
+      dockerfile: ./docker/php/Dockerfile
     volumes:
       - ./src:/var/www/
+    environment:
+      - CRON_LOG=/var/www/storage/logs/cron.log
+      - TZ=Asia/Tokyo
 
   mysql:
     image: mysql:latest
@@ -44,4 +49,3 @@ services:
     image: mailhog/mailhog:latest
     ports:
       - "8025:8025"
-
