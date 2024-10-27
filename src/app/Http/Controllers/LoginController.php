@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,20 +13,22 @@ class LoginController extends Controller
         return view('auth/login');
     }
 
-    public function store(Request $request)
+    public function store(LoginRequest $request)
     {
-        // バリデーションを追加
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
-
         // 認証を試みる
         if (Auth::attempt($request->only('email', 'password'))) {
             $request->session()->regenerate();
 
-            // ログイン成功後にリダイレクト
-            return redirect('/mypage');
+            $user = Auth::user();
+
+            // 修正: ロールに応じたリダイレクト先を正しく設定
+            if ($user->role == 1) { // role = 1 の場合
+                return redirect('/admin/dashboard');
+            } elseif ($user->role == 2) { // role = 2 の場合
+                return redirect('/owner/dashboard');
+            } elseif ($user->role == 3) { // role = 3 の場合
+                return redirect('/mypage');
+            }
         }
 
         // 認証失敗時の処理
