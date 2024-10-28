@@ -77,7 +77,9 @@ Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
 // 認証済みユーザーのみアクセス可能
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/admin/dashboard', [AdminDashboardController::class, 'openAdminDashboard'])->name('admin.dashboard');
-    Route::get('/owner/dashboard', [OwnerDashboardController::class, 'openOwnerDashboard'])->name('admin.dashboard');
+    Route::get('/admin/search', [AdminDashboardController::class, 'search'])->name('admin.search');
+    Route::get('/admin/register', [AdminDashboardController::class, 'openOwnerCreate'])->name('admin.owner-create');
+    Route::get('/owner/dashboard', [OwnerDashboardController::class, 'openOwnerDashboard'])->name('owner.dashboard');
     Route::get('/mypage', [MypageController::class, 'index'])->name('mypage');
 });
 
