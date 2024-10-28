@@ -1,0 +1,166 @@
+.login-user {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.search {
+    width: 100%;
+    font-size: 14px;
+    margin: 20px 0;
+}
+
+.search__input {
+    width: 80%;
+    border: 1px solid gray;
+    padding: 5px 10px;
+}
+
+.search__button {
+    width: 15%;
+    background-color: gray;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
+}
+
+.create-shop {
+    display: block;
+    width: 40%;
+    padding: 5px;
+    background-color: grey;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.owner {
+    font-size: 14px;
+}
+
+.owner__table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.table-row {
+    border-bottom: 1px solid gray;
+    height: 50px;
+}
+
+.table-header,
+.table-data {
+    width: 40%;
+    vertical-align: middle;
+    padding: 0 5px;
+}
+
+.detail-btn {
+    background-color: gray;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    padding: 5px 10px;
+}
+
+.pagination {
+    margin-top: 10px;
+}
+
+.pagination-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0 8px;
+    list-style-type: none;
+    padding: 0;
+}
+
+.pagination-2 a {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2em;
+    height: 2em;
+    border-radius: 1px;
+    background-color: #f2f2f2;
+    color: #2589d0;
+}
+
+.pagination-2 a:not(:hover) {
+    text-decoration: none;
+}
+
+.pagination-2 .current a {
+    background-color: #2589d0;
+    color: #fff;
+    pointer-events: none;
+}
+
+.pagination-2 .prev a,
+.pagination-2 .next a {
+    gap: 0 4px;
+    width: auto;
+    padding: .5em .8em;
+    line-height: 1;
+}
+
+.pagination-2 .prev a::before,
+.pagination-2 .next a::after {
+    display: inline-block;
+    transform: rotate(45deg);
+    width: .3em;
+    height: .3em;
+    content: '';
+}
+
+.pagination-2 .prev a::before {
+    border-bottom: 1px solid #2589d0;
+    border-left: 1px solid #2589d0;
+}
+
+.pagination-2 .next a::after {
+    border-top: 1px solid #2589d0;
+    border-right: 1px solid #2589d0;
+}
+
+/* レスポンシブデザイン（768px以上の場合） */
+@media screen and (min-width:768px) {
+    .login-user {
+        font-size: 20px;
+    }
+
+    .search {
+        font-size: 18px;
+        display: flex;
+    }
+
+    .search-area {
+        width: 70%;
+    }
+
+    .search__input {
+        width: 70%;
+    }
+
+    .search__button {
+        width: 20%;
+        margin: 20px 10px;
+    }
+
+    .create-shop {
+        display: block;
+        width: 20%;
+        margin: 20px 0;
+        background-color: #2589d0;
+    }
+
+    .owner {
+        font-size: 18px;
+    }
+
+}
