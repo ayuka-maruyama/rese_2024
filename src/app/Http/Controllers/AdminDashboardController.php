@@ -13,14 +13,9 @@ class AdminDashboardController extends Controller
     public function openAdminDashboard()
     {
         $user = Auth::user();
-        $shops = Shop::with('area', 'genre', 'user')->paginate(5);
+        $shops = Shop::with('area', 'genre', 'user')->paginate(10);
 
         return view('admin/admin-dashboard', compact('user', 'shops'));
-    }
-
-    public function openOwnerCreate()
-    {
-        return view('admin/admin-register');
     }
 
     public function search(Request $request)
