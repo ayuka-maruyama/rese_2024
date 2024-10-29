@@ -11,13 +11,18 @@
     box-shadow: 2px 2px 4px rgb(60, 59, 59);
 }
 
-.register-txt {
+.register-txt,
+.register-txt__owner {
     font-size: 1rem;
     background-color: #3367d6;
     color: white;
     border: none;
     padding: 1rem;
     border-radius: 5px 5px 0 0;
+}
+
+.register-txt__owner {
+    background-color: gray;
 }
 
 .register__form-area {
@@ -59,13 +64,18 @@
     margin-top: 10px;
 }
 
-.register__form-btn-txt {
+.register__form-btn-txt,
+.owner-register__form-btn-txt {
     width: 90px;
     background-color: #3367d6;
     color: white;
     border-radius: 5px;
     padding: 10px;
     text-align: center;
+}
+
+.owner-register__form-btn-txt {
+    background-color: gray;
 }
 
 /* レスポンシブデザイン */
@@ -75,7 +85,8 @@
         margin: 0 auto;
     }
 
-    .register-txt {
+    .register-txt,
+    .register-txt__owner {
         font-size: 20px;
         padding: 1rem;
     }

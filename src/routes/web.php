@@ -14,6 +14,7 @@ use App\Http\Controllers\EvaluationController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\OwnerDashboardController;
+use App\Http\Controllers\OwnerRegisterController;
 use Illuminate\Http\Request;
 
 // TOP画面の表示
@@ -78,7 +79,8 @@ Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/admin/dashboard', [AdminDashboardController::class, 'openAdminDashboard'])->name('admin.dashboard');
     Route::get('/admin/search', [AdminDashboardController::class, 'search'])->name('admin.search');
-    Route::get('/admin/register', [AdminDashboardController::class, 'openOwnerCreate'])->name('admin.owner-create');
+    Route::get('/admin/register', [OwnerRegisterController::class, 'openOwnerCreate'])->name('admin.owner-create');
+    Route::post('/admin/register', [OwnerRegisterController::class, 'ownerRegister'])->name('admin.owner-register');
     Route::get('/owner/dashboard', [OwnerDashboardController::class, 'openOwnerDashboard'])->name('owner.dashboard');
     Route::get('/mypage', [MypageController::class, 'index'])->name('mypage');
 });
