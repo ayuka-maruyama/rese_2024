@@ -27,7 +27,7 @@
             @forelse($users as $user)
             <tr class="table-row">
                 <td class="table-data">{{ $user->name ?? '代表者なし' }}</td>
-                <form action="{{ route('admin.owner-update', ['id' => $user->id]) }}" method="post">
+                <form action="{{ route('admin.owner-update-open', ['id' => $user->id]) }}" method="get">
                     @csrf
                     <td class="table-data">
                         <input type="hidden" value="{{ $user->id }}">
