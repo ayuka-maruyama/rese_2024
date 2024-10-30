@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 use App\Models\Shop;
 
 
@@ -13,9 +14,9 @@ class AdminDashboardController extends Controller
     public function openAdminDashboard()
     {
         $user = Auth::user();
-        $shops = Shop::with('area', 'genre', 'user')->paginate(10);
+        $users = User::where('role', 2)->paginate(5);
 
-        return view('admin/admin-dashboard', compact('user', 'shops'));
+        return view('admin/admin-dashboard', compact('user', 'users'));
     }
 
     public function search(Request $request)
@@ -29,7 +30,7 @@ class AdminDashboardController extends Controller
                         $q->where('name', 'like', '%' . $search . '%');
                     });
             })
-            ->paginate(10);
+            ->paginate(5);
 
         return view('admin.admin-dashboard', compact('user', 'shops', 'search'));
     }
