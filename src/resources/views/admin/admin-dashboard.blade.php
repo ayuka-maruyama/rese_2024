@@ -17,20 +17,30 @@
         <a href="{{ route('admin.owner-create') }}" class="create-shop">店舗管理者登録</a>
     </div>
     <div class="owner">
-        <!-- <form action="" method="post">
-            @csrf -->
         <table class="owner__table">
             <tr class="table-row">
-                <th class="table-header">店舗名</th>
                 <th class="table-header">店舗代表者</th>
+                <th class="table-header"></th>
+                <th class="table-header"></th>
+                <th class="table-header"></th>
             </tr>
-            @forelse($shops as $shop)
+            @forelse($users as $user)
             <tr class="table-row">
-                <td class="table-data">{{ $shop->shop_name }}</td>
-                <td class="table-data">{{ $shop->user->name ?? '代表者なし' }}</td>
+                <td class="table-data">{{ $user->name ?? '代表者なし' }}</td>
+                <form action="{{ route('admin.owner-update', ['id' => $user->id]) }}" method="post">
+                    @csrf
+                    <td class="table-data">
+                        <input type="hidden" value="{{ $user->id }}">
+                        <button class="update-btn" type="submit">更新</button>
+                    </td>
+                </form>
                 <td class="table-data">
-                    <button class="detail-btn" type="submit">詳細</button>
+                    <button class="detail-btn" type="submit">店舗詳細</button>
                 </td>
+                <td class="table-data">
+                    <button class="mail-btn" type="submit">メール</button>
+                </td>
+
             </tr>
             @empty
             <tr>
@@ -38,9 +48,8 @@
             </tr>
             @endforelse
         </table>
-        <!-- </form> -->
         <div class="pagination">
-            {{ $shops->links('vendor.pagination.default') }}
+            {{ $users->links('vendor.pagination.default') }}
         </div>
     </div>
 </div>
