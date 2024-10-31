@@ -13,6 +13,7 @@ use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\EvaluationController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\OwnerDashboardController;
 use App\Http\Controllers\OwnerRegisterController;
 use App\Http\Controllers\OwnerUpdateController;
@@ -86,6 +87,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/owner/update/{id}', [OwnerUpdateController::class, 'openUpdate'])->name('admin.owner-update-open');
     Route::post('/owner/update/{id}', [OwnerUpdateController::class, 'update'])->name('admin.owner-update');
     Route::get('/owner/shop/{id}', [OwnerShopListController::class, 'openShopList'])->name('admin.owner-shoplist');
+    Route::get('/admin/mail/{id}', [MailController::class, 'openMail'])->name('admin.mail');
+    Route::post('/admin/send-email', [MailController::class, 'sendEmailToOwner'])->name('admin.sendEmail');
     Route::get('/owner/dashboard', [OwnerDashboardController::class, 'openOwnerDashboard'])->name('owner.dashboard');
     Route::get('/mypage', [MypageController::class, 'index'])->name('mypage');
 });
