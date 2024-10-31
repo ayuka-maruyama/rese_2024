@@ -16,6 +16,7 @@ use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\OwnerDashboardController;
 use App\Http\Controllers\OwnerRegisterController;
 use App\Http\Controllers\OwnerUpdateController;
+use App\Http\Controllers\OwnerShopListController;
 use Illuminate\Http\Request;
 
 // TOP画面の表示
@@ -84,6 +85,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/admin/register', [OwnerRegisterController::class, 'ownerRegister'])->name('admin.owner-register');
     Route::get('/owner/update/{id}', [OwnerUpdateController::class, 'openUpdate'])->name('admin.owner-update-open');
     Route::post('/owner/update/{id}', [OwnerUpdateController::class, 'update'])->name('admin.owner-update');
+    Route::get('/owner/shop/{id}', [OwnerShopListController::class, 'openShopList'])->name('admin.owner-shoplist');
     Route::get('/owner/dashboard', [OwnerDashboardController::class, 'openOwnerDashboard'])->name('owner.dashboard');
     Route::get('/mypage', [MypageController::class, 'index'])->name('mypage');
 });

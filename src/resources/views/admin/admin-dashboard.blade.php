@@ -34,13 +34,14 @@
                         <button class="update-btn" type="submit">更新</button>
                     </td>
                 </form>
-                <td class="table-data">
-                    <button class="detail-btn" type="submit">店舗詳細</button>
-                </td>
+                <form action="{{ route('admin.owner-shoplist', ['id' => $user->id]) }}" method="get">
+                    <td class="table-data">
+                        <button class="detail-btn" type="submit">店舗詳細</button>
+                    </td>
+                </form>
                 <td class="table-data">
                     <button class="mail-btn" type="submit">メール</button>
                 </td>
-
             </tr>
             @empty
             <tr>
