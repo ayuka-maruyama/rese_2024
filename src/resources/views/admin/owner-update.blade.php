@@ -1,10 +1,15 @@
 @extends('layouts.app')
 
 @section('css')
+<link rel="stylesheet" href="{{ asset('css/reserve.css') }}">
 <link rel="stylesheet" href="{{ asset('css/owner-update.css') }}">
 @endsection
 
 @section('content')
+<form class="shop-detail__form" action="{{ route('admin.dashboard') }}" method="get">
+    <button class="back-btn" type="submit">&lt;</button>
+    <span class="message">戻る</span>
+</form>
 <div class="update-area">
     <form action="{{ route('admin.owner-update', ['id' => $request->id]) }}" method="post">
         @csrf
