@@ -1,0 +1,99 @@
+.mail-input_area {
+    width: 100%;
+    background-color: white;
+    margin: 15px auto;
+}
+
+.ttl{
+    text-align: center;
+    font-weight: bold;
+}
+
+.mail-content {
+    padding: 20px;
+}
+
+.table-area {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.table-header {
+    width: 30%;
+    background-color: #2589d0;
+    color: white;
+    line-height: 40px;
+    text-align: center;
+}
+
+.table-data {
+    width: 70%;
+    padding: 0;
+    vertical-align: middle;
+}
+
+.mail {
+    padding: 0 10px;
+}
+
+/* inputとtextareaを全幅で表示するスタイル */
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px; 
+    border: 1px solid #ccc;
+    border-radius: 4px; 
+    box-sizing: border-box;
+    line-height: 40px; 
+    vertical-align: middle;
+}
+
+textarea {
+    min-height: 100px; 
+    resize: vertical; 
+    line-height: 1.5;
+}
+
+.btn-area {
+text-align: center;
+margin-top: 15px;
+}
+
+.btn {
+    background-color: #2589d0;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    width: 120px;
+    padding: 5px;
+}
+
+/* レスポンシブデザイン（768px以上の場合） */
+@media screen and (min-width:768px) {
+    .mail-input_area {
+        width: 70%;
+        margin: 20px auto;
+        font-size: 20px;
+    }
+
+    .table-header {
+        width: 25%;
+    }
+
+    .table-data {
+        width: 75%;
+    }
+
+    textarea {
+        height: 340px;
+    }
+
+    .btn-area {
+    margin-top: 20px;
+    }
+
+    .btn {
+        width: 160px;
+        padding: 10px;
+    }
+}
