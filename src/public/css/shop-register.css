@@ -1,0 +1,125 @@
+.register-area {
+    width: 100%;
+    margin: 20px auto;
+    font-size: 16px;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.input-area {
+    width: 100%;
+    line-height: 2.5;
+    margin-top: 10px;
+}
+
+.ttl {
+    font-weight: bold;
+}
+
+.required {
+    background-color: red;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.input-txt {
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 0 5px;
+}
+
+.pulldown {
+    width: 45%;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 140'%3E%3Cpath fill='gray' d='M70 100L20 40h100z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
+}
+
+.textarea {
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#file-name {
+    font-size: small;
+}
+
+#preview-area {
+    width: 30%;
+}
+
+.file-upload {
+    background-color: #3367d6;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.btn-area {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    position: relative;
+}
+
+.back-btn {
+    background-color: gray;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.create-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #3367d6;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* レスポンシブデザイン（768px以上の場合） */
+@media screen and (min-width:768px) {
+    .register-area {
+        font-size: 18px;
+    }
+
+    .title {
+        font-size: 22px;
+    }
+
+    .flex {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .flex-area {
+        width: 45%;
+    }
+
+    .pulldown {
+        width: 100%;
+        background-size: 20px;
+    }
+
+    .create-btn {
+        font-size: 20px;
+    }
+}
