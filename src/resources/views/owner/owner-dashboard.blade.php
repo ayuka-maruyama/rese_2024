@@ -9,7 +9,7 @@
     <h3 class="login-user">{{ $user->name }} さん お疲れ様です！</h3>
     <div class="flex">
         <div class="left">
-            <form action="" method="get">
+            <form action="{{ route('owner.shop-register') }}" method="get">
                 <button class="register__btn" type="submit">店舗新規作成</button>
             </form>
         </div>
