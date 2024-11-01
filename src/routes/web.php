@@ -80,6 +80,7 @@ Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
 
 // 認証済みユーザーのみアクセス可能
 Route::middleware(['auth', 'verified'])->group(function () {
+    // 管理者用ルート
     Route::get('/admin/dashboard', [AdminDashboardController::class, 'openAdminDashboard'])->name('admin.dashboard');
     Route::get('/admin/search', [AdminDashboardController::class, 'search'])->name('admin.search');
     Route::get('/admin/register', [OwnerRegisterController::class, 'openOwnerCreate'])->name('admin.owner-create');
@@ -89,7 +90,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/owner/shop/{id}', [OwnerShopListController::class, 'openShopList'])->name('admin.owner-shoplist');
     Route::get('/admin/mail/{id}', [MailController::class, 'openMail'])->name('admin.mail');
     Route::post('/admin/send-email', [MailController::class, 'sendEmailToOwner'])->name('admin.sendEmail');
+    // 店舗代表者ルート
     Route::get('/owner/dashboard', [OwnerDashboardController::class, 'openOwnerDashboard'])->name('owner.dashboard');
+    // ユーザールート
     Route::get('/mypage', [MypageController::class, 'index'])->name('mypage');
 });
 
