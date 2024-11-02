@@ -24,7 +24,7 @@
                     @endif
                 </div>
             </div>
-            <img src="{{ $shop->image }}" alt="{{ $shop->shop_name }}">
+            <img src="{{ asset($shop->image) }}" alt="{{ $shop->shop_name }}">
             <div class="shop-detail__hash">
                 <p class="hash-area">#{{ $shop->area->area_name }}</p>
                 <p class="hash-genre">#{{ $shop->genre->genre_name }}</p>
@@ -33,7 +33,6 @@
         </form>
     </div>
     <div class="reserve-card">
-        <!-- <form class="reserve-card__form" action="{{ route('stripe.charge') }}" method="post"> -->
         <form class="reserve-card__form" action="{{ route('payment.show') }}" method="post">
             @csrf
             <input type="hidden" name="shop_id" value="{{ $shop->id }}">
@@ -71,20 +70,6 @@
             </div>
             <div class="reserve__btn">
                 <button class="btn" type="submit">予約する</button>
-                <!-- Stripe Checkoutボタンの追加 -->
-                <!-- <script
-                    class="stripe-button"
-                    src="https://checkout.stripe.com/checkout.js"
-                    id="stripe-button"
-                    data-key="{{ env('STRIPE_KEY') }}"
-                    data-name="お支払い画面"
-                    data-label="予約する"
-                    data-description="現在はデモ画面です"
-                    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                    data-locale="auto"
-                    data-currency="JPY">
-                    支払いを行う
-                </script> -->
             </div>
             @if ($errors->any())
             <div class="alert alert-danger">
