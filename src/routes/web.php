@@ -18,6 +18,7 @@ use App\Http\Controllers\OwnerDashboardController;
 use App\Http\Controllers\OwnerRegisterController;
 use App\Http\Controllers\OwnerUpdateController;
 use App\Http\Controllers\OwnerShopListController;
+use App\Http\Controllers\ShopRegisterController;
 use Illuminate\Http\Request;
 
 // TOP画面の表示
@@ -85,13 +86,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/admin/search', [AdminDashboardController::class, 'search'])->name('admin.search');
     Route::get('/admin/register', [OwnerRegisterController::class, 'openOwnerCreate'])->name('admin.owner-create');
     Route::post('/admin/register', [OwnerRegisterController::class, 'ownerRegister'])->name('admin.owner-register');
-    Route::get('/owner/update/{id}', [OwnerUpdateController::class, 'openUpdate'])->name('admin.owner-update-open');
-    Route::post('/owner/update/{id}', [OwnerUpdateController::class, 'update'])->name('admin.owner-update');
-    Route::get('/owner/shop/{id}', [OwnerShopListController::class, 'openShopList'])->name('admin.owner-shoplist');
+    Route::get('/admin/update/{id}', [OwnerUpdateController::class, 'openUpdate'])->name('admin.owner-update-open');
+    Route::post('/admin/update/{id}', [OwnerUpdateController::class, 'update'])->name('admin.owner-update');
+    Route::get('/admin/shop/{id}', [OwnerShopListController::class, 'openShopList'])->name('admin.owner-shoplist');
     Route::get('/admin/mail/{id}', [MailController::class, 'openMail'])->name('admin.mail');
     Route::post('/admin/send-email', [MailController::class, 'sendEmailToOwner'])->name('admin.sendEmail');
     // 店舗代表者ルート
     Route::get('/owner/dashboard', [OwnerDashboardController::class, 'openOwnerDashboard'])->name('owner.dashboard');
+    Route::get('/owner/shop/register', [ShopRegisterController::class, 'openShopRegister'])->name('owner.shop-register');
+    Route::post('/owner/shop/register', [ShopRegisterController::class, 'createShopRegister'])->name('owner.shop-create');
+    Route::post('/owner/upload-image', [ShopRegisterController::class, 'uploadImage'])->name('owner.upload-image');
     // ユーザールート
     Route::get('/mypage', [MypageController::class, 'index'])->name('mypage');
 });
