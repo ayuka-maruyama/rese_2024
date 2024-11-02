@@ -9,6 +9,8 @@
     <h3 class="title">店舗新規登録</h3>
     <form action="{{ route('owner.shop-create') }}" method="post" enctype="multipart/form-data">
         @csrf
+        <input class="hidden" type="hidden" name="user_id" value="{{ $user->id }}">
+
         <div class="input-area">
             <div class="ttl">
                 <label for="shop_name" class="label-name">
@@ -16,7 +18,13 @@
                 </label>
             </div>
             <input class="input-txt" type="text" name="shop_name" id="shop_name" placeholder="店舗名を入力してください。">
+            <div class="error">
+                @error('shop_name')
+                <P>{{ $message }}</P>
+                @enderror
+            </div>
         </div>
+
         <div class="flex">
             <div class="input-area flex-area">
                 <div class="ttl">
@@ -30,6 +38,12 @@
                     @endforeach
                 </select>
             </div>
+            <div class="error">
+                @error('area_id')
+                <P>{{ $message }}</P>
+                @enderror
+            </div>
+
             <div class="input-area flex-area">
                 <div class="ttl">
                     <label for="genre" class="label-name">
@@ -42,7 +56,13 @@
                     @endforeach
                 </select>
             </div>
+            <div class="error">
+                @error('genre_id')
+                <P>{{ $message }}</P>
+                @enderror
+            </div>
         </div>
+
         <div class="input-area">
             <div class="ttl">
                 <label for="summary" class="label-name">
@@ -51,6 +71,12 @@
             </div>
             <textarea class="textarea" name="summary" id="summary" placeholder="店舗概要を入力してください。"></textarea>
         </div>
+        <div class="error">
+            @error('summary')
+            <P>{{ $message }}</P>
+            @enderror
+        </div>
+
         <div class="input-area">
             <div class="ttl">
                 <label for="image" class="label-name">
@@ -66,6 +92,12 @@
             </div>
             <span id="file-name">ファイルが選択されていません</span>
         </div>
+        <div class="error">
+            @error('image')
+            <P>{{ $message }}</P>
+            @enderror
+        </div>
+
         <div class="btn-area">
             <button class="back-btn" type="submit" formaction="/owner/dashboard" formmethod="get">戻る</button>
             <button class="create-btn" type="submit">店舗新規登録</button>
