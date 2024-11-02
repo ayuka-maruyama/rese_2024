@@ -10,7 +10,7 @@ class Shop extends Model
     use HasFactory;
 
     protected $table = 'shops';
-    protected $fillable = ['shop_name', 'area_id', 'genre_id', 'summary', 'image'];
+    protected $fillable = ['shop_name', 'area_id', 'genre_id', 'summary', 'image', 'user_id'];
     protected $dates = ['created_at', 'updated_at'];
 
     public function area()
