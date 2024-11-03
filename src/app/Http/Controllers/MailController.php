@@ -29,6 +29,6 @@ class MailController extends Controller
             Mail::to($user->email)->send(new sendEmailToUser($user, $subjectLine, $bodyContent));
         }
 
-        return redirect()->back()->with('success', 'メールを送信しました');
+        return redirect()->route('admin.dashboard')->with('success', 'メールを送信しました');
     }
 }
