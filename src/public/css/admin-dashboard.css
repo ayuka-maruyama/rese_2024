@@ -26,15 +26,21 @@
     padding: 5px;
 }
 
-.create-shop {
-    display: block;
+.link-area {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.create-shop,
+.admin-mail {
     width: 40%;
     padding: 5px;
     background-color: #2589d0;
     color: white;
     border-radius: 5px;
     text-align: center;
-    margin: 10px 0;
+    margin: 10px 10px 0 0;
 }
 
 .owner {
@@ -61,8 +67,7 @@
 }
 
 .update-btn,
-.detail-btn,
-.mail-btn {
+.detail-btn {
     background-color: gray;
     border-radius: 5px;
     text-align: center;
@@ -151,10 +156,14 @@
         margin: 25px 0;
     }
 
-    .create-shop {
+    .link-area {
+        justify-content: start;
+    }
+    .create-shop,
+    .admin-mail {
         width: 150px;
         padding: 5px;
-        margin: 15px 0;
+        margin: 15px 20px 0 0;
     }
 
     .owner {
@@ -175,8 +184,7 @@
     }
 
     .update-btn,
-    .detail-btn,
-    .mail-btn {
+    .detail-btn {
         background-color: gray;
         border-radius: 5px;
         text-align: center;

@@ -14,8 +14,10 @@
                 <button class="search__button" type="submit">検索</button>
             </form>
         </div>
-        <a href="{{ route('admin.owner-create') }}" class="create-shop">店舗管理者登録</a>
-        <a href="{{ route('admin.sendEmail') }}" class="admin-mail">メール</a>
+        <div class="link-area">
+            <a href="{{ route('admin.owner-create') }}" class="create-shop">店舗管理者登録</a>
+            <a href="{{ route('admin.sendEmail') }}" class="admin-mail">メール</a>
+        </div>
     </div>
     <div class="owner">
         <table class="owner__table">
@@ -28,27 +30,27 @@
             <tr class="table-row">
                 <td class="table-data">{{ $user->name ?? '代表者なし' }}</td>
                 <form action=" {{ route('admin.owner-update-open', ['id' => $user->id]) }}" method="get">
-            @csrf
-            <td class="table-data">
-                <input type="hidden" value="{{ $user->id }}">
-                <button class="update-btn" type="submit">更新</button>
-            </td>
-            </form>
-            <form action="{{ route('admin.owner-shoplist', ['id' => $user->id]) }}" method="get">
-                <td class="table-data">
-                    <button class="detail-btn" type="submit">店舗詳細</button>
-                </td>
-            </form>
+                    @csrf
+                    <td class="table-data">
+                        <input type="hidden" value="{{ $user->id }}">
+                        <button class="update-btn" type="submit">更新</button>
+                    </td>
+                </form>
+                <form action="{{ route('admin.owner-shoplist', ['id' => $user->id]) }}" method="get">
+                    <td class="table-data">
+                        <button class="detail-btn" type="submit">店舗詳細</button>
+                    </td>
+                </form>
             </tr>
             @empty
             <tr>
                 <td colspan="3">検索結果が見つかりませんでした。</td>
             </tr>
             @endforelse
-            </table>
-            <div class="pagination">
-                {{ $users->links('vendor.pagination.default') }}
-            </div>
+        </table>
+        <div class="pagination">
+            {{ $users->links('vendor.pagination.default') }}
+        </div>
     </div>
 </div>
 @endsection
