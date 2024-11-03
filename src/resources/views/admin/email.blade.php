@@ -15,12 +15,11 @@
 <div class="mail-input_area">
     <form action="{{ route('admin.sendEmail') }}" method="POST">
         @csrf
-        <input type="hidden" name="user_id" value="{{ $owner->id }}">
         <div class="mail-content">
             <table class="table-area">
                 <tr class="table-row">
                     <th class="table-header">送信先</th>
-                    <td class="table-data mail">{{ $owner->email }}</td>
+                    <td class="table-data mail">登録されているユーザー全員</td>
                 </tr>
                 <tr class="table-row">
                     <th class="table-header">件名</th>
