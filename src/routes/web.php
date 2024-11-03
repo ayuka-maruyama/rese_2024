@@ -89,8 +89,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/admin/update/{id}', [OwnerUpdateController::class, 'openUpdate'])->name('admin.owner-update-open');
     Route::post('/admin/update/{id}', [OwnerUpdateController::class, 'update'])->name('admin.owner-update');
     Route::get('/admin/shop/{id}', [OwnerShopListController::class, 'openShopList'])->name('admin.owner-shoplist');
-    Route::get('/admin/mail/{id}', [MailController::class, 'openMail'])->name('admin.mail');
-    Route::post('/admin/send-email', [MailController::class, 'sendEmailToOwner'])->name('admin.sendEmail');
+    Route::get('/admin/send-email', [MailController::class, 'openMail'])->name('admin.mail');
+    Route::post('/admin/send-email', [MailController::class, 'sendEmailToUser'])->name('admin.sendEmail');
     // 店舗代表者ルート
     Route::get('/owner/dashboard', [OwnerDashboardController::class, 'openOwnerDashboard'])->name('owner.dashboard');
     Route::get('/owner/shop/register', [ShopRegisterController::class, 'openShopRegister'])->name('owner.shop-register');
