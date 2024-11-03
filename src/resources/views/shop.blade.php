@@ -34,7 +34,7 @@
         <form class="shop-card__form" action="/detail/{{ $shop->id }}" method="get">
             @csrf
             <div class="shop-card__img">
-                <img class="shop-card__img" src="{{ $shop->image }}" alt="{{ $shop->shop_name }}">
+                <img class="shop-card__img" src="{{ asset($shop->image) }}" alt="{{ $shop->shop_name }}">
             </div>
             <div class="shop-card__txt">
                 <h3 class="shop-card__shop-name">{{ $shop->shop_name }}</h3>
