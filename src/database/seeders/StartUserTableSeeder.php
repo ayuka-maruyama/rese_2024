@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
+use App\Models\User;
 
 
 class StartUserTableSeeder extends Seeder
@@ -99,5 +100,8 @@ class StartUserTableSeeder extends Seeder
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
+
+        User::factory()->count(3)->create();
+        User::factory()->count(2)->unverified()->create();
     }
 }
