@@ -19,6 +19,7 @@ use App\Http\Controllers\OwnerRegisterController;
 use App\Http\Controllers\OwnerUpdateController;
 use App\Http\Controllers\OwnerShopListController;
 use App\Http\Controllers\ShopRegisterController;
+use App\Http\Controllers\ShopUpdateController;
 use Illuminate\Http\Request;
 
 // TOP画面の表示
@@ -96,6 +97,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/owner/shop/register', [ShopRegisterController::class, 'openShopRegister'])->name('owner.shop-register');
     Route::post('/owner/shop/register', [ShopRegisterController::class, 'createShopRegister'])->name('owner.shop-create');
     Route::post('/owner/upload-image', [ShopRegisterController::class, 'uploadImage'])->name('owner.upload-image');
+    Route::get('/owner/shop/update/{id}', [ShopUpdateController::class, 'openShopUpdate'])->name('owner.shop-update');
     // ユーザールート
     Route::get('/mypage', [MypageController::class, 'index'])->name('mypage');
 });

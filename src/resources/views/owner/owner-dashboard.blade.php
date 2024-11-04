@@ -23,10 +23,10 @@
             @foreach($shops as $shop)
             <div class="shop-content">
                 <p class="shop_name-input">{{ $shop->shop_name }}</p>
-                <form class="btn-form" action="" method="post">
+                <form class="btn-form" action="{{ route('owner.shop-update', ['id' => $shop->id]) }}" method="get">
                     <button class="shop-update__btn" type="submit">更新</button>
                 </form>
-                <form class="btn-form" action="" method="post">
+                <form class="btn-form" action="" method="get">
                     <button class="shop-reserved__btn" type="submit">確認</button>
                 </form>
             </div>
