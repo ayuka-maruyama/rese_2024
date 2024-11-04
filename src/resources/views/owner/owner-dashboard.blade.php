@@ -15,20 +15,22 @@
         </div>
         <div class="right">
             <h3 class="section">管理店舗一覧</h3>
-            <table class="table-area">
-                <tr class="table-row">
-                    <th class="table-header__left">店舗名</th>
-                    <th class="table-header__right"></th>
-                </tr>
-                @foreach($shops as $shop)
-                <tr class="table-row">
-                    <td class="table-data__left">{{ $shop->shop_name }}</td>
-                    <td class="table-data__right">
-                        <button class="detail-btn" type="submit">詳細</button>
-                    </td>
-                </tr>
-                @endforeach
-            </table>
+            <div class="header-shop">
+                <label for="shop_name" class="header-label">店舗名</label>
+                <label for="shop_update" class="header-label">店舗情報</label>
+                <label for="shop_reserve" class="header-label">予約情報</label>
+            </div>
+            @foreach($shops as $shop)
+            <div class="shop-content">
+                <p class="shop_name-input">{{ $shop->shop_name }}</p>
+                <form class="btn-form" action="" method="post">
+                    <button class="shop-update__btn" type="submit">更新</button>
+                </form>
+                <form class="btn-form" action="" method="post">
+                    <button class="shop-reserved__btn" type="submit">確認</button>
+                </form>
+            </div>
+            @endforeach
         </div>
     </div>
 </div>

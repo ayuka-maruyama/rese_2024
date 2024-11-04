@@ -9,13 +9,8 @@
     text-align: center;
 }
 
-.flex {
-    display: flex;
-    justify-content: space-between;
-}
-
 .left {
-    width: 40%;
+    width: 50%;
     padding: 10px;
 }
 
@@ -24,12 +19,12 @@
     background-color: #3367d6;
     color: white;
     text-align: center;
-    padding: 40px 0;
+    padding: 10px 0;
     border-radius: 5px;
 }
 
 .right {
-    width: 55%;
+    width: 100%;
     padding: 10px;
     background-color: white;
     border-radius: 5px;
@@ -38,78 +33,89 @@
 
 .section {
     font-size: 16px;
+    font-weight: bold;
     text-align: center;
     padding-bottom: 10px;
 }
 
-.table-area {
-    table-layout: fixed;
+.header-shop,
+.shop-content {
     width: 100%;
+    display: flex;
+    font-size: 16px;
+    height: 20px;
 }
 
-.table-row {
-    line-height: 2;
+.header-shop {
+    justify-content: space-between;
+    border-bottom: 1px solid gray;
 }
 
-.table-header__left,
-.table-data__left {
-    width: 70%;
+.header-label {
+    width: 32%;
+    font-weight: bold;
+    display: inline-block;
+    padding: 0 5px;
 }
 
-.table-header__right,
-.table-data__right {
-    width: 30%;
+.shop-content {
+    align-items: baseline;
+    justify-content: space-between;
+    height: 30px;
+    margin-top: 10px;
 }
 
-.detail-btn {
+.shop_name-input,
+.btn-form {
+    width: 32%;
+}
+
+.shop-update__btn,
+.shop-reserved__btn {
     background-color: #3367d6;
     color: white;
-    width: 100%;
     border-radius: 5px;
+    width: 90%;
+    padding: 5px;
     text-align: center;
 }
 
-/* レスポンシブデザイン（768px以上の場合） */
 @media screen and (min-width:768px) {
-    .content-are {
-        width: 600px;
-        margin: 0 auto;
-    }
-
     .login-user {
         font-size: 22px;
-        margin: 20px auto;
+    }
+
+    .flex {
+        display: flex;
+        margin-top: 40px;
     }
 
     .left {
-        width: 50%;
-        padding: 20px;
+        width: 30%;
+        font-size: 18px;
     }
 
     .register__btn {
         width: 100%;
-        font-size: 18px;
     }
 
     .right {
-        width: 50%;
+        width: 70%;
         padding: 20px;
-        margin: 20px;
     }
 
     .section {
-        font-size: 20px;
+        font-size: 18px;
+        padding-bottom: 20px;
     }
 
-    .table-area {
-        table-layout: fixed;
-        width: 100%;
+    .header-shop,
+    .shop-content {
         font-size: 18px;
     }
 
-    .table-row {
-        line-height: 2;
-        height: 45px;
+    .shop-content {
+        height: 40px;
     }
 
 }
