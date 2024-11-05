@@ -98,6 +98,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/owner/shop/register', [ShopRegisterController::class, 'createShopRegister'])->name('owner.shop-create');
     Route::post('/owner/upload-image', [ShopRegisterController::class, 'uploadImage'])->name('owner.upload-image');
     Route::get('/owner/shop/update/{id}', [ShopUpdateController::class, 'openShopUpdate'])->name('owner.shop-update');
+    Route::put('/owner/shop/update/{id}', [ShopUpdateController::class, 'update'])->name('owner.shop.update');
     // ユーザールート
     Route::get('/mypage', [MypageController::class, 'index'])->name('mypage');
 });
