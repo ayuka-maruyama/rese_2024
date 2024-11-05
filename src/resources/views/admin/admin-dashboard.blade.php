@@ -72,4 +72,5 @@
             }, 3000); // 3000ミリ秒 = 3秒
         }
     };
-</script>@endsection
+</script>
+@endsection
