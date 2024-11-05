@@ -6,6 +6,12 @@
 
 @section('content')
 <div class="content-are">
+    @if(session('success'))
+    <div class="alert alert-success" id="success-message">
+        {{ session('success') }}
+    </div>
+    @endif
+
     <h3 class="login-user">{{ $user->name }} さん お疲れ様です！</h3>
     <div class="flex">
         <div class="left">
@@ -34,4 +40,19 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('js')
+<script>
+    // 成功メッセージがある場合
+    window.onload = function() {
+        var successMessage = document.getElementById('success-message');
+        if (successMessage) {
+            // 3秒後にメッセージを非表示にする
+            setTimeout(function() {
+                successMessage.style.display = 'none';
+            }, 3000); // 3000ミリ秒 = 3秒
+        }
+    };
+</script>
 @endsection
