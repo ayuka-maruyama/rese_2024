@@ -1,0 +1,214 @@
+.shop-update {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.message {
+    width: 80%;
+    font-size: 14px;
+    padding: 5px;
+    text-align: center;
+    border: 3px double red;
+    color: red;
+    margin: 0 auto;
+}
+
+.input-area {
+    margin-top: 15px;
+}
+
+.ttl {
+    margin-bottom: 5px;
+}
+
+.label-name {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.input-txt {
+    border: 1px solid gray;
+    border-radius: 5px;
+    width: 100%;
+    padding: 5px 10px;
+}
+
+.pulldown {
+    width: 45%;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 140'%3E%3Cpath fill='gray' d='M70 100L20 40h100z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
+}
+
+.textarea {
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#file-name {
+    font-size: small;
+}
+
+/* プレビュー画像の基本スタイル */
+#image-preview {
+    max-width: 100%;
+    height: auto;
+    display: none; /* 初期状態では非表示 */
+}
+
+/* 画像があるときに表示されるクラス */
+.image-visible {
+    display: block;
+}
+
+#preview-area {
+    width: 30%;
+}
+
+.img-area {
+    margin-top: 10px;
+}
+
+.file-upload {
+    background-color: gray;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.btn-area {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    position: relative;
+}
+
+.back-btn {
+    background-color: gray;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.update-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #3367d6;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.error {
+    color: red;
+}
+
+/* レスポンシブデザイン（768px以上の場合） */
+@media screen and (min-width:768px) {
+    .shop-update {
+        font-size: 22px;
+        margin: 15px 0;
+    }
+
+    .message {
+        width: 60%;
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    .input-area {
+        margin-top: 20px;
+    }
+
+    .ttl {
+        margin-bottom: 10px;
+    }
+
+    .label-name {
+        font-size: 18px;
+    }
+
+    .flex {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .flex-area {
+        width: 45%;
+    }
+
+    .pulldown {
+        width: 100%;
+        background-size: 20px;
+    }
+
+    .textarea {
+        width: 100%;
+        border: 1px solid gray;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    #file-name {
+        font-size: small;
+    }
+
+    #preview-area {
+        width: 30%;
+    }
+
+    .img-area {
+        margin-top: 10px;
+    }
+
+    .file-upload {
+        background-color: gray;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+
+    .btn-area {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        position: relative;
+    }
+
+    .back-btn {
+        background-color: gray;
+        padding: 5px 10px;
+        color: white;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+    .update-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: #3367d6;
+        color: white;
+        font-size: 18px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .error {
+        color: red;
+    }
+
+}
