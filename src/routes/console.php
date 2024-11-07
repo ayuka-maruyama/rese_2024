@@ -10,4 +10,4 @@ use App\Console\Commands\SendMailCommand;
 // })->purpose('Display an inspiring quote')->hourly();
 
 // 毎日朝9時にcommandファイルで定義した内容を実行する
-Schedule::command('app:send-mail-command')->dailyAt('09:20');
+Schedule::command('app:send-mail-command')->dailyAt('09:00');
