@@ -118,6 +118,68 @@ body {
     margin-top: 2vw;
 }
 
+.pagination {
+    margin-top: 20px;
+}
+
+.pagination-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0 8px;
+    list-style-type: none;
+    padding: 0;
+}
+
+.pagination-2 a {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2em;
+    height: 2em;
+    border-radius: 1px;
+    background-color: #f2f2f2;
+    color: #2589d0;
+}
+
+.pagination-2 a:not(:hover) {
+    text-decoration: none;
+}
+
+.pagination-2 .current a {
+    background-color: #2589d0;
+    color: #fff;
+    pointer-events: none;
+}
+
+.pagination-2 .prev a,
+.pagination-2 .next a {
+    gap: 0 4px;
+    width: auto;
+    padding: .5em .8em;
+    line-height: 1;
+}
+
+.pagination-2 .prev a::before,
+.pagination-2 .next a::after {
+    display: inline-block;
+    transform: rotate(45deg);
+    width: .3em;
+    height: .3em;
+    content: '';
+}
+
+.pagination-2 .prev a::before {
+    border-bottom: 1px solid #2589d0;
+    border-left: 1px solid #2589d0;
+}
+
+.pagination-2 .next a::after {
+    border-top: 1px solid #2589d0;
+    border-right: 1px solid #2589d0;
+}
+
 /* レスポンシブ対応（768px以上の場合） */
 @media screen and (min-width: 768px) {
     body {
