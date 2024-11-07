@@ -1,0 +1,75 @@
+.reserved {
+    font-size: 16px;
+}
+
+.shop-name {
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.date {
+    width: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding: 20px 0;
+    align-items: center;
+}
+
+.date__title-before,
+.date__title-after {
+    background-color: white;
+    color: gray;
+    font-size: 14px;
+    font-weight: bold;
+    width: 20px;
+    vertical-align: middle;
+    line-height: 2;
+}
+
+.date__title {
+    width: 120px;
+    line-height: 1;
+}
+
+.user-reserved {
+    width: 100%;
+}
+
+.table-area {
+    table-layout: fixed;
+    width: 100%;
+    text-align: center;
+}
+
+.table-row {
+    line-height: 2.5;
+    border-bottom: 1px solid gray;
+}
+
+.table-header {
+    text-align: center;
+    font-weight: 600;
+}
+
+@media screen and (min-width:768px) {
+    .reserved {
+        font-size: 20px;
+    }
+
+    .shop-name {
+        font-size: 22px;
+        margin-top: 25px;
+    }
+
+    .date__title {
+        width: 200px;
+    }
+
+    .table-row {
+        line-height: 3.5;
+    }
+
+}
