@@ -32,7 +32,7 @@
                 <form class="btn-form" action="{{ route('owner.shop-update', ['id' => $shop->id]) }}" method="get">
                     <button class="shop-update__btn" type="submit">更新</button>
                 </form>
-                <form class="btn-form" action="" method="get">
+                <form class="btn-form" action="{{ route('owner.reserved', ['id' => $shop->id]) }}" method="get">
                     <button class="shop-reserved__btn" type="submit">確認</button>
                 </form>
             </div>

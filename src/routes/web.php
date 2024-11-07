@@ -16,6 +16,7 @@ use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\OwnerDashboardController;
 use App\Http\Controllers\OwnerRegisterController;
+use App\Http\Controllers\OwnerReservedController;
 use App\Http\Controllers\OwnerUpdateController;
 use App\Http\Controllers\OwnerShopListController;
 use App\Http\Controllers\ShopRegisterController;
@@ -99,6 +100,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/owner/upload-image', [ShopRegisterController::class, 'uploadImage'])->name('owner.upload-image');
     Route::get('/owner/shop/update/{id}', [ShopUpdateController::class, 'openShopUpdate'])->name('owner.shop-update');
     Route::put('/owner/shop/update/{id}', [ShopUpdateController::class, 'update'])->name('owner.shop.update');
+    Route::get('/owner/shop/reserved/{id}', [OwnerReservedController::class, 'openReserved'])->name('owner.reserved');
+
     // ユーザールート
     Route::get('/mypage', [MypageController::class, 'index'])->name('mypage');
 });
