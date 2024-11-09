@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
             GenreTableSeeder::class,
             ShopTableSeeder::class,
             ReservationsTableSeeder::class,
+            FavoriteSeeder::class,
+            EvaluationSeeder::class,
         ]);
     }
 }
