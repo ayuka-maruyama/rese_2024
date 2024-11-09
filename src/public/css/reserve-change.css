@@ -95,7 +95,6 @@ th, td {
     font-size: 12px;
 }
 
-/* レスポンシブデザイン（768px以上の場合） */
 @media screen and (min-width:768px) {
     .reserved {
         padding: 20px;
@@ -172,6 +171,5 @@ th, td {
     .reserve__btn {
         font-size: 16px;
     }
-
 
 }

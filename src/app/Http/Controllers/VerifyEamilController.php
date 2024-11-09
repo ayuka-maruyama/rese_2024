@@ -21,9 +21,8 @@ class VerifyEamilController extends Controller
 
         if ($request->hasValidSignature()) {
             $user->markEmailAsVerified();
-            Auth::login($user); // ユーザーをログイン状態にする
+            Auth::login($user);
 
-            // ロールに基づいてリダイレクト先を指定
             switch ($user->role) {
                 case 1:
                     return redirect('/admin/dashboard');
@@ -32,7 +31,7 @@ class VerifyEamilController extends Controller
                 case 3:
                     return redirect('/mypage');
                 default:
-                    return redirect('/'); // 万が一、予期しないロールがあった場合のデフォルト
+                    return redirect('/');
             }
         }
         abort(403, 'This link is invalid.');

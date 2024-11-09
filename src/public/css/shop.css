@@ -92,15 +92,14 @@
 
 .favorite-btn {
     font-size: 5vw;
-    color: gray; /* デフォルト */
+    color: gray;
     padding-right: 10px;
 }
 
 .favorite-btn.favorited {
-    color: red; /* お気に入りの時 */
+    color: red;
 }
 
-/* レスポンシブデザイン（768px以上の場合） */
 @media screen and (min-width:768px) {
     .search-form__item-select {
         width: 10vw;

@@ -11,12 +11,8 @@ use App\Models\User;
 
 class StartUserTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        // 管理者
         DB::table('users')->insert([
             'name' => '管理者',
             'email' => 'admin@example.com',
@@ -27,7 +23,6 @@ class StartUserTableSeeder extends Seeder
             'updated_at' => Carbon::now(),
         ]);
 
-        // 店舗管理者
         DB::table('users')->insert([
             'name' => '店舗代表者1',
             'email' => 'owner1@example.com',

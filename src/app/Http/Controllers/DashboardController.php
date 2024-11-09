@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
@@ -11,6 +10,6 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
 
-        return view('admin.dashboard', compact('user')); // dashboard.blade.phpというビューを返す
+        return view('admin.dashboard', compact('user'));
     }
 }

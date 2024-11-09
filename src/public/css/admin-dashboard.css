@@ -85,7 +85,6 @@
     width: 100px;
 }
 
-/* レスポンシブデザイン（768px以上の場合） */
 @media screen and (min-width:768px) {
     .container {
         width: 80%;

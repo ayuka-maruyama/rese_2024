@@ -79,12 +79,12 @@
 
 .star {
     font-size: 28px;
-    color: #ccc; /* デフォルトの星の色 */
+    color: #ccc;
     cursor: pointer;
 }
 
 .star.selected {
-    color: #f5c518; /* 選択された星の色 */
+    color: #f5c518;
 }
 
 .txt {
@@ -120,7 +120,6 @@
     padding: 10px;
 }
 
-/* レスポンシブデザイン（768px以上の場合） */
 @media screen and (min-width:768px) {
     .evaluation {
         width: 600px;

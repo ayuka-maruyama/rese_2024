@@ -88,7 +88,6 @@
                     </label>
                 </div>
                 <div id="preview-area">
-                    <!-- 初期表示として現在の画像を表示 -->
                     <img id="image-preview" src="{{ $shop->image }}" alt="{{ $shop->shop_name }}" class="{{ $shop->image ? 'image-visible' : '' }}">
                 </div>
                 <div class="img-area">
@@ -116,20 +115,17 @@
 
 @section('js')
 <script>
-    // textareaの高さを自動調整する
     const textarea = document.querySelector("textarea");
     textarea.addEventListener("input", function() {
         this.style.height = "auto";
         this.style.height = (this.scrollHeight) + "px";
     });
 
-    // 画像を選択したら表示をファイル名に変更する
     document.getElementById("image").addEventListener("change", function() {
         const fileName = this.files[0] ? this.files[0].name : "ファイルが選択されていません";
         document.getElementById("file-name").textContent = fileName;
     });
 
-    // 選択した画像をプレビューで表示する
     document.getElementById("image").addEventListener("change", function(event) {
         const file = event.target.files[0];
         if (file) {
@@ -138,10 +134,10 @@
             reader.onload = function(e) {
                 const preview = document.getElementById("image-preview");
                 preview.src = e.target.result;
-                preview.style.display = "block"; // プレビュー画像を表示
+                preview.style.display = "block";
             };
 
-            reader.readAsDataURL(file); // ファイルをデータURLとして読み込む
+            reader.readAsDataURL(file);
         }
     });
 </script>

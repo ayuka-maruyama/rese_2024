@@ -63,8 +63,8 @@
 .qr-code__img-visited {
     width: 20px;
     position: absolute;
-    top: 30%;  /* 任意の位置を指定 */
-    right: 90px; /* 任意の位置を指定 */
+    top: 30%;
+    right: 90px;
 }
 
 .qr-code__img-visited {
@@ -76,8 +76,8 @@
     margin: 0 0 5px 15px;
     cursor: pointer;
     position: absolute;
-    top: 30%;  /* 任意の位置を指定 */
-    right: 50px; /* 任意の位置を指定 */
+    top: 30%;
+    right: 50px;
 }
 
 
@@ -89,8 +89,8 @@
     border: 2px solid white;
     cursor: pointer;
     position: absolute;
-    top: 25%;  /* 任意の位置を指定 */
-    right: 5px; /* 任意の位置を指定 */
+    top: 25%;
+    right: 5px;
 }
 
 .reserve-table {
@@ -105,8 +105,6 @@
     width: 65%;
 }
 
-
-/* レスポンシブデザイン（768px以上の場合） */
 @media screen and (min-width:768px) {
     .login-user {
         margin: 30px auto;
@@ -159,6 +157,4 @@
         width: 46%;
         line-height: 1.5rem;
     }
-
-
 }

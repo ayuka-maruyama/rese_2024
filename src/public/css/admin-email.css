@@ -37,7 +37,6 @@
     text-align: center;
 }
 
-/* inputとtextareaを全幅で表示するスタイル */
 input[type="text"],
 textarea {
     width: 100%;
@@ -69,7 +68,6 @@ margin-top: 15px;
     padding: 5px;
 }
 
-/* レスポンシブデザイン（768px以上の場合） */
 @media screen and (min-width:768px) {
     .mail-input_area {
         width: 70%;

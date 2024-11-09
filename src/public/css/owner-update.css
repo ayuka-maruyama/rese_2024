@@ -47,7 +47,6 @@ table {
     cursor: pointer;
 }
 
-/* レスポンシブデザイン（768px以上の場合） */
 @media screen and (min-width:768px) {
     .update-area {
         width: 60%;

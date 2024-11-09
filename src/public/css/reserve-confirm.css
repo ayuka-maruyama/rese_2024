@@ -43,7 +43,6 @@
     font-size: 0.5rem;
 }
 
-/* レスポンシブデザイン（769px以上の場合） */
 @media screen and (min-width:768px) {
     .reserve-confirm {
         width: 550px;

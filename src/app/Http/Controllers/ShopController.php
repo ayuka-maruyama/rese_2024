@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Shop;
 use App\Models\Area;
 use App\Models\Genre;
 use App\Models\Favorite;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Date;
-use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class ShopController extends Controller
 {

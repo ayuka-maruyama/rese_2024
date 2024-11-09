@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Shop;
 use Stripe\Stripe;
 use Stripe\Charge;
-use App\Models\Reservation; // Reservationモデルのインポート
+use App\Models\Reservation;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\ReservationRequest; // 追加
+use App\Http\Requests\ReservationRequest;
 
 
 class StripeController extends Controller
@@ -17,14 +17,13 @@ class StripeController extends Controller
     {
         $user = Auth::user();
         if (!$user) {
-            return redirect('/login'); // 未ログインの場合、ログインページへリダイレクト
+            return redirect('/login');
         }
 
         $shop = Shop::find($request->shop_id);
         $unitPrice = 4000;
-        $totalAmount = $unitPrice * $request->number_gest; // 合計金額の計算
+        $totalAmount = $unitPrice * $request->number_gest;
 
-        // 支払いページを表示
         return view('payment', [
             'user' => $user,
             'shop' => $shop,
@@ -42,22 +41,19 @@ class StripeController extends Controller
         $amount = 4000 * $request->input('number_gest');
 
         try {
-            // 顧客の取得または作成
             $customer = \Stripe\Customer::create([
                 'email' => $email,
-                'source' => $token, // 顧客を作成する際にカード情報を指定
+                'source' => $token,
             ]);
 
-            // 決済処理
             $charge = Charge::create([
                 'amount' => $amount,
                 'currency' => 'jpy',
-                'customer' => $customer->id, // 作成した顧客IDを使用
+                'customer' => $customer->id,
                 'description' => 'Rese',
                 'receipt_email' => $email,
             ]);
 
-            // 予約情報の保存
             Reservation::create([
                 'user_id' => Auth::id(),
                 'shop_id' => $request->shop_id,

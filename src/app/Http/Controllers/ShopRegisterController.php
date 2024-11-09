@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Requests\ShopRegisterRequest;
-use App\Models\User;
 use App\Models\Shop;
 use App\Models\Area;
 use App\Models\Genre;
@@ -26,7 +24,6 @@ class ShopRegisterController extends Controller
     {
         $userId = $request->user_id;
 
-        // 画像ファイルの保存
         if ($request->hasFile('image')) {
             $filePath = $request->file('image')->store('public/shop-images');
             $fileName = basename($filePath);
@@ -40,7 +37,7 @@ class ShopRegisterController extends Controller
             'genre_id' => $request->genre_id,
             'summary' => $request->summary,
             'image' => 'storage/shop-images/' . $fileName,
-            'user_id' => $userId, // ここでuser_idを設定
+            'user_id' => $userId,
         ]);
 
         return view('owner.shop-created', compact('shop'));

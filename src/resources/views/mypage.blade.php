@@ -23,7 +23,7 @@
                         <img class="clock" src="{{ asset('img/clock.svg') }}" alt="clock">
                         <div class="justify">
                             <span class="reserve-number">予約{{ $loop->iteration }}</span>
-                            @if (!$reservation->visited) <!-- ここでvisitedがfalseの時のみQRコードを表示 -->
+                            @if (!$reservation->visited)
                             <a href="{{ route('reservation.qr', ['id' => $reservation->id]) }}" class="qr-code">
                                 <img class="qr-code__img" src="{{ asset('img/qrcode.svg') }}" alt="qr-code">
                             </a>
@@ -80,10 +80,8 @@
                                 <p class="shop-card_genre">#{{ $shop->genre->genre_name }}</p>
                             </div>
                             <div class="shop-card__btn">
-                                <!-- 詳しくみるボタン -->
                                 <button class="btn-submit" type="submit">詳しくみる</button>
 
-                                <!-- お気に入りボタン -->
                                 <button class="favorite-btn {{ in_array($shop->id, $favoriteShopIds) ? 'favorited' : '' }}" data-id="{{ $shop->id }}">
                                     ❤
                                 </button>

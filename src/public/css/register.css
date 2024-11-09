@@ -78,7 +78,6 @@
     background-color: gray;
 }
 
-/* レスポンシブデザイン */
 @media screen and (min-width:768px) {
     .register-form {
         width: 400px;

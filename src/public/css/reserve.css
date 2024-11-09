@@ -135,7 +135,7 @@ img {
 
 .reserve__table {
     width: 100%;
-    table-layout: fixed;  /* 幅の自動調整を無効化 */
+    table-layout: fixed;
     font-size: 14px;
 }
 
@@ -172,7 +172,6 @@ li {
 }
 
 
-/* レスポンシブデザイン（768px以上の場合） */
 @media screen and (min-width:768px) {
     .shop-detail {
         margin-top: 5px;

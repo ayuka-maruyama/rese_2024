@@ -10,8 +10,8 @@ return new class extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');  // 外部キー制約
-            $table->foreignId('shop_id')->constrained('shops')->onDelete('cascade');  // 外部キー制約
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('shop_id')->constrained('shops')->onDelete('cascade');
             $table->date('date');
             $table->time('time');
             $table->integer('number_gest');

@@ -9,11 +9,7 @@ class Role extends Model
 {
     use HasFactory;
 
-    /**
-     * リレーション: Role は複数の Admin_user に対応する
-     */
-    public function adminUsers()
-    {
-        return $this->hasMany(Admin_user::class);
-    }
+    protected $table = 'roles';
+    protected $fillable = ['name'];
+    protected $dates = ['created_at', 'updated_at'];
 }

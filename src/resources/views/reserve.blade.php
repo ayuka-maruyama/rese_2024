@@ -15,7 +15,6 @@
                     <h1 class="shop-name">{{ $shop->shop_name }}</h1>
                 </div>
                 <div class="detail-right">
-                    <!-- ログイン済ユーザーのみレビューを記入することができる -->
                     @if($user)
                     <button name="evaluation" class="evaluation" type="submit" formaction="/evaluation" formmethod="post">
                         レビューする
@@ -46,7 +45,6 @@
 
                 <div class="select" id="time-picker">
                     <select name="time" id="time">
-                        <!-- この部分に動的にオプションを挿入 -->
                     </select>
                     <img src="{{ asset('img/caret-down-solid.svg') }}" class="toggle"></img>
                 </div>

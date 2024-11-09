@@ -21,10 +21,9 @@ class MailController extends Controller
     public function sendEmailToUser(Request $request)
     {
         $users = User::all();
-        $subjectLine = $request->input('subject'); // 件名
-        $bodyContent = $request->input('body'); // 本文を取得
+        $subjectLine = $request->input('subject');
+        $bodyContent = $request->input('body');
 
-        // メール送信
         foreach ($users as $user) {
             Mail::to($user->email)->send(new sendEmailToUser($user, $subjectLine, $bodyContent));
         }

@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     favoriteButtons.forEach(function (button) {
         button.addEventListener("click", function (event) {
-            // フォーム送信を防止
             event.preventDefault();
 
             if (!isLoggedIn) {
@@ -16,14 +15,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const shopId = button.getAttribute("data-id");
 
-            // ボタンの色を切り替え（赤→灰色、灰色→赤）
             if (button.style.color === "red") {
                 button.style.color = "gray";
             } else {
                 button.style.color = "red";
             }
 
-            // サーバーへのリクエストを送信
             fetch(`/favorite/${shopId}`, {
                 method: "POST",
                 headers: {
@@ -38,7 +35,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 .then((data) => {
                     console.log("Server response:", data);
 
-                    // サーバー処理が成功したらページをリロード
                     window.location.reload();
                 })
                 .catch((error) => console.error("Error:", error));

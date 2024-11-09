@@ -66,10 +66,9 @@
     window.onload = function() {
         var successMessage = document.getElementById('success-message');
         if (successMessage) {
-            // 3秒後にメッセージを非表示にする
             setTimeout(function() {
                 successMessage.style.display = 'none';
-            }, 3000); // 3000ミリ秒 = 3秒
+            }, 3000);
         }
     };
 </script>

@@ -100,7 +100,6 @@
 }
 
 
-/* レスポンシブデザイン（768px以上の場合） */
 @media screen and (min-width:768px) {
     .register-area {
         font-size: 18px;

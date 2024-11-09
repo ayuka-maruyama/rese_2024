@@ -37,21 +37,19 @@ document.addEventListener("DOMContentLoaded", function () {
             errorElement.textContent = "";
         }
 
-        // カードブランドの表示
         if (event.brand) {
             const logoUrl = getCardBrandLogo(event.brand);
             if (logoUrl) {
                 cardBrandLogoElement.src = logoUrl;
-                cardBrandLogoElement.style.display = "inline"; // ロゴを表示
+                cardBrandLogoElement.style.display = "inline";
             } else {
-                cardBrandLogoElement.style.display = "none"; // 不明なブランドの場合は非表示
+                cardBrandLogoElement.style.display = "none";
             }
         } else {
             cardBrandLogoElement.style.display = "none";
         }
     });
 
-    // カードブランドに応じたロゴのURLを返す関数
     function getCardBrandLogo(brand) {
         switch (brand) {
             case "visa":
@@ -65,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
             case "jcb":
                 return "/img/brands/jcb.png";
             default:
-                return null; // カードブランドが不明な場合はnullを返す
+                return null;
         }
     }
 

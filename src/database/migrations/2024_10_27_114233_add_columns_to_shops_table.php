@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::table('shops', function (Blueprint $table) {
@@ -19,15 +16,10 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::table('shops', function (Blueprint $table) {
-            // 外部キー制約を削除
             $table->dropForeign(['user_id']);
-            // カラムを削除
             $table->dropColumn('user_id');
         });
     }

@@ -21,7 +21,7 @@ body {
     width: 30px;
     padding: 5px;
     border-radius: 5px;
-    z-index: 2001; /* メニューより上に表示されるように */
+    z-index: 2001;
     position: relative;
 }
 
@@ -32,7 +32,6 @@ body {
     transition: all 0.3s ease;
 }
 
-/* 各ラインの長さを設定 */
 .line1 {
     width: 15px;
 }
@@ -45,7 +44,6 @@ body {
     width: 10px;
 }
 
-/* メニューが開いたときの変形アニメーション */
 .menu--open .line1,
 .menu--open .line3 {
     width: 30px;
@@ -77,16 +75,14 @@ body {
     width: 100%;
     height: 100%;
     background-color: white;
-    z-index: 1000; /* メニューの表示順 */
+    z-index: 1000;
     padding-top: 50px;
 }
 
-/* メニューが表示された時 */
 .menu--open {
     display: block;
 }
 
-/* メニュー項目のスタイル */
 .menu__item {
     display: block;
     padding: 20px;
@@ -97,14 +93,13 @@ body {
     cursor: pointer;
 }
 
-/* ボタンのスタイル */
 .menu__item-button {
     background: none;
     border: none;
-    color: inherit; /* 親要素の色を継承 */
+    color: inherit;
     cursor: pointer;
-    font-size: inherit; /* 親要素のフォントサイズを継承 */
-    padding: 0; /* ボタンの余白を無くす */
+    font-size: inherit;
+    padding: 0;
 }
 
 .logo {
@@ -180,7 +175,6 @@ body {
     border-right: 1px solid #2589d0;
 }
 
-/* レスポンシブ対応（768px以上の場合） */
 @media screen and (min-width: 768px) {
     body {
         margin: 2vw 8vw;
@@ -191,7 +185,6 @@ body {
         width: 45px;
     }
 
-    /* 各ラインの長さを設定 */
     .line1 {
         width: 22px;
     }
@@ -204,7 +197,6 @@ body {
         width: 15px;
     }
 
-    /* メニューが開いたときの変形アニメーション */
     .menu--open .line1,
     .menu--open .line3 {
         width: 40px;

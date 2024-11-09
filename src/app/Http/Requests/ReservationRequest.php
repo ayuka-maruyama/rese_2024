@@ -29,7 +29,6 @@ class ReservationRequest extends FormRequest
         ];
     }
 
-    // エラーメッセージのカスタマイズ（任意）
     public function messages()
     {
         return [

@@ -43,10 +43,8 @@
                     <p class="shop-card_genre">#{{ $shop->genre->genre_name }}</p>
                 </div>
                 <div class="shop-card__btn">
-                    <!-- 詳しくみるボタン -->
                     <button class="btn-submit" type="submit">詳しくみる</button>
 
-                    <!-- お気に入りボタン -->
                     <button class="favorite-btn {{ in_array($shop->id, $favoriteShopIds) ? 'favorited' : '' }}" data-id="{{ $shop->id }}">
                         ❤
                     </button>

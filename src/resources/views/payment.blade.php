@@ -71,7 +71,6 @@
 @section('js')
 <script src="https://js.stripe.com/v3/"></script>
 <script>
-    // BladeテンプレートからAPIキーをJavaScriptに渡す
     const stripePublicKey = "{{ config('services.stripe.key') }}";
 </script>
 <script src="{{ asset('js/stripe.js') }}" defer></script>

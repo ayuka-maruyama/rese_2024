@@ -58,14 +58,12 @@
     font-size: small;
 }
 
-/* プレビュー画像の基本スタイル */
 #image-preview {
     max-width: 100%;
     height: auto;
-    display: none; /* 初期状態では非表示 */
+    display: none;
 }
 
-/* 画像があるときに表示されるクラス */
 .image-visible {
     display: block;
 }
@@ -115,7 +113,6 @@
     color: red;
 }
 
-/* レスポンシブデザイン（768px以上の場合） */
 @media screen and (min-width:768px) {
     .shop-update {
         font-size: 22px;
