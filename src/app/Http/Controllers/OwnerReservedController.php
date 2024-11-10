@@ -19,6 +19,7 @@ class OwnerReservedController extends Controller
         $nextDate = $dateCarbon->copy()->addDay()->format('Y-m-d');
 
         $reservations = Reservation::where('date', $date)
+            ->where('shop_id', $shop_id)
             ->with('user')
             ->paginate(5);
 
