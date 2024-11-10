@@ -1,11 +1,10 @@
 .reserve-content {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
+    display: block;
 }
 
 .shop-detail {
-    width: 40%;
+    width: 100%;
     margin-top: 20px;
 }
 
@@ -17,7 +16,7 @@
 }
 
 .evaluation-card {
-    width: 55%;
+    width: 100%;
     background-color: white;
     border-radius: 5px;
     padding: 20px 10px;
@@ -124,8 +123,17 @@
     .evaluation {
         width: 600px;
     }
+    .reserve-content {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .shop-detail {
+        width: 40%;
+    }
 
     .evaluation-card {
+        width: 55%;
         padding: 20px;
         margin-top: 40px;
     }

@@ -25,16 +25,17 @@
 
 .table-data {
     width: 60%;
+    overflow-wrap: break-word;
 }
 
 .form-group {
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
+    position: relative;
 }
 
 label {
     font-weight: bold;
 }
-
 
 #card-number,
 #card-expiry,
@@ -60,9 +61,15 @@ label {
     display: block;
 }
 
+#card-brand-logo {
+    position: absolute;
+    top: 22px;
+    right: 0;
+}
+
 @media screen and (min-width:768px) {
     .reserve-info {
-        width: 50%;
+        width: 600px;
         padding: 25px;
         font-size: 18px;
     }
