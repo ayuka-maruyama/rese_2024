@@ -20,7 +20,7 @@ class MailController extends Controller
 
     public function sendEmailToUser(Request $request)
     {
-        $users = User::all();
+        $users = User::where('role', 3)->get();
         $subjectLine = $request->input('subject');
         $bodyContent = $request->input('body');
 
