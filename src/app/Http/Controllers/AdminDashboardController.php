@@ -23,15 +23,12 @@ class AdminDashboardController extends Controller
     {
         $user = Auth::user();
         $search = $request->input('search');
-        $shops = Shop::with('user')
-            ->when($search, function ($query, $search) {
-                $query->where('shop_name', 'like', '%' . $search . '%')
-                    ->orWhereHas('user', function ($q) use ($search) {
-                        $q->where('name', 'like', '%' . $search . '%');
-                    });
+        $users = User::where('name', 'like', '%' . $search . '%')
+            ->orWhereHas('shops', function ($query) use ($search) {
+                $query->where('shop_name', 'like', '%' . $search . '%');
             })
             ->paginate(5);
 
-        return view('admin.admin-dashboard', compact('user', 'shops', 'search'));
+        return view('admin.admin-dashboard', compact('user', 'users', 'search'));
     }
 }
