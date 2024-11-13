@@ -1,6 +1,6 @@
 # Rese（リーズ）  
 飲食店予約サービス  
-https://github.com/ayuka-maruyama/rese_2024/issues/1#issue-2656501728  
+![スクリーンショット 2024-11-14 040658](https://private-user-images.githubusercontent.com/155651611/385909291-a5109c11-e839-4925-a849-9db7870fdc50.png  
   
 ## 作成した目的  
 外部の飲食店予約サービスは手数料を取られるので自社で予約サービスを持ちたいため  
@@ -39,11 +39,11 @@ http://54.238.207.220/
 Laravel Framework 11.21.0  
   
 ## テーブル設計  
-https://github.com/ayuka-maruyama/rese_2024/issues/2#issue-2656569974  
+[テーブル仕様書.pdf](https://github.com/user-attachments/files/17738307/default.pdf)  
   
 ## ER図  
-https://github.com/ayuka-maruyama/rese_2024/issues/3#issue-2656577181  
-  
+![rese_ER](https://private-user-images.githubusercontent.com/155651611/385916661-bc2207ab-37ba-40f2-ae39-a67be38b2e6d.png  
+
 ## 環境構築  
 **Dockerビルド**  
 1.`git clone https://github.com/ayuka-maruyama/rese_2024.git`  
