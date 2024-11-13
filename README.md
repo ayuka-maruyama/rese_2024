@@ -1,6 +1,6 @@
 # Rese（リーズ）  
 飲食店予約サービス  
-![スクリーンショット 2024-11-14 040658](https://private-user-images.githubusercontent.com/155651611/385909291-a5109c11-e839-4925-a849-9db7870fdc50.png  
+![スクリーンショット 2024-11-14 040658](https://private-user-images.githubusercontent.com/155651611/385909291-a5109c11-e839-4925-a849-9db7870fdc50.png)  
   
 ## 作成した目的  
 外部の飲食店予約サービスは手数料を取られるので自社で予約サービスを持ちたいため  
@@ -42,7 +42,7 @@ Laravel Framework 11.21.0
 [テーブル仕様書.pdf](https://github.com/user-attachments/files/17738307/default.pdf)  
   
 ## ER図  
- ![rese_ER](https://private-user-images.githubusercontent.com/155651611/385916661-bc2207ab-37ba-40f2-ae39-a67be38b2e6d.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzE1Mjc5MzAsIm5iZiI6MTczMTUyNzYzMCwicGF0aCI6Ii8xNTU2NTE2MTEvMzg1OTE2NjYxLWJjMjIwN2FiLTM3YmEtNDBmMi1hZTM5LWE2N2JlMzhiMmU2ZC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQxMTEzJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MTExM1QxOTUzNTBaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1kMjI3OGE1ZWE0ZTFiODUzNWViNzVlOTRkNWFkNDc5YjMwYjg5NmI5YmEyY2M1NzYzYWMzNzYwZjFmMzY4MGU0JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.jDIZo9sjQa8pqm8f-PpQLuB-8wXBDMJbMYq1B003h-Q)  
+![スクリーンショット 2024-11-14 050633](https://github.com/user-attachments/assets/589ba947-5632-404a-9fe6-aec7cceb01ea)  
 
 ## 環境構築  
 **Dockerビルド**  
