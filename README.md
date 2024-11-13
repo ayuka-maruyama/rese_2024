@@ -1,6 +1,6 @@
 # Rese（リーズ）  
 飲食店予約サービス  
-![スクリーンショット 2024-11-14 040658](https://private-user-images.githubusercontent.com/155651611/385909291-a5109c11-e839-4925-a849-9db7870fdc50.png)  
+![スクリーンショット 2024-11-14 040658](https://github.com/user-attachments/assets/56413852-7d5c-4daa-8a13-2dbbe3ced97f)  
   
 ## 作成した目的  
 外部の飲食店予約サービスは手数料を取られるので自社で予約サービスを持ちたいため  
@@ -39,7 +39,7 @@ http://54.238.207.220/
 Laravel Framework 11.21.0  
   
 ## テーブル設計  
-[テーブル仕様書.pdf](https://github.com/user-attachments/files/17738307/default.pdf)  
+![スクリーンショット 2024-11-14 051302](https://github.com/user-attachments/assets/a8857380-67d3-4fbf-b967-1c1a8331cf88)  
   
 ## ER図  
 ![スクリーンショット 2024-11-14 050633](https://github.com/user-attachments/assets/589ba947-5632-404a-9fe6-aec7cceb01ea)  
