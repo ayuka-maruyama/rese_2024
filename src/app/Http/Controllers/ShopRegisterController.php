@@ -14,6 +14,11 @@ class ShopRegisterController extends Controller
     public function openShopRegister()
     {
         $user = Auth::user();
+
+        if ($user->role !== 2) {
+            return redirect('/');
+        }
+
         $areas = Area::all();
         $genres = Genre::all();
 
@@ -22,6 +27,12 @@ class ShopRegisterController extends Controller
 
     public function createShopRegister(ShopRegisterRequest $request)
     {
+        $user = Auth::user();
+
+        if ($user->role !== 2) {
+            return redirect('/');
+        }
+
         $userId = $request->user_id;
 
         if ($request->hasFile('image')) {

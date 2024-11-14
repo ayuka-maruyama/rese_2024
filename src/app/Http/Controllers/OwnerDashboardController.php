@@ -12,6 +12,11 @@ class OwnerDashboardController extends Controller
     public function openOwnerDashboard()
     {
         $user = Auth::user();
+
+        if ($user->role !== 2) {
+            return redirect('/');
+        }
+
         $shops = Shop::where('user_id', $user->id)->with('area', 'genre')->get();
         $areas = Area::all();
         $genres = Genre::all();

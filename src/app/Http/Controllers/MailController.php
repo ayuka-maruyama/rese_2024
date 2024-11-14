@@ -15,11 +15,21 @@ class MailController extends Controller
     {
         $user = Auth::user();
 
+        if ($user->role !== 1) {
+            return redirect('/');
+        }
+
         return view('admin.email', compact('user'));
     }
 
     public function sendEmailToUser(Request $request)
     {
+        $user = Auth::user();
+
+        if ($user->role !== 1) {
+            return redirect('/');
+        }
+
         $users = User::where('role', 3)->get();
         $subjectLine = $request->input('subject');
         $bodyContent = $request->input('body');

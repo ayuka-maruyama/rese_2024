@@ -6,11 +6,18 @@ use Illuminate\Http\Request;
 use App\Models\Shop;
 use App\Models\Reservation;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class OwnerReservedController extends Controller
 {
     public function openReserved(Request $request, $shop_id)
     {
+        $user = Auth::user();
+
+        if ($user->role !== 2) {
+            return redirect('/');
+        }
+
         $shop = Shop::find($shop_id);
         $date = $request->input('date', Carbon::today()->format("Y-m-d"));
 

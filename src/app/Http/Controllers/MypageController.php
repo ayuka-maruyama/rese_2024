@@ -16,6 +16,9 @@ class MypageController extends Controller
     public function index()
     {
         $user = Auth::user();
+        if ($user->role !== 3) {
+            return redirect('/');
+        }
 
         $favoriteShopIds = $user ? Favorite::where('user_id', $user->id)->pluck('shop_id')->toArray() : [];
 
@@ -49,6 +52,9 @@ class MypageController extends Controller
     public function showQrCode($id)
     {
         $user = Auth::user();
+        if ($user->role !== 3) {
+            return redirect('/');
+        }
 
         $reservation = Reservation::find($id);
 

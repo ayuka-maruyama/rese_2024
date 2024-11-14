@@ -35,31 +35,20 @@ Route::get('/thanks', function () {
     return view('auth.confirm');
 });
 
-Route::post('/payment/done', [StripeController::class, 'charge'])->name('payment.charge'); // 支払い処理を行うルート
+Route::get('/email/verify', function () {
+    return view('email-verify');
+})->middleware('auth')->name('verification.notice');
 
-Route::post('/payment', [StripeController::class, 'showPaymentPage'])->name('payment.show'); // 支払いページの表示
-
-Route::post('/payment/charge', [StripeController::class, 'charge'])->name('stripe.charge');
-
-Route::post('/evaluation', [EvaluationController::class, 'show']);
-
-Route::post('/evaluation/confirm', [EvaluationController::class, 'store'])->name('evaluation.confirm');
-Route::get('/review-thanks', function () {
-    return view('review-thanks');
-})->name('evaluation.thanks');
-
-
-Route::get('/done', function () {
-    return view('reserve-confirm');
+Route::middleware(['signed', 'throttle:6,1'])->group(function () {
+    Route::get('/email/verify/{id}/{hash}', [VerifyEamilController::class, '__invoke'])->name('verification.verify');
 });
 
-Route::post('/reserve-delete', [ReserveController::class, 'delete'])->name('reserve.delete');
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
 
-Route::post('/reserve/change', [ReserveChangeController::class, 'index']);
+    return back()->with('resent', true);
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
-Route::put('/reservation/{id}/update', [ReserveChangeController::class, 'update'])->name('reservation.update');
-
-Route::post('/favorite/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorite.toggle');
 
 Route::get('/login', [LoginController::class, 'open'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);
@@ -85,22 +74,21 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/owner/shop/reserved/{id}', [OwnerReservedController::class, 'openReserved'])->name('owner.reserved');
 
     Route::get('/mypage', [MypageController::class, 'index'])->name('mypage');
+    Route::get('/reservation/qr/{id}', [MypageController::class, 'showQrCode'])->name('reservation.qr');
+    Route::get('/reservation/checkin/{id}', [MypageController::class, 'checkin'])->name('reservation.checkin');
+    Route::post('/payment/done', [StripeController::class, 'charge'])->name('payment.charge'); // 支払い処理を行うルート
+    Route::post('/payment', [StripeController::class, 'showPaymentPage'])->name('payment.show'); // 支払いページの表示
+    Route::post('/payment/charge', [StripeController::class, 'charge'])->name('stripe.charge');
+    Route::post('/evaluation', [EvaluationController::class, 'show']);
+    Route::post('/evaluation/confirm', [EvaluationController::class, 'store'])->name('evaluation.confirm');
+    Route::get('/review-thanks', function () {
+        return view('review-thanks');
+    })->name('evaluation.thanks');
+    Route::get('/done', function () {
+        return view('reserve-confirm');
+    });
+    Route::post('/reserve-delete', [ReserveController::class, 'delete'])->name('reserve.delete');
+    Route::post('/reserve/change', [ReserveChangeController::class, 'index']);
+    Route::put('/reservation/{id}/update', [ReserveChangeController::class, 'update'])->name('reservation.update');
+    Route::post('/favorite/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorite.toggle');
 });
-
-Route::get('/email/verify', function () {
-    return view('email-verify');
-})->middleware('auth')->name('verification.notice');
-
-Route::middleware(['signed', 'throttle:6,1'])->group(function () {
-    Route::get('/email/verify/{id}/{hash}', [VerifyEamilController::class, '__invoke'])->name('verification.verify');
-});
-
-Route::post('/email/verification-notification', function (Request $request) {
-    $request->user()->sendEmailVerificationNotification();
-
-    return back()->with('resent', true);
-})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
-
-Route::get('/reservation/qr/{id}', [MypageController::class, 'showQrCode'])->name('reservation.qr');
-
-Route::get('/reservation/checkin/{id}', [MypageController::class, 'checkin'])->name('reservation.checkin');

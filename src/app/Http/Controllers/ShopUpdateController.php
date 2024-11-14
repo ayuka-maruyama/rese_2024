@@ -15,6 +15,10 @@ class ShopUpdateController extends Controller
     {
         $user = Auth::user();
 
+        if ($user->role !== 2) {
+            return redirect('/');
+        }
+
         $shop = Shop::find($shop_id);
         $areas = Area::all();
         $genres = Genre::all();
@@ -28,6 +32,12 @@ class ShopUpdateController extends Controller
 
     public function update(ShopUpdateRequest $request, $id)
     {
+        $user = Auth::user();
+
+        if ($user->role !== 2) {
+            return redirect('/');
+        }
+
         $shop = Shop::findOrFail($id);
 
         $shop->shop_name = $request->input('shop_name', $shop->shop_name);
