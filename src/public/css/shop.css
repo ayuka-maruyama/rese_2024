@@ -94,6 +94,7 @@
     font-size: 5vw;
     color: gray;
     padding-right: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .favorite-btn.favorited {
@@ -138,7 +139,7 @@
 
     .favorite-btn {
         font-size: 3.5vw;
-        color: rgb(175, 174, 174);
+        color: gray;
     }
 
 }
