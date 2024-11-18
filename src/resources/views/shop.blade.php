@@ -45,7 +45,7 @@
                 <div class="shop-card__btn">
                     <button class="btn-submit" type="submit">詳しくみる</button>
                     <button class="favorite-btn {{ in_array($shop->id, $favoriteShopIds) ? 'favorited' : '' }}" data-id="{{ $shop->id }}">
-                        {{ in_array($shop->id, $favoriteShopIds) ? '♥' : '♡' }}
+                        ♥
                     </button>
                 </div>
             </div>

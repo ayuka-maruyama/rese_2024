@@ -14,13 +14,16 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             const shopId = button.getAttribute("data-id");
+            const isFavorited = button.classList.contains("favorited");
 
-            if (button.style.color === "red") {
-                button.style.color = "gray";
+            // 仮状態としてUIを即時切り替え
+            if (isFavorited) {
+                button.classList.remove("favorited");
             } else {
-                button.style.color = "red";
+                button.classList.add("favorited");
             }
 
+            // サーバーにリクエストを送信
             fetch(`/favorite/${shopId}`, {
                 method: "POST",
                 headers: {
@@ -31,11 +34,25 @@ document.addEventListener("DOMContentLoaded", function () {
                 },
                 body: JSON.stringify({ shopId: shopId }),
             })
-                .then((response) => response.json())
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error("サーバーエラー");
+                    }
+                    return response.json();
+                })
                 .then((data) => {
                     console.log("Server response:", data);
                 })
-                .catch((error) => console.error("Error:", error));
+                .catch((error) => {
+                    console.error("Error:", error);
+
+                    // エラー時に状態を元に戻す
+                    if (isFavorited) {
+                        button.classList.add("favorited");
+                    } else {
+                        button.classList.remove("favorited");
+                    }
+                });
         });
     });
 });

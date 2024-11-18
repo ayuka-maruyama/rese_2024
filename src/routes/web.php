@@ -68,7 +68,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/owner/dashboard', [OwnerDashboardController::class, 'openOwnerDashboard'])->name('owner.dashboard');
     Route::get('/owner/shop/register', [ShopRegisterController::class, 'openShopRegister'])->name('owner.shop-register');
     Route::post('/owner/shop/register', [ShopRegisterController::class, 'createShopRegister'])->name('owner.shop-create');
-    Route::post('/owner/upload-image', [ShopRegisterController::class, 'uploadImage'])->name('owner.upload-image');
     Route::get('/owner/shop/update/{id}', [ShopUpdateController::class, 'openShopUpdate'])->name('owner.shop-update');
     Route::put('/owner/shop/update/{id}', [ShopUpdateController::class, 'update'])->name('owner.shop.update');
     Route::get('/owner/shop/reserved/{id}', [OwnerReservedController::class, 'openReserved'])->name('owner.reserved');
@@ -76,17 +75,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/mypage', [MypageController::class, 'index'])->name('mypage');
     Route::get('/reservation/qr/{id}', [MypageController::class, 'showQrCode'])->name('reservation.qr');
     Route::get('/reservation/checkin/{id}', [MypageController::class, 'checkin'])->name('reservation.checkin');
-    Route::post('/payment/done', [StripeController::class, 'charge'])->name('payment.charge'); // 支払い処理を行うルート
-    Route::post('/payment', [StripeController::class, 'showPaymentPage'])->name('payment.show'); // 支払いページの表示
+    Route::post('/payment', [StripeController::class, 'showPaymentPage'])->name('payment.show');
     Route::post('/payment/charge', [StripeController::class, 'charge'])->name('stripe.charge');
+    Route::get('/done', function () {
+        return view('reserve-confirm');
+    });
     Route::post('/evaluation', [EvaluationController::class, 'show']);
     Route::post('/evaluation/confirm', [EvaluationController::class, 'store'])->name('evaluation.confirm');
     Route::get('/review-thanks', function () {
         return view('review-thanks');
     })->name('evaluation.thanks');
-    Route::get('/done', function () {
-        return view('reserve-confirm');
-    });
     Route::post('/reserve-delete', [ReserveController::class, 'delete'])->name('reserve.delete');
     Route::post('/reserve/change', [ReserveChangeController::class, 'index']);
     Route::put('/reservation/{id}/update', [ReserveChangeController::class, 'update'])->name('reservation.update');
