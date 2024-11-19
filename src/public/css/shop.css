@@ -91,14 +91,15 @@
 }
 
 .favorite-btn {
-    font-size: 5vw;
-    color: gray;
+    width: 35px;
+    fill: gray;
     padding-right: 10px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
 }
 
 .favorite-btn.favorited {
-    color: red;
+    fill: red;
 }
 
 @media screen and (min-width:768px) {
@@ -138,8 +139,12 @@
     }
 
     .favorite-btn {
-        font-size: 3.5vw;
+        width: 50px;
         color: gray;
     }
+    .favorite-btn.favorited {
+        color: red;
+    }
+
 
 }
