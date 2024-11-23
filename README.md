@@ -92,6 +92,14 @@ php artisan migrate --seed
 ```  
   
 ## その他  
+管理者ユーザー  
+メールアドレス admin@example.com  
+パスワード password  
+  
+店舗代表者ユーザー  
+メールアドレス owner1@example.com  
+パスワード password  
+  
 テストユーザー  
 メールアドレス test@example.com  
 パスワード password  
