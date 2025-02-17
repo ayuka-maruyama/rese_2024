@@ -12,6 +12,7 @@
 
 <body data-is-logged-in="{{ Auth::check() ? 'true' : 'false' }}">
     <header class="header">
+
         <div class="navbar">
             <button class="menu-button" type="button">
                 <span class="menu-line line1"></span>
@@ -19,7 +20,6 @@
                 <span class="menu-line line3"></span>
             </button>
             <div class="menu">
-
                 @guest
                 <a href="{{ route('home') }}" class="menu__item">Home</a>
                 <a href="{{ route('register') }}" class="menu__item">Registration</a>
@@ -36,7 +36,8 @@
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
-                </form> @endauth
+                </form>
+                @endauth
             </div>
             <h1 class="logo">Rese</h1>
             @yield('header')
