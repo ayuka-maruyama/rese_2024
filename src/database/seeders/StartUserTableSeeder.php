@@ -95,6 +95,15 @@ class StartUserTableSeeder extends Seeder
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
+        DB::table('users')->insert([
+            'name' => 'テストユーザー',
+            'email' => 'test@example.com',
+            'password' => Hash::make('password'),
+            'email_verified_at' => Carbon::now(),
+            'role' => 3,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
 
         User::factory()->count(3)->create();
         User::factory()->count(2)->unverified()->create();
