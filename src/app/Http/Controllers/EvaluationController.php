@@ -15,14 +15,12 @@ class EvaluationController extends Controller
     {
         $user = Auth::user();
 
-        // 修正：findで取得し、その後にリレーションをロード
-        $shop = Shop::with('area', 'genre')->find($request->shop_id);
+        $shop = Shop::with('area', 'genre', 'evaluation')->find($request->shop_id);
 
         if (!$shop) {
-            abort(404); // shopが見つからなければ404を返す
+            abort(404);
         }
 
-        // ユーザーのお気に入り店舗IDの取得
         $favoriteShopIds = $user ? Favorite::where('user_id', $user->id)->pluck('shop_id')->toArray() : [];
 
         return view('evaluation', compact('user', 'shop', 'favoriteShopIds'));
@@ -37,6 +35,7 @@ class EvaluationController extends Controller
             'shop_id' => $request->input('shop_id'),
             'evaluation' => $request->input('evaluation'),
             'comment' => $request->input('comment'),
+            'image_url' => $request->input('image_url'),
         ]);
 
         return redirect()->route('evaluation.thanks');
