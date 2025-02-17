@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/shop.css') }}">
 <link rel="stylesheet" href="{{ asset('css/reserve.css') }}">
 <link rel="stylesheet" href="{{ asset('css/owner-shoplist.css') }}">
 @endsection
@@ -15,21 +14,7 @@
     </form>
     <div class="shop-card__wrap">
         @foreach($shops as $shop)
-        <div class="shop-card" data-area-id="{{ $shop->area->id }}" data-genre-id="{{ $shop->genre->id }}">
-            <form class="shop-card__form" action="/detail/{{ $shop->id }}" method="get">
-                @csrf
-                <div class="shop-card__img">
-                    <img class="shop-card__img" src="{{ asset($shop->image) }}" alt="{{ $shop->shop_name }}">
-                </div>
-                <div class="shop-card__txt">
-                    <h3 class="shop-card__shop-name">{{ $shop->shop_name }}</h3>
-                    <div class="shop-card__txt-flex">
-                        <p class="shop-card__area">#{{ $shop->area->area_name }}</p>
-                        <p class="shop-card_genre">#{{ $shop->genre->genre_name }}</p>
-                    </div>
-                </div>
-            </form>
-        </div>
+            @include('partials.shop-card', ['shop' => $shop,'favoriteShopIds' => []])
         @endforeach
     </div>
 </div>
