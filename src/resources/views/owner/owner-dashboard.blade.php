@@ -43,14 +43,5 @@
 @endsection
 
 @section('js')
-<script>
-    window.onload = function() {
-        var successMessage = document.getElementById('success-message');
-        if (successMessage) {
-            setTimeout(function() {
-                successMessage.style.display = 'none';
-            }, 3000);
-        }
-    };
-</script>
+<script src="{{ asset('js/dashboard-message.js') }}" defer></script>
 @endsection
