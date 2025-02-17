@@ -13,7 +13,7 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->foreignId('shop_id');
             $table->integer('evaluation');
-            $table->string('comment');
+            $table->text('comment');
             $table->timestamps();
         });
     }

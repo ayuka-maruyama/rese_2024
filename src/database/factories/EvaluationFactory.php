@@ -25,7 +25,7 @@ class EvaluationFactory extends Factory
             'user_id' => User::where('role', 3)->inRandomOrder()->value('id'),
             'shop_id' => Shop::inRandomOrder()->value('id'),
             'evaluation' => $evaluations,
-            'comment' => $this->faker->text(25),
+            'comment' => $this->faker->text(300),
             'image_url' =>
             $this->faker->randomElement([
                 'img/evaluations/FriedChicken.jpg',
