@@ -12,7 +12,6 @@
 .shop-detail__txt {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     margin-bottom: 20px;
 }
 
@@ -37,15 +36,14 @@
 }
 
 .evaluation {
-    color: white;
-    background-color: #507bd9;
-    border: none;
+    margin: 20px 0;
+}
+
+.evaluation-link {
+    border-bottom: 1px solid black;
     cursor: pointer;
-    border-radius: 5px;
-    padding: 8px;
     font-size: 5%;
-    display: flex;
-    justify-content: end;
+
 }
 
 img {
@@ -187,9 +185,8 @@ li {
         padding-left: 10px;
     }
 
-    .evaluation {
-        padding: 10px;
-        font-size: 13px;
+    .evaluation-link {
+        font-size: 18px;
     }
 
     .shop-detail__hash {

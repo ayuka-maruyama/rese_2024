@@ -80,6 +80,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/done', function () {
         return view('reserve-confirm');
     });
+    Route::get('/evaluation', [EvaluationController::class, 'show']);
     Route::post('/evaluation', [EvaluationController::class, 'show']);
     Route::post('/evaluation/confirm', [EvaluationController::class, 'store'])->name('evaluation.confirm');
     Route::get('/review-thanks', function () {
