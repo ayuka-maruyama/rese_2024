@@ -26,6 +26,14 @@ class EvaluationFactory extends Factory
             'shop_id' => Shop::inRandomOrder()->value('id'),
             'evaluation' => $evaluations,
             'comment' => $this->faker->text(25),
+            'image_url' =>
+            $this->faker->randomElement([
+                'img/evaluations/FriedChicken.jpg',
+                'img/evaluations/pasta.jpg',
+                'img/evaluations/ramen.jpg',
+                'img/evaluations/shimohuri.jpg',
+                'img/evaluations/sushi.jpg',
+            ]),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ];
