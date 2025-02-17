@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ShopRegisterRequest;
-use App\Models\Shop;
 use App\Models\Area;
 use App\Models\Genre;
+use App\Models\Shop;
 use Illuminate\Support\Facades\Auth;
-
 
 class ShopRegisterController extends Controller
 {

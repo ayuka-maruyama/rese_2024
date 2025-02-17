@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use App\Models\Shop;
 use App\Http\Requests\EvaluationRequest;
 use App\Models\Evaluation;
+use App\Models\Favorite;
+use App\Models\Shop;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EvaluationController extends Controller
 {
@@ -14,11 +15,17 @@ class EvaluationController extends Controller
     {
         $user = Auth::user();
 
-        $shopId = $request->input('shop_id');
+        // 修正：findで取得し、その後にリレーションをロード
+        $shop = Shop::with('area', 'genre')->find($request->shop_id);
 
-        $shop = Shop::find($shopId);
+        if (!$shop) {
+            abort(404); // shopが見つからなければ404を返す
+        }
 
-        return view('evaluation', compact('user', 'shopId', 'shop'));
+        // ユーザーのお気に入り店舗IDの取得
+        $favoriteShopIds = $user ? Favorite::where('user_id', $user->id)->pluck('shop_id')->toArray() : [];
+
+        return view('evaluation', compact('user', 'shop', 'favoriteShopIds'));
     }
 
     public function store(EvaluationRequest $request)

@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\ReservationRequest;
+use App\Models\Reservation;
 use App\Models\Shop;
 use Stripe\Stripe;
 use Stripe\Charge;
-use App\Models\Reservation;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\ReservationRequest;
-
 
 class StripeController extends Controller
 {

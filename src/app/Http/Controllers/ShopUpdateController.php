@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ShopUpdateRequest;
-use App\Models\Shop;
 use App\Models\Area;
 use App\Models\Genre;
+use App\Models\Shop;
 use Illuminate\Support\Facades\Auth;
-
 
 class ShopUpdateController extends Controller
 {
