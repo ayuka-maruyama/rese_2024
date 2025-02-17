@@ -19,7 +19,9 @@ class ReserveController extends Controller
             return redirect()->back()->with('error', '店舗が見つかりませんでした。');
         }
 
-        return view('reserve', compact('user', 'shop'));
+        $roleCheck = ($user && $user->role === 3);
+
+        return view('reserve', compact('user', 'shop', 'roleCheck'));
     }
 
     public function delete(Request $request)

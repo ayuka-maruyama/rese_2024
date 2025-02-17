@@ -28,7 +28,7 @@
         </form>
 
         <div class="evaluation">
-            @if($user->role === 3)
+            @if($roleCheck)
             <a href="{{ url('/evaluation?shop_id=' . $shop->id) }}" class="evaluation-link">
                 口コミを投稿する
             </a>
