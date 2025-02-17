@@ -30,76 +30,8 @@
     background-color: white;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='rgb(175, 174, 174)' d='M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16a6.471 6.471 0 0 0 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C8.01 14 7 12.99 7 11.5S8.01 9 9.5 9s2.5 1.01 2.5 2.5S10.99 14 9.5 14z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: left 5px center; 
-    background-size: 7px; 
-}
-
-.shop-card__wrap {
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    margin: 0 auto;
-}
-
-.shop-card {
-    width: 48%;
-    margin: 1% 0.5%;
-    border-radius: 5px;
-    box-shadow: 2px 2px 4px rgb(60, 59, 59);
-}
-
-
-.shop-card__img {
-    width: 100%;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
-}
-
-.shop-card__txt {
-    margin: 1.5vw;
-}
-
-.shop-card__shop-name {
-    font-size: 4vw;
-    font-weight: bold;
-}
-
-.shop-card__txt-flex {
-    display: flex;
-    font-size: 3vw;
-    margin: 5px 0;
-}
-
-.shop-card__area {
-    margin-right: 5px;
-}
-
-.shop-card__btn {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 3vw;
-}
-
-.btn-submit {
-    width: 60%;
-    padding: 5px 8px;
-    text-align: center;
-    background-color: #3367d6;
-    color: white;
-    border-radius: 5px;
-}
-
-.favorite-btn {
-    width: 35px;
-    fill: gray;
-    padding-right: 10px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    cursor: pointer;
-}
-
-.favorite-btn.favorited {
-    fill: red;
+    background-position: left 5px center;
+    background-size: 7px;
 }
 
 @media screen and (min-width:768px) {
@@ -116,35 +48,4 @@
         font-size: 1vw;
         background-size: 1.5vw; 
     }
-
-    .shop-card {
-        width: 24%;
-    }
-
-    .shop-card__shop-name {
-        font-size: 2vw;
-    }
-
-    .shop-card__txt-flex {
-        font-size: 1.5vw;
-        margin: 0.5vw 0;
-    }
-
-    .shop-card__btn {
-        font-size: 1.5vw;
-    }
-
-    .btn-submit {
-        margin: 0.5vw 0;
-    }
-
-    .favorite-btn {
-        width: 50px;
-        color: gray;
-    }
-    .favorite-btn.favorited {
-        color: red;
-    }
-
-
 }
