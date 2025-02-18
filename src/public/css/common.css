@@ -189,7 +189,6 @@ body {
     box-shadow: 2px 2px 4px rgb(60, 59, 59);
 }
 
-
 .shop-card__img {
     width: 100%;
     border-top-right-radius: 5px;
@@ -197,7 +196,7 @@ body {
 }
 
 .shop-card__txt {
-    margin: 1.5vw;
+    padding: 10px 5px;
 }
 
 .shop-card__shop-name {
@@ -241,6 +240,10 @@ body {
 
 .favorite-btn.favorited {
     fill: red;
+}
+
+.evaluation {
+    margin: 20px 0;
 }
 
 @media screen and (min-width: 768px) {

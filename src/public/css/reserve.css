@@ -56,10 +56,6 @@
     overflow-wrap: break-word;
 }
 
-.evaluation {
-    margin: 20px 0;
-}
-
 .evaluation-link {
     text-decoration: underline;
     cursor: pointer;
