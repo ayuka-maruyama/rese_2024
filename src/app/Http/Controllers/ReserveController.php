@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Evaluation;
 use App\Models\Reservation;
 use App\Models\Shop;
 use Illuminate\Http\Request;
@@ -13,7 +14,10 @@ class ReserveController extends Controller
     {
         $user = Auth::user();
 
-        $shop = Shop::find($shop_id);
+        $shop = Shop::with('area', 'genre')->find($shop_id);
+
+        $evaluations = Evaluation::where('shop_id', $shop_id)
+            ->get();
 
         if (!$shop) {
             return redirect()->back()->with('error', '店舗が見つかりませんでした。');
@@ -21,7 +25,13 @@ class ReserveController extends Controller
 
         $roleCheck = ($user && $user->role === 3);
 
-        return view('reserve', compact('user', 'shop', 'roleCheck'));
+        $evaluationCheck = $user
+            ? Evaluation::where('user_id', $user->id)
+            ->where('shop_id', $shop_id)
+            ->exists()
+            : false;
+
+        return view('reserve', compact('user', 'shop', 'evaluations', 'roleCheck', 'evaluationCheck'));
     }
 
     public function delete(Request $request)

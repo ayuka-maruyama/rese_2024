@@ -17,7 +17,7 @@
                 </div>
             </div>
 
-            <img src="{{ asset($shop->image) }}" alt="{{ $shop->shop_name }}">
+            <img src="{{ asset($shop->image) }}" alt="{{ $shop->shop_name }}" class="shop_img">
 
             <div class="shop-detail__hash">
                 <p class="hash-area">#{{ $shop->area->area_name }}</p>
@@ -35,6 +35,33 @@
             @endif
         </div>
 
+        <div class="comment">
+            <h3 class="comment-ttl">全ての口コミ情報</h3>
+
+            @foreach($evaluations as $evaluation)
+            <div class="line"></div>
+            <div class="comment-view">
+                <!-- ログインユーザーの口コミの場合のみ表示 -->
+                @if(Auth::check() && Auth::id() === $evaluation->user_id)
+                <div class="editor-function">
+                    <a href="" class="editing">口コミを編集</a>
+                    <a href="" class="deletion">口コミを削除</a>
+                </div>
+                @endif
+
+                <div class="star-rating" data-rating="{{ $evaluation->evaluation ?? 0 }}">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+
+                <p class="comment-txt">{{ $evaluation->comment }}</p>
+                <img src="{{ asset($evaluation->image_url) }}" alt="comment img" class="comment_img">
+            </div>
+            @endforeach
+        </div>
     </div>
 
     <div class="reserve-card">

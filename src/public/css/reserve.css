@@ -35,18 +35,8 @@
     padding-left: 5px;
 }
 
-.evaluation {
-    margin: 20px 0;
-}
-
-.evaluation-link {
-    border-bottom: 1px solid black;
-    cursor: pointer;
-    font-size: 5%;
-
-}
-
-img {
+.shop_img,
+.comment_img {
     width: 100%;
 }
 
@@ -66,9 +56,69 @@ img {
     overflow-wrap: break-word;
 }
 
+.evaluation {
+    margin: 20px 0;
+}
+
+.evaluation-link {
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.comment-ttl {
+    background-color: #507bd9;
+    color: white;
+    font-weight: bold;
+    padding: 3px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.line {
+    margin: 10px 0;
+    border-bottom: 1px solid gray;
+}
+
+.editor-function {
+    text-align: right;
+}
+
+.editing, .deletion {
+    font-size: 10px;
+    margin-left: 5px;
+    text-decoration: underline;
+}
+
+.star-rating {
+    margin: 15px 0;
+}
+
+.star {
+    font-size: 20px;
+    color: #ccc;
+}
+
+.star-rating[data-rating="1"] .star:nth-child(-n+1),
+.star-rating[data-rating="2"] .star:nth-child(-n+2),
+.star-rating[data-rating="3"] .star:nth-child(-n+3),
+.star-rating[data-rating="4"] .star:nth-child(-n+4),
+.star-rating[data-rating="5"] .star:nth-child(-n+5) {
+    color: #507bd9;
+}
+
+.comment-txt {
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+.comment_img {
+    object-fit: cover;
+}
+
 .reserve-card {
-    position: absolute;
-    top: -10%;
+    position: sticky;
+    top: 20px;
     left: 55%;
     width: 45%;
     height: 500px;
@@ -202,8 +252,36 @@ li {
         font-size: 18px;
     }
 
+    .evaluation-link {
+        font-size: 18px;
+    }
+
+    .comment-ttl {
+        font-size: 20px;
+    }
+
+    .line {
+        margin: 15px 0;
+    }
+
+    .editor-function {
+        text-align: right;
+    }
+
+    .editing, .deletion {
+        font-size: 14px;
+    }
+
+    .star {
+        font-size: 26px;
+    }
+
+    .comment-txt {
+        font-size: 18px;
+    }
+
     .reserve-card {
-        height: 650px;
+        height: 600px;
     }
 
     .reserve-area {
