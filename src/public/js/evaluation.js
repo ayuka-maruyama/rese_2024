@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const commentInput = document.querySelector("textarea[name='comment']");
     const form = document.getElementById("evaluation-form");
 
-    // 文字数表示用の要素を追加
     const charCountDisplay = document.createElement("p");
     charCountDisplay.id = "js_char-count";
     charCountDisplay.className = "char-count";
@@ -14,7 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
         commentInput.nextSibling
     );
 
-    // 警告メッセージ用の要素を追加
     const warningMessage = document.createElement("p");
     warningMessage.id = "warning-message";
     warningMessage.style.color = "red";
@@ -25,7 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
         charCountDisplay.nextSibling
     );
 
-    // 星をクリックしたときの処理
     stars.forEach(function (star) {
         star.addEventListener("click", function () {
             const value = this.getAttribute("data-value");
@@ -45,15 +42,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // コメントのリアルタイム文字数カウント
     commentInput.addEventListener("input", function () {
         const charCount = this.value.length;
         charCountDisplay.textContent = `${charCount} / 400文字`;
 
         if (charCount > 400) {
-            warningMessage.style.display = "block"; // 警告メッセージを表示
+            warningMessage.style.display = "block";
         } else {
-            warningMessage.style.display = "none"; // 警告メッセージを非表示
+            warningMessage.style.display = "none";
         }
     });
 
