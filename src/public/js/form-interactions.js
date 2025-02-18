@@ -9,6 +9,17 @@ document.getElementById("image").addEventListener("change", function () {
         ? this.files[0].name
         : "ファイルが選択されていません";
     document.getElementById("file-name").textContent = fileName;
+
+    const label = document.querySelector("label[for='image']");
+    const preview = document.getElementById("image-preview");
+
+    if (this.files[0]) {
+        label.style.display = "none";
+        preview.style.display = "block";
+    } else {
+        label.style.display = "block";
+        preview.style.display = "none";
+    }
 });
 
 document.getElementById("image").addEventListener("change", function (event) {
