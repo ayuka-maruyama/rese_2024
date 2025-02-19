@@ -21,6 +21,11 @@ class EvaluationController extends Controller
             abort(404);
         }
 
+        $existingEvaluation = $shop->evaluation()->where('user_id', $user->id)->first();
+        if ($existingEvaluation) {
+            return back()->with('message', '口コミ投稿済みのため「口コミを編集」から変更してください！');
+        }
+
         $favoriteShopIds = $user ? Favorite::where('user_id', $user->id)->pluck('shop_id')->toArray() : [];
 
         return view('evaluation', compact('user', 'shop', 'favoriteShopIds'));
@@ -28,14 +33,26 @@ class EvaluationController extends Controller
 
     public function store(EvaluationRequest $request)
     {
-        $userId = Auth::user()->id;
+        $user = Auth::user();
+
+        if ($request->hasFile('image_url')) {
+            $file = $request->file('image_url');
+            $extension = $file->getClientOriginalExtension();
+            $fileName = 'shop' . $request->shop_id . '_user' . $user->id . '.' . $extension;
+            $filePath = 'storage/evaluation-images/' . $fileName;
+
+            // storage/app/public/evaluation-images に保存
+            $file->storeAs('public/evaluation-images/', $fileName);
+        } else {
+            $filePath = null;
+        }
 
         Evaluation::create([
-            'user_id' => $userId,
-            'shop_id' => $request->input('shop_id'),
-            'evaluation' => $request->input('evaluation'),
-            'comment' => $request->input('comment'),
-            'image_url' => $request->input('image_url'),
+            'user_id' => $user->id,
+            'shop_id' => $request->shop_id,
+            'evaluation' => $request->evaluation,
+            'comment' => $request->comment,
+            'image_url' => $filePath,
         ]);
 
         return redirect()->route('evaluation.thanks');
