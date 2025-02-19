@@ -45,6 +45,24 @@
     </header>
 
     <main class="main">
+        @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+        @endif
+
+        @if(session('error'))
+        <div class=" alert alert-error" id="error-message">
+            {{ session('error') }}
+        </div>
+        @endif
+
+        @if (session('message'))
+        <div class="alert alert-message">
+            {{ session('message') }}
+        </div>
+        @endif
+
         @yield('content')
     </main>
 

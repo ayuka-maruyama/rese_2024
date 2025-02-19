@@ -246,6 +246,21 @@ body {
     margin: 20px 0;
 }
 
+.error {
+    display: block;
+    color: red;
+}
+
+.alert {
+    display: block;
+    background-color: red;
+    color: white;
+    border: 2px double red;
+    margin-bottom: 15px;
+    padding: 5px 10px;
+    font-weight: bold;
+}
+
 @media screen and (min-width: 768px) {
     body {
         margin: 2vw 8vw;
