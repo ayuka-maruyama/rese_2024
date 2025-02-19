@@ -49,7 +49,7 @@
                 <!-- ログインユーザーの口コミの場合のみ表示 -->
                 @if(Auth::check() && Auth::id() === $evaluation->user_id)
                 <div class="editor-function">
-                    <a href="" class="editing">口コミを編集</a>
+                    <a href="{{ route('evaluation.editing.open', ['shop_id' => $shop->id]) }}" class="editing">口コミを編集</a>
                     <a href="" class="deletion">口コミを削除</a>
                 </div>
                 @endif
