@@ -22,7 +22,9 @@ class EvaluationController extends Controller
             abort(404);
         }
 
-        $existingEvaluation = $shop->evaluation()->where('user_id', $user->id)->first();
+        $existingEvaluation = Evaluation::where('shop_id', $shop->id)
+            ->where('user_id', $user->id)
+            ->first();
         if ($existingEvaluation) {
             return back()->with('message', '口コミ投稿済みのため「口コミを編集」から変更してください！');
         }
@@ -30,7 +32,6 @@ class EvaluationController extends Controller
         // ユーザーが該当の店舗を予約していたかチェック
         $reservation = Reservation::where('user_id', $user->id)
             ->where('shop_id', $request->shop_id)
-            ->where('date', '<=', now()->toDateString()) // 今日以降ならOK
             ->whereRaw("STR_TO_DATE(CONCAT(date, ' ', time), '%Y-%m-%d %H:%i') <= NOW()") // 予約日時が現在時刻以前
             ->exists();
 
@@ -40,7 +41,7 @@ class EvaluationController extends Controller
 
         $favoriteShopIds = $user ? Favorite::where('user_id', $user->id)->pluck('shop_id')->toArray() : [];
 
-        return view('evaluation', compact('user', 'shop', 'favoriteShopIds'));
+        return view('evaluation', compact('user', 'shop', 'existingEvaluation', 'favoriteShopIds'));
     }
 
     public function store(EvaluationRequest $request)
