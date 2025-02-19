@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const ratingInput = document.getElementById("rating-value");
     const commentInput = document.querySelector("textarea[name='comment']");
     const form = document.getElementById("evaluation-form");
+    const imageInput = document.getElementById("image");
+    const imageFileNameInput = document.getElementById("image-file-name");
 
     const charCountDisplay = document.createElement("p");
     charCountDisplay.id = "js_char-count";
@@ -53,27 +55,17 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    form.addEventListener("submit", function (event) {
-        let errorMessages = [];
+    // フォーム送信時に textarea の値を hidden input にコピー
+    form.addEventListener("submit", function () {
+        const hiddenComment = document.getElementById("hidden-comment");
+        hiddenComment.value = commentInput.value;
+    });
 
-        if (!ratingInput.value) {
-            errorMessages.push("評価を選択してください。");
-        }
-
-        if (!commentInput.value.trim()) {
-            errorMessages.push("コメントを入力してください。");
-        } else if (commentInput.value.length < 10) {
-            errorMessages.push("コメントは10文字以上入力してください。");
-        } else if (commentInput.value.length > 400) {
-            errorMessages.push("コメントは400文字以内で入力してください。");
-        }
-
-        if (errorMessages.length > 0) {
-            alert(errorMessages.join("\n"));
-            event.preventDefault();
-        } else {
-            console.log(`送信される評価: ${ratingInput.value}`);
-            console.log(`送信されるコメント: ${commentInput.value}`);
+    // 画像ファイルが選択された際、ファイル名を hidden input に設定
+    imageInput.addEventListener("change", function () {
+        const file = imageInput.files[0];
+        if (file) {
+            imageFileNameInput.value = file.name;
         }
     });
 });
