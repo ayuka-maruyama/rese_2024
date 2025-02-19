@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\EvaluationRequest;
 use App\Models\Evaluation;
 use App\Models\Favorite;
+use App\Models\Reservation;
 use App\Models\Shop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -24,6 +25,17 @@ class EvaluationController extends Controller
         $existingEvaluation = $shop->evaluation()->where('user_id', $user->id)->first();
         if ($existingEvaluation) {
             return back()->with('message', '口コミ投稿済みのため「口コミを編集」から変更してください！');
+        }
+
+        // ユーザーが該当の店舗を予約していたかチェック
+        $reservation = Reservation::where('user_id', $user->id)
+            ->where('shop_id', $request->shop_id)
+            ->where('date', '<=', now()->toDateString()) // 今日以降ならOK
+            ->whereRaw("STR_TO_DATE(CONCAT(date, ' ', time), '%Y-%m-%d %H:%i') <= NOW()") // 予約日時が現在時刻以前
+            ->exists();
+
+        if (!$reservation) {
+            return back()->with('message', '予約日時以降に口コミを投稿できます。');
         }
 
         $favoriteShopIds = $user ? Favorite::where('user_id', $user->id)->pluck('shop_id')->toArray() : [];
