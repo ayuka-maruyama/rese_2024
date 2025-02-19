@@ -103,3 +103,5 @@ php artisan migrate --seed
 テストユーザー  
 メールアドレス test@example.com  
 パスワード password  
+  
+新規口コミ投稿機能は、来店予約日時を過ぎた後から投稿が可能  
