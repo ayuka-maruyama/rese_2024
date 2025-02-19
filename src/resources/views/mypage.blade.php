@@ -30,7 +30,8 @@
                             <span class="visited-message">
                                 <img class="qr-code__img-visited" src="{{ asset('img/qrcode.svg') }}" alt="qr-code">
                             </span>
-                            @endif <button name="editing" class="editing" type="submit" formaction="/reserve/change">
+                            @endif
+                            <button name="editing" class="editing" type="submit" formaction="/reserve/change">
                                 <img class="editing__img" src="{{ asset('img/editing.svg') }}" alt="editing">
                             </button>
                             <button name="delete" class="delete" type="submit">
