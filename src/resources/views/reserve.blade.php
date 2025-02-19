@@ -5,6 +5,11 @@
 @endsection
 
 @section('content')
+@if (session('message'))
+<div class="alert alert-message">
+    {{ session('message') }}
+</div>
+@endif
 <div class="reserve-content">
 
     <div class="shop-detail">
