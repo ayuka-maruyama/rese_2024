@@ -30,6 +30,6 @@ class Shop extends Model
 
     public function evaluation()
     {
-        return $this->hasOne(Evaluation::class);
+        return $this->hasMany(Evaluation::class, 'shop_id');
     }
 }
