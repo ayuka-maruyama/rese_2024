@@ -34,8 +34,8 @@
 @endsection
 
 @section('content')
-<div class="sort-info">検索情報：</div>
-<div class="shop-card__wrap">
+<div class="sort-info">検索情報：<span id="sort-info-value"></span></div>
+<div class="shop-card__wrap" id="shop-container">
     @foreach($shops as $shop)
     @include('partials.shop-card', ['shop' => $shop, 'favoriteShopIds' => $favoriteShopIds])
     @endforeach

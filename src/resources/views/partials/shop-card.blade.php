@@ -1,4 +1,7 @@
-<div class="shop-card" data-area-id="{{ $shop->area->id }}" data-genre-id="{{ $shop->genre->id }}">
+<div class="shop-card"
+    data-area-id="{{ $shop->area->id }}"
+    data-genre-id="{{ $shop->genre->id }}"
+    data-rating="{{ $shop->average_rating ?? 0 }}">
     <form class="shop-card__form" action="/detail/{{ $shop->id }}" method="get">
         @csrf
         <div class="shop-card__img">
