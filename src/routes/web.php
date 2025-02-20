@@ -90,6 +90,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/evaluation/editing/{shop_id}', [EvaluationEditingController::class, 'evaluationEditingOpen'])->name('evaluation.editing.open');
     Route::post('/evaluation/{evaluation}', [EvaluationEditingController::class, 'update'])->name('evaluation.update');
     Route::put('/evaluation/{evaluation}', [EvaluationEditingController::class, 'update'])->name('evaluation.update');
+    Route::post('/evaluation/delete/{evaluation}', [EvaluationEditingController::class, 'delete'])->name('evaluation.delete');
 
     Route::post('/reserve-delete', [ReserveController::class, 'delete'])->name('reserve.delete');
     Route::post('/reserve/change', [ReserveChangeController::class, 'index']);
