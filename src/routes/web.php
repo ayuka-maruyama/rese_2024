@@ -12,6 +12,7 @@ use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\EvaluationController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\EvaluationEditingController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\OwnerDashboardController;
 use App\Http\Controllers\OwnerRegisterController;
@@ -86,6 +87,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/review-thanks', function () {
         return view('review-thanks');
     })->name('evaluation.thanks');
+    Route::get('/evaluation/editing/{shop_id}', [EvaluationEditingController::class, 'evaluationEditingOpen'])->name('evaluation.editing.open');
+    Route::post('/evaluation/{evaluation}', [EvaluationEditingController::class, 'update'])->name('evaluation.update');
+    Route::put('/evaluation/{evaluation}', [EvaluationEditingController::class, 'update'])->name('evaluation.update');
+
     Route::post('/reserve-delete', [ReserveController::class, 'delete'])->name('reserve.delete');
     Route::post('/reserve/change', [ReserveChangeController::class, 'index']);
     Route::put('/reservation/{id}/update', [ReserveChangeController::class, 'update'])->name('reservation.update');
