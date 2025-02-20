@@ -61,4 +61,26 @@ class EvaluationEditingController extends Controller
 
         return redirect()->route('shop.detail', ['shop_id' => $request->shop_id]);
     }
+
+    public function delete(Request $request)
+    {
+        $evaluationId = $request->input('evaluation_id');
+
+        $evaluation = Evaluation::find($evaluationId);
+
+        // 評価が存在すれば処理
+        if ($evaluation) {
+            // shop_idを評価から取得
+            $shopId = $evaluation->shop_id;
+
+            // 評価削除
+            $evaluation->delete();
+
+            // 正しいshop_idを渡してリダイレクト
+            return redirect()->route('shop.detail', ['shop_id' => $shopId])->with('message', '口コミが削除されました');
+        }
+
+        // 評価が見つからない場合、エラーメッセージを返す
+        return redirect()->back()->with('error', '口コミが見つかりませんでした');
+    }
 }
