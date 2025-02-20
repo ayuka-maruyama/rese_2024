@@ -12,10 +12,10 @@ class ShopController extends Controller
 {
     public function index()
     {
-        $shops = Shop::with('area', 'genre', 'evaluation')->inRandomOrder()->get();
+        $shops = Shop::with('evaluation')->inRandomOrder()->get();
 
         foreach ($shops as $shop) {
-            if ($shop->evaluation && $shop->evaluation->count() > 0) {
+            if ($shop->evaluation->count() > 0) {
                 $averageRating = $shop->evaluation->avg('evaluation');
                 $shop->average_rating = number_format($averageRating, 2);
             } else {
