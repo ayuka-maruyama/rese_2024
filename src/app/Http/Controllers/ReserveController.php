@@ -24,6 +24,7 @@ class ReserveController extends Controller
         }
 
         $roleCheck = ($user && $user->role === 3);
+        $adminRoleCheck = ($user && $user->role === 1);
 
         $evaluationCheck = $user
             ? Evaluation::where('user_id', $user->id)
@@ -31,7 +32,7 @@ class ReserveController extends Controller
             ->exists()
             : false;
 
-        return view('reserve', compact('user', 'shop', 'evaluations', 'roleCheck', 'evaluationCheck'));
+        return view('reserve', compact('user', 'shop', 'evaluations', 'roleCheck', 'adminRoleCheck', 'evaluationCheck'));
     }
 
     public function delete(Request $request)
