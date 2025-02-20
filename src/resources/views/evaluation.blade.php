@@ -33,7 +33,11 @@
 
         <div class="comment">
             <h3 class="input-ttl">口コミを投稿</h3>
+            @if($existingEvaluation)
+            <textarea class="evaluation-textarea" name="comment" id="commentInput" cols="50" rows="8" placeholder="カジュアルな夜のお出かけにおすすめのスポット">{{ $existingEvaluation->comment }}</textarea>
+            @else
             <textarea class="evaluation-textarea" name="comment" id="commentInput" cols="50" rows="8" placeholder="カジュアルな夜のお出かけにおすすめのスポット">{{ old('comment') }}</textarea>
+            @endif
             <div class="error">
                 @error('comment')
                 <P>{{ $message }}</P>
@@ -44,18 +48,25 @@
         <div class="add_image">
             <h3 class="input-ttl">画像の追加</h3>
             <div class="image-upload">
+
+                <!-- 既存の画像があれば表示 -->
+                @if($existingEvaluation && $existingEvaluation->image_url)
+                <div id="preview-area" class="preview-area">
+                    <img id="image-preview" class="image-preview" src="{{ asset($existingEvaluation->image_url) }}" alt="プレビュー画像" style="max-width: 100%; height: auto;">
+                </div>
+                @else
                 <label for="image" class="file-upload">
                     クリックして写真を追加<br>
                     またはドラッグアンドドロップ
                 </label>
-                <p id="file-name" class="file-name"></p>
                 <div id="preview-area" class="preview-area">
                     <img id="image-preview" class="image-preview" src="" alt="プレビュー画像" style="display: none; max-width: 100%; height: auto;">
                 </div>
+                @endif
             </div>
             <div class="error">
                 @error('image_url')
-                <P>{{ $message }}</P>
+                <p>{{ $message }}</p>
                 @enderror
             </div>
         </div>
@@ -63,11 +74,17 @@
 </div>
 
 <div class="button-area">
-    <form id="evaluation-form" action="{{ route('evaluation.confirm') }}" method="post" enctype="multipart/form-data">
+    <form id="evaluation-form"
+        action="{{ $existingEvaluation ? route('evaluation.update', ['evaluation' => $existingEvaluation->id]) : route('evaluation.confirm') }}"
+        method="POST"
+        enctype="multipart/form-data">
         @csrf
+        @if ($existingEvaluation)
+        @method('PUT')
+        @endif
         <input type="hidden" name="shop_id" value="{{ $shop->id }}">
         <input type="hidden" name="user_id" value="{{ $user->id }}">
-        <input type="hidden" id="rating-value" name="evaluation" value="">
+        <input type="hidden" id="rating-value" name="evaluation" value="{{ $existingEvaluation ? $existingEvaluation->evaluation : '' }}">
 
         <!-- 追加: textarea の値を送るための hidden input -->
         <input type="hidden" id="hidden-comment" name="comment" value="">
