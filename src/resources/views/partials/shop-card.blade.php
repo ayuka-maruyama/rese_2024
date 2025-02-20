@@ -5,7 +5,16 @@
             <img class="shop-card__img" src="{{ asset($shop->image) }}" alt="{{ $shop->shop_name }}">
         </div>
         <div class="shop-card__txt">
-            <h3 class="shop-card__shop-name">{{ $shop->shop_name }}</h3>
+            <div class="shop-card__rated-flex">
+                <h3 class="shop-card__shop-name">{{ $shop->shop_name }}</h3>
+                @if(isset($shop->average_rating))
+                <p class="shop-card__rating">
+                    <span class="rating-star">★</span>{{ $shop->average_rating }}
+                </p>
+                @else
+                <p class="shop-card__rating">★0.00</p>
+                @endif
+            </div>
             <div class="shop-card__txt-flex">
                 <p class="shop-card__area">#{{ $shop->area->area_name }}</p>
                 <p class="shop-card_genre">#{{ $shop->genre->genre_name }}</p>

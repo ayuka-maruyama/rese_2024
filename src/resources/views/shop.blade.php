@@ -7,8 +7,14 @@
 
 @section('header')
 <div class="search">
-    <form id="search-form" action="{{ route('shop.search') }}" method="post">
+    <form class="search-form" id="search-form" action="{{ route('shop.search') }}" method="post">
         @csrf
+        <label for="sort" class="search-form__label">並び替え：</label>
+        <select class="search-form__item-select" name="sort" id="sort">
+            <option class="sort-option" value="random" selected>ランダム</option>
+            <option class="sort-option" value="highly-rated">評価が高い順</option>
+            <option class="sort-option" value="low-rated">評価が低い順</option>
+        </select>
         <select class="search-form__item-select" name="area" id="area">
             <option value="all" selected>All area</option>
             @foreach($areas as $area)
@@ -28,14 +34,15 @@
 @endsection
 
 @section('content')
+<div class="sort-info">検索情報：</div>
 <div class="shop-card__wrap">
     @foreach($shops as $shop)
-        @include('partials.shop-card', ['shop' => $shop, 'favoriteShopIds' => $favoriteShopIds])
+    @include('partials.shop-card', ['shop' => $shop, 'favoriteShopIds' => $favoriteShopIds])
     @endforeach
 </div>
 @endsection
 
 @section('js')
 <script src="{{ asset('js/shop.js') }}" defer></script>
-<script src="{{asset('js/search.js') }}" defer></script>
+<script src="{{ asset('js/search.js') }}" defer></script>
 @endsection

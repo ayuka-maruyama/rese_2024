@@ -1,8 +1,10 @@
 .search {
+    width: 60%;
     margin: 0 0 0 auto;
+    font-size: 7px;
 }
 
-#search-form {
+.search-form {
     width: 100%;
     background-color: white;
     border-radius: 5px;
@@ -11,22 +13,21 @@
 }
 
 .search-form__item-select {
-    width: 15vw;
+    width: 24vw;
     background-color: white;
     padding: 5px;
-    font-size: 7px;
     cursor: pointer;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 140'%3E%3Cpath fill='rgb(175, 174, 174)' d='M70 100L20 40h100z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right 10px center;
+    background-position: right 3px center;
     background-size: 10px;
     border-right: 1px solid rgb(175, 174, 174);
 }
 
 .search-form__item-input {
-    width: 15vw;
+    width: 100%;
     padding: 5px 0 5px 15px;
-    font-size: 7px;
+    font-weight: bold;
     background-color: white;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='rgb(175, 174, 174)' d='M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16a6.471 6.471 0 0 0 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C8.01 14 7 12.99 7 11.5S8.01 9 9.5 9s2.5 1.01 2.5 2.5S10.99 14 9.5 14z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
@@ -35,17 +36,20 @@
 }
 
 @media screen and (min-width:768px) {
+    .search {
+        width: 70%;
+        font-size: 1vw;
+    }
+
     .search-form__item-select {
         width: 10vw;
         padding: 0.5vw;
-        font-size: 1vw;
         background-size: 1vw;
     }
 
     .search-form__item-input {
-        width: 27vw;
+        width: 20vw;
         padding: 5px 0 5px 3vw;
-        font-size: 1vw;
         background-size: 1.5vw; 
     }
 }
