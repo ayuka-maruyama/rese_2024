@@ -14,7 +14,6 @@
 
     <div class="shop-detail">
         <form class="shop-detail__form" action="/" method="get">
-            @csrf
             <div class="shop-detail__txt">
                 <div class="detail-left">
                     <button class="back-btn" type="submit">&lt;</button>
@@ -46,15 +45,27 @@
             @foreach($evaluations as $evaluation)
             <div class="line"></div>
             <div class="comment-view">
-                <!-- ログインユーザーの口コミの場合のみ表示 -->
+
                 @if(Auth::check() && Auth::id() === $evaluation->user_id)
                 <div class="editor-function">
                     <a href="{{ route('evaluation.editing.open', ['shop_id' => $shop->id]) }}" class="editing">口コミを編集</a>
-                    <a href="" class="deletion">口コミを削除</a>
+
+                    <form action="{{ route('evaluation.delete',['evaluation' => $evaluation->id]) }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="evaluation_id" value="{{ $evaluation->id }}">
+                        <input type="hidden" name="shop_id" value="{{ $shop->id }}">
+                        <button type="submit" class="deletion">口コミを削除</button>
+                    </form>
                 </div>
+
                 @elseif($adminRoleCheck)
                 <div class="editor-function">
-                    <a href="" class="deletion">口コミを削除</a>
+                    <form action="{{ route('evaluation.delete',['evaluation' => $evaluation->id]) }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="evaluation_id" value="{{ $evaluation->id }}">
+                        <input type="hidden" name="shop_id" value="{{ $shop->id }}">
+                        <button type="submit" class="deletion">口コミを削除</button>
+                    </form>
                 </div>
                 @endif
 
