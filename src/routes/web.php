@@ -21,6 +21,7 @@ use App\Http\Controllers\OwnerUpdateController;
 use App\Http\Controllers\OwnerShopListController;
 use App\Http\Controllers\ShopRegisterController;
 use App\Http\Controllers\ShopUpdateController;
+use App\Http\Controllers\ShopImportController;
 use Illuminate\Http\Request;
 
 Route::get('/', [ShopController::class, 'index'])->name('home');
@@ -65,6 +66,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/admin/shop/{id}', [OwnerShopListController::class, 'openShopList'])->name('admin.owner-shoplist');
     Route::get('/admin/send-email', [MailController::class, 'openMail'])->name('admin.mail');
     Route::post('/admin/send-email', [MailController::class, 'sendEmailToUser'])->name('admin.sendEmail');
+    Route::get('/admin/import-shops', [ShopImportController::class, 'showImportForm'])->name('shop.import.form');
+    Route::post('/admin/import-shops', [ShopImportController::class, 'import'])->name('shop.import');
 
     Route::get('/owner/dashboard', [OwnerDashboardController::class, 'openOwnerDashboard'])->name('owner.dashboard');
     Route::get('/owner/shop/register', [ShopRegisterController::class, 'openShopRegister'])->name('owner.shop-register');

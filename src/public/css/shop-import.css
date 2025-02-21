@@ -1,0 +1,30 @@
+.container {
+    width: 100%;
+    margin: 20px auto;
+    font-size: 16px;
+}
+
+.container-ttl {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.zip-label {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.form-control {
+    margin: 20px 0;
+}
+
+.btn{
+    display: block;
+    background-color: #507bd9;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
