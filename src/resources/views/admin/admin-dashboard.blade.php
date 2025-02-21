@@ -22,6 +22,7 @@
         <div class="link-area">
             <a href="{{ route('admin.owner-create') }}" class="create-shop">店舗管理者登録</a>
             <a href="{{ route('admin.sendEmail') }}" class="admin-mail">メール</a>
+            <a href="{{ route('shop.import.form') }}" class="create-new-shop">店舗一括登録</a>
         </div>
     </div>
     <div class="owner">
