@@ -10,12 +10,16 @@
         <div class="shop-card__txt">
             <div class="shop-card__rated-flex">
                 <h3 class="shop-card__shop-name">{{ $shop->shop_name }}</h3>
+                @if(!Request::is('evaluation'))
+
                 @if(isset($shop->average_rating))
                 <p class="shop-card__rating">
                     <span class="rating-star">★</span>{{ $shop->average_rating }}
                 </p>
                 @else
                 <p class="shop-card__rating">★0.00</p>
+                @endif
+
                 @endif
             </div>
             <div class="shop-card__txt-flex">
