@@ -67,6 +67,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/admin/send-email', [MailController::class, 'sendEmailToUser'])->name('admin.sendEmail');
     Route::get('/admin/import-shops', [ShopImportController::class, 'showImportForm'])->name('shop.import.form');
     Route::post('/admin/import-shops', [ShopImportController::class, 'import'])->name('shop.import');
+    Route::get('/admin/import-shops/download-template', [ShopImportController::class, 'downloadTemplate'])
+        ->name('shop.import.download-template');
 
     Route::get('/owner/dashboard', [OwnerDashboardController::class, 'openOwnerDashboard'])->name('owner.dashboard');
     Route::get('/owner/shop/register', [ShopRegisterController::class, 'openShopRegister'])->name('owner.shop-register');

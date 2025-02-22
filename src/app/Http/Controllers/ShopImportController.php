@@ -19,6 +19,33 @@ class ShopImportController extends Controller
         return view('admin.shop-import');
     }
 
+    public function downloadTemplate()
+    {
+        // CSVのヘッダーを定義
+        $headers = [
+            '店舗名',
+            '地域',
+            'ジャンル',
+            '店舗概要',
+            '画像ファイル名',
+            '店舗管理者名'
+        ];
+
+        // CSVの内容を作成
+        $csvContent = implode(',', $headers) . "\n";
+
+        // 文字コードをUTF-8からSJISに変換（エクセル対応）
+        $csvContent = mb_convert_encoding($csvContent, 'SJIS-WIN', 'UTF-8');
+
+        // CSVをダウンロード
+        $filename = 'shop_template.csv';
+        return response($csvContent)
+            ->withHeaders([
+                'Content-Type' => 'text/csv',
+                'Content-Disposition' => "attachment; filename=\"$filename\"",
+            ]);
+    }
+
     public function import(ShopImportRequest $request)
     {
         // ZIPファイルのアップロードと解凍
