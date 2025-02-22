@@ -184,6 +184,7 @@ body {
 
 .shop-card {
     width: 48%;
+    aspect-ratio: 1 / 1;
     margin: 1%;
     border-radius: 5px;
     box-shadow: 2px 2px 4px rgb(60, 59, 59);
@@ -191,6 +192,9 @@ body {
 
 .shop-card__img {
     width: 100%;
+    aspect-ratio: 1.5 / 1;
+    object-fit: cover; /* 画像をトリミングして枠いっぱいに表示 */
+    object-position: center; /* 画像の中央部分を優先 */
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
 }
@@ -211,8 +215,8 @@ body {
 }
 
 .shop-card__rating {
-    width: 25%;
-    font-size: 12px;
+    width: 15%;
+    font-size: 2vw;
 }
 
 .rating-star {
@@ -325,11 +329,16 @@ body {
     }
 
     .shop-card {
-        width: 23%;
+        width: 30%;
     }
 
     .shop-card__shop-name {
         font-size: 2vw;
+    }
+
+    .shop-card__rating {
+        width: 30%;
+        font-size: 1.5vw;
     }
 
     .shop-card__txt-flex {
@@ -352,5 +361,10 @@ body {
     .favorite-btn.favorited {
         color: red;
     }
+}
 
+@media screen and (min-width: 1200px) {
+    .shop-card {
+        width: 23%;
+    }
 }
