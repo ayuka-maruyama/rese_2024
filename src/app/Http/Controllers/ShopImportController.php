@@ -8,8 +8,8 @@ use App\Models\Genre;
 use App\Models\Shop;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 use ZipArchive;
 
 class ShopImportController extends Controller
@@ -22,7 +22,7 @@ class ShopImportController extends Controller
     public function import(ShopImportRequest $request)
     {
         // ZIPファイルのアップロードと解凍
-        if (!$request->hasFile('zip_file')) {
+        if (! $request->hasFile('zip_file')) {
             return back()->withErrors(['zip_file' => 'ZIPファイルがアップロードされていません。']);
         }
 
@@ -30,7 +30,7 @@ class ShopImportController extends Controller
         $zipPath = $zipFile->store('temp'); // 一時保存
         $extractPath = storage_path('app/temp/unzipped_' . uniqid());
 
-        $zip = new ZipArchive;
+        $zip = new ZipArchive();
         if ($zip->open(storage_path('app/' . $zipPath)) === true) {
             $zip->extractTo($extractPath);
             $zip->close();
@@ -40,7 +40,7 @@ class ShopImportController extends Controller
 
         // CSVファイルの読み込み
         $csvFilePath = glob($extractPath . '/*.csv')[0] ?? null;
-        if (!$csvFilePath || !file_exists($csvFilePath)) {
+        if (! $csvFilePath || ! file_exists($csvFilePath)) {
             return back()->withErrors(['csv_file' => 'CSVファイルが見つかりません。']);
         }
 
@@ -64,7 +64,9 @@ class ShopImportController extends Controller
         $errors = [];
 
         foreach ($csvData as $row) {
-            if (count($row) < 6) continue; // データ不足の場合はスキップ
+            if (count($row) < 6) {
+                continue;
+            } // データ不足の場合はスキップ
 
             $shopData = [
                 'shop_name' => trim($row[0] ?? ''),
@@ -89,15 +91,17 @@ class ShopImportController extends Controller
             $areaId = $areas[$shopData['area']] ?? null;
             $genreId = $genres[$shopData['genre']] ?? null;
 
-            if (!$areaId || !$genreId) {
+            if (! $areaId || ! $genreId) {
                 $errors[] = "エリアまたはジャンルが不正です: {$shopData['area']}, {$shopData['genre']}";
+
                 continue;
             }
 
             // 画像の存在チェック
             $imagePath = $extractPath . '/' . $shopData['image_name'];
-            if (!file_exists($imagePath)) {
+            if (! file_exists($imagePath)) {
                 $errors[] = "画像ファイルが見つかりません: {$shopData['image_name']}";
+
                 continue;
             }
 
@@ -119,7 +123,7 @@ class ShopImportController extends Controller
         }
 
         // バリデーションエラーがなければ登録
-        if (!empty($shops)) {
+        if (! empty($shops)) {
             Shop::insert($shops);
         }
 
@@ -128,7 +132,7 @@ class ShopImportController extends Controller
         Storage::delete($zipPath);
 
         // エラーがあればメッセージを返す
-        if (!empty($errors)) {
+        if (! empty($errors)) {
             return back()->withErrors(['import_errors' => $errors]);
         }
 

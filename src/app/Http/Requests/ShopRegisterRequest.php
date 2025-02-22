@@ -27,7 +27,7 @@ class ShopRegisterRequest extends FormRequest
             'genre_id' => 'required|integer|exists:genres,id',
             'summary' => 'required|string|min:20',
             'image' => 'required|file|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'user_id' => 'required|integer|exists:users,id'
+            'user_id' => 'required|integer|exists:users,id',
         ];
     }
 

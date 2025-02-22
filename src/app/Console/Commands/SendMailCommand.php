@@ -23,8 +23,9 @@ class SendMailCommand extends Command
             $user = $reservation->user;
             $shop = $reservation->shop;
 
-            if (!$user || !$shop) {
+            if (! $user || ! $shop) {
                 $this->error('予約に関連するユーザーまたは店舗が見つかりませんでした。');
+
                 continue;
             }
 

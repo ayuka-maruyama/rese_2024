@@ -5,17 +5,17 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ReservationRequest;
 use App\Models\Reservation;
 use App\Models\Shop;
-use Stripe\Stripe;
-use Stripe\Charge;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Stripe\Charge;
+use Stripe\Stripe;
 
 class StripeController extends Controller
 {
     public function showPaymentPage(ReservationRequest $request)
     {
         $user = Auth::user();
-        if (!$user) {
+        if (! $user) {
             return redirect('/login');
         }
 

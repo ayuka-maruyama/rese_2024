@@ -19,7 +19,7 @@ class ReserveController extends Controller
         $evaluations = Evaluation::where('shop_id', $shop_id)
             ->get();
 
-        if (!$shop) {
+        if (! $shop) {
             return redirect()->back()->with('error', '店舗が見つかりませんでした。');
         }
 
@@ -28,8 +28,8 @@ class ReserveController extends Controller
 
         $evaluationCheck = $user
             ? Evaluation::where('user_id', $user->id)
-            ->where('shop_id', $shop_id)
-            ->exists()
+                ->where('shop_id', $shop_id)
+                ->exists()
             : false;
 
         return view('reserve', compact('user', 'shop', 'evaluations', 'roleCheck', 'adminRoleCheck', 'evaluationCheck'));

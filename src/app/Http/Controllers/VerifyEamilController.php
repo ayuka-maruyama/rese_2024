@@ -11,7 +11,7 @@ class VerifyEamilController extends Controller
     public function __invoke(Request $request, $id)
     {
         $user = User::find($id);
-        if (!$user) {
+        if (! $user) {
             abort(404);
         }
 

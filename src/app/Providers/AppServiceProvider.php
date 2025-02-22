@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Support\ServiceProvider;
 use Laravel\Cashier\Cashier;
 
 class AppServiceProvider extends ServiceProvider
@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
         Cashier::calculateTaxes();
 
         VerifyEmail::toMailUsing(function (object $notifiable, string $url) {
-            return (new MailMessage)
+            return (new MailMessage())
                 ->subject('メールアドレスの確認')
                 ->line('ボタンを押してメールアドレスの確認をしてください！')
                 ->action('メールアドレス確認', $url);

@@ -8,13 +8,15 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-
 class sendEmailToUser extends Mailable
 {
-    use Queueable, SerializesModels;
+    use Queueable;
+    use SerializesModels;
 
     public $user;
+
     public $subjectLine;
+
     public $bodyContent;
 
     public function __construct($user, $subjectLine, $bodyContent)

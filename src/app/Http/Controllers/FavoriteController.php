@@ -30,12 +30,14 @@ class FavoriteController extends Controller
 
         if ($favorite) {
             $favorite->delete();
+
             return response()->json(['status' => 'removed']);
         } else {
             Favorite::create([
                 'user_id' => $user->id,
                 'shop_id' => $shop->id,
             ]);
+
             return response()->json(['status' => 'added']);
         }
     }

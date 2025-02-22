@@ -2,23 +2,25 @@
 
 namespace App\Mail;
 
-
 use App\Models\Reservation;
-use App\Models\User;
 use App\Models\Shop;
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Mail\Mailables\Address;
 
 class ReservationNotification extends Mailable
 {
-    use Queueable, SerializesModels;
+    use Queueable;
+    use SerializesModels;
 
     public $reservation;
+
     public $user;
+
     public $shop;
 
     public function __construct(Reservation $reservation, User $user, Shop $shop)

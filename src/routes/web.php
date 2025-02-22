@@ -1,28 +1,28 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\VerifyEamilController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\MypageController;
-use App\Http\Controllers\ShopController;
-use App\Http\Controllers\ReserveController;
-use App\Http\Controllers\ReserveChangeController;
-use App\Http\Controllers\FavoriteController;
-use App\Http\Controllers\EvaluationController;
-use App\Http\Controllers\StripeController;
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\EvaluationController;
 use App\Http\Controllers\EvaluationEditingController;
+use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\MypageController;
 use App\Http\Controllers\OwnerDashboardController;
 use App\Http\Controllers\OwnerRegisterController;
 use App\Http\Controllers\OwnerReservedController;
-use App\Http\Controllers\OwnerUpdateController;
 use App\Http\Controllers\OwnerShopListController;
+use App\Http\Controllers\OwnerUpdateController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ReserveChangeController;
+use App\Http\Controllers\ReserveController;
+use App\Http\Controllers\ShopController;
+use App\Http\Controllers\ShopImportController;
 use App\Http\Controllers\ShopRegisterController;
 use App\Http\Controllers\ShopUpdateController;
-use App\Http\Controllers\ShopImportController;
+use App\Http\Controllers\StripeController;
+use App\Http\Controllers\VerifyEamilController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ShopController::class, 'index'])->name('home');
 
@@ -50,7 +50,6 @@ Route::post('/email/verification-notification', function (Request $request) {
 
     return back()->with('resent', true);
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
-
 
 Route::get('/login', [LoginController::class, 'open'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);

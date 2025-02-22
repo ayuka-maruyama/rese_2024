@@ -19,7 +19,7 @@ class OwnerReservedController extends Controller
         }
 
         $shop = Shop::find($shop_id);
-        $date = $request->input('date', Carbon::today()->format("Y-m-d"));
+        $date = $request->input('date', Carbon::today()->format('Y-m-d'));
 
         $dateCarbon = Carbon::createFromFormat('Y-m-d', $date);
         $beforeDate = $dateCarbon->copy()->subDay()->format('Y-m-d');

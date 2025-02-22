@@ -33,7 +33,7 @@ class MypageController extends Controller
             ->get() : [];
 
         foreach ($reservations as $reservation) {
-            if (!$reservation->qr_code_path) {
+            if (! $reservation->qr_code_path) {
                 $qrCode = QrCode::create(route('reservation.checkin', ['id' => $reservation->id]));
                 $writer = new PngWriter();
                 $result = $writer->write($qrCode);
@@ -65,12 +65,11 @@ class MypageController extends Controller
         return response()->file(storage_path('app/public/' . $reservation->qr_code_path));
     }
 
-
     public function checkin($id)
     {
         $reservation = Reservation::find($id);
 
-        if (!$reservation) {
+        if (! $reservation) {
             abort(404, 'Reservation not found');
         }
 

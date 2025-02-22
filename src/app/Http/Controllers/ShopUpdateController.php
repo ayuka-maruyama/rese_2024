@@ -22,7 +22,7 @@ class ShopUpdateController extends Controller
         $areas = Area::all();
         $genres = Genre::all();
 
-        if (!$shop) {
+        if (! $shop) {
             return redirect()->back()->with('error', '店舗が見つかりませんでした。');
         }
 

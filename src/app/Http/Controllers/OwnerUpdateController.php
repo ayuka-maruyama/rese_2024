@@ -7,7 +7,6 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-
 class OwnerUpdateController extends Controller
 {
     public function openUpdate(Request $request)
@@ -35,15 +34,15 @@ class OwnerUpdateController extends Controller
 
         $updateData = $request->only(['name', 'email', 'password']);
 
-        if (!empty($updateData['name'])) {
+        if (! empty($updateData['name'])) {
             $user->name = $updateData['name'];
         }
 
-        if (!empty($updateData['email'])) {
+        if (! empty($updateData['email'])) {
             $user->email = $updateData['email'];
         }
 
-        if (!empty($updateData['password'])) {
+        if (! empty($updateData['password'])) {
             $user->password = bcrypt($updateData['password']);
         }
 

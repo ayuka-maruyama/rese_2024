@@ -2,10 +2,10 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
 use App\Models\Shop;
-use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ReservationFactory extends Factory
 {

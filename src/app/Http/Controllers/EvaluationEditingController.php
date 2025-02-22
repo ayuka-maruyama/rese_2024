@@ -17,7 +17,7 @@ class EvaluationEditingController extends Controller
 
         $shop = Shop::with('area', 'genre', 'evaluation')->find($shop_id);
 
-        if (!$shop) {
+        if (! $shop) {
             abort(404, '店舗が見つかりません');
         }
 

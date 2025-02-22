@@ -18,7 +18,7 @@ class EvaluationController extends Controller
 
         $shop = Shop::with('area', 'genre', 'evaluation')->find($request->shop_id);
 
-        if (!$shop) {
+        if (! $shop) {
             abort(404);
         }
 
@@ -35,7 +35,7 @@ class EvaluationController extends Controller
             ->whereRaw("STR_TO_DATE(CONCAT(date, ' ', time), '%Y-%m-%d %H:%i') <= NOW()") // 予約日時が現在時刻以前
             ->exists();
 
-        if (!$reservation) {
+        if (! $reservation) {
             return back()->with('message', '予約日時以降に口コミを投稿できます。');
         }
 

@@ -25,7 +25,7 @@ class ReserveChangeController extends Controller
 
         $reserveNow = Reservation::where('id', $id)->where('user_id', $user)->first();
 
-        if (!$reserveNow) {
+        if (! $reserveNow) {
             return redirect('/mypage')->withErrors('予約が見つかりませんでした');
         }
 
