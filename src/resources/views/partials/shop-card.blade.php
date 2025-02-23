@@ -10,7 +10,7 @@
         <div class="shop-card__txt">
             <div class="shop-card__rated-flex">
                 <h3 class="shop-card__shop-name">{{ $shop->shop_name }}</h3>
-                @if(!Request::is('evaluation'))
+                @if(!Request::is('evaluation/editing/*','mypage'))
 
                 @if(isset($shop->average_rating))
                 <p class="shop-card__rating">
