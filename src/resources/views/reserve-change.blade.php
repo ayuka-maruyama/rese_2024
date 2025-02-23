@@ -8,20 +8,25 @@
 @section('content')
 <div class="reserve-content">
     <div class="shop-detail">
-        <form action="/mypage" class="shop-detail__form" method="get">
-            @csrf
+        <form class="shop-detail__form" action="/mypage" method="get">
             <div class="shop-detail__txt">
-                <button class="back-btn" type="submit">&lt;</button>
-                <h1 class="shop-name">{{ $reserveNow->shop->shop_name }}</h1>
+                <div class="detail-left">
+                    <button class="back-btn" type="submit">&lt;</button>
+                    <h1 class="shop-name">{{ $reserveNow->shop->shop_name }}</h1>
+                </div>
             </div>
-            <img src="{{ $reserveNow->shop->image }}" alt="{{ $reserveNow->shop->shop_name }}">
+
+            <img src="{{ $reserveNow->shop->image }}" alt="{{ $reserveNow->shop->shop_name }}" class="shop_img">
+
             <div class="shop-detail__hash">
                 <p class="hash-area">#{{ $reserveNow->shop->area->area_name }}</p>
                 <p class="hash-genre">#{{ $reserveNow->shop->genre->genre_name }}</p>
             </div>
+
             <p class="summary">{{ $reserveNow->shop->summary }}</p>
         </form>
     </div>
+
     <div class="reserve-area">
         <div class="reserved">
             <h3 class="reserved__ttl">現在の予約情報</h3>
@@ -44,6 +49,7 @@
                 </tr>
             </table>
         </div>
+        
         <div class="reserve-change">
             <form action="{{ route('reservation.update', $reserveNow->id) }}" method="POST">
                 @csrf
