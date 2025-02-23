@@ -41,8 +41,7 @@ Laravel Framework 11.21.0
 ![スクリーンショット 2024-11-14 051302](https://github.com/user-attachments/assets/a8857380-67d3-4fbf-b967-1c1a8331cf88)  
   
 ## ER図  
-![Image](https://github.com/user-attachments/assets/ddfee09f-31a5-4427-9c45-e6b68159c00b)  
-
+![Image](https://github.com/user-attachments/assets/9499e48c-0eb5-4b1f-8af2-0a14d9bb51ae)
 ## 環境構築  
 **Dockerビルド**  
 1.`git clone https://github.com/ayuka-maruyama/rese_2024.git`  
