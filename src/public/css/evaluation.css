@@ -104,7 +104,10 @@
     background-color: white;
     border-radius: 20px;
     padding: 10px;
+}
 
+.shop-card__rating {
+    display: none;
 }
 
 @media screen and (min-width:768px) {
