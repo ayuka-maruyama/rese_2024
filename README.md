@@ -96,10 +96,10 @@ php artisan storage:link
   
 8.シンボリックリンクの所有者、ファイル権限を変更  
 ```
-sudo chown -R www-data:www-data src/storage src/bootstrap/cache
-sudo chown -R www-data:www-data src/storage/app/public
-sudo chmod -R 777 src/storage src/bootstrap/cache
-sudo chmod -R 777 src/storage/app/public/*
+sudo setfacl -R -m u:www-data:rwx src/storage src/bootstrap/cache
+sudo setfacl -R -m u:www-data:rwx src/storage/app/public
+sudo setfacl -d -m u:www-data:rwx src/storage src/bootstrap/cache
+sudo setfacl -d -m u:www-data:rwx src/storage/app/public
 ```  
   
 ## その他  
