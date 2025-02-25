@@ -99,7 +99,7 @@ php artisan storage:link
 sudo chown -R www-data:www-data src/storage src/bootstrap/cache
 sudo chown -R www-data:www-data src/storage/app/public
 sudo chmod -R 777 src/storage src/bootstrap/cache
-sudo chmod -R 777 src/storage/app/public
+sudo chmod -R 777 src/storage/app/public/*
 ```  
   
 ## その他  
