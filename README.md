@@ -51,56 +51,57 @@ Laravel Framework 11.21.0
 **Laravel環境構築**  
 1.`docker-compose exec php bash`でPHPコンテナへログイン  
 2.`composer install`  
-3.「.env.example」ファイルを「.env」ファイルに命名を変更。新しく.envファイルを作成  
+3.`cp src/.env.example src/.env`で「.env.example」ファイルを「.env」ファイルに命名を変更。新しく.envファイルを作成  
 4.「.env」に以下の環境変数を追加  
 ```text
-DB_CONNECTION=mysql  
-DB_HOST=mysql  
-DB_PORT=3306  
-DB_DATABASE=laravel_db  
-DB_USERNAME=laravel_user  
-DB_PASSWORD=laravel_pass  
-  
-STRIPE_KEY=公開可能キーを入力  
-STRIPE_SECRET=シークレットキーを入力  
-STRIPE_WEBHOOK_SECRET=制限付きのキーのトークンを入力  
-CASHIER_CURRENCY=ja_JP  
-CASHIER_CURRENCY_LOCALE=ja_JP  
-CASHIER_LOGGER=daily  
-  
-MAIL_MAILER=smtp  
-MAIL_HOST=mailhog  
-MAIL_PORT=1025  
-MAIL_USERNAME=null  
-MAIL_PASSWORD=null  
-MAIL_ENCRYPTION=null  
-MAIL_FROM_ADDRESS="info@example.com"  
-MAIL_FROM_NAME="${APP_NAME}"  
-  
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=laravel_db
+DB_USERNAME=laravel_user
+DB_PASSWORD=laravel_pass
+
+STRIPE_KEY=公開可能キーを入力
+STRIPE_SECRET=シークレットキーを入力
+STRIPE_WEBHOOK_SECRET=制限付きのキーのトークンを入力
+CASHIER_CURRENCY=ja_JP
+CASHIER_CURRENCY_LOCALE=ja_JP
+CASHIER_LOGGER=daily
+
+MAIL_MAILER=smtp
+MAIL_HOST=mailhog
+MAIL_PORT=1025
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDRESS="info@example.com"
+MAIL_FROM_NAME="${APP_NAME}"
 ```
   
-5.アプリケーションキーの作成  
+5.windowsの場合、ファイル権限を一括変更  
+`sudo chmod -R 777 src/*`  
+  
+6.アプリケーションキーの作成  
 ``` bash
 php artisan key:generate
 ```  
   
-6.マイグレーション、シーダーの実行  
+7.マイグレーション、シーダーの実行  
 ``` bash
 php artisan migrate --seed
 ```  
   
-7.シンボリックリンクの作成  
+8.シンボリックリンクの作成  
 ``` bash
 php artisan storage:link
 ```  
   
-8.シンボリックリンクの所有者、ファイル権限を変更  
-```
-sudo setfacl -R -m u:www-data:rwx src/storage src/bootstrap/cache
-sudo setfacl -R -m u:www-data:rwx src/storage/app/public
-sudo setfacl -d -m u:www-data:rwx src/storage src/bootstrap/cache
-sudo setfacl -d -m u:www-data:rwx src/storage/app/public
-```  
+9.シンボリックリンクの所有者、ファイル権限を確認  
+所有者、権限が異なる場合は修正  
+src/storage/app  
+src/storage/app/public  
+src/storage/app/public/evaluation-images , qrcodes , shop-images  
+の所有者（www-data）、権限（読み・書き・実行権限を全て付与）されているか確認  
   
 ## その他  
 管理者ユーザー  
