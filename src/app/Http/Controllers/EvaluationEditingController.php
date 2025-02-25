@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EvaluationRequest;
 use App\Models\Evaluation;
 use App\Models\Favorite;
 use App\Models\Shop;
@@ -28,14 +29,8 @@ class EvaluationEditingController extends Controller
         return view('evaluation', compact('user', 'shop', 'existingEvaluation', 'favoriteShopIds'));
     }
 
-    public function update(Request $request, Evaluation $evaluation)
+    public function update(EvaluationRequest $request, Evaluation $evaluation)
     {
-        $request->validate([
-            'evaluation' => 'required|integer|min:1|max:5',
-            'comment' => 'nullable|string|max:400',
-            'image_url' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-        ]);
-
         $evaluation->evaluation = $request->input('evaluation');
         $evaluation->comment = $request->input('comment');
 
@@ -44,7 +39,7 @@ class EvaluationEditingController extends Controller
         if ($request->hasFile('image_url')) {
             $file = $request->file('image_url');
             $extension = $file->getClientOriginalExtension();
-            $fileName = 'shop' . $request->shop_id . '_user' . $user->id . '.' . $extension;
+            $fileName = 'shop' . $request->input('shop_id') . '_user' . $user->id . '.' . $extension;
             $filePath = 'public/evaluation-images/' . $fileName;
 
             $oldImagePath = $evaluation->image_url ? str_replace('storage/', 'public/', $evaluation->image_url) : null;
@@ -59,9 +54,8 @@ class EvaluationEditingController extends Controller
 
         $evaluation->save();
 
-        return redirect()->route('shop.detail', ['shop_id' => $request->shop_id]);
+        return redirect()->route('shop.detail', ['shop_id' => $request->input('shop_id')]);
     }
-
     public function delete(Request $request)
     {
         $evaluationId = $request->input('evaluation_id');

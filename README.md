@@ -89,6 +89,19 @@ php artisan key:generate
 php artisan migrate --seed
 ```  
   
+7.シンボリックリンクの作成  
+``` bash
+php artisan storage:link
+```  
+  
+8.シンボリックリンクの所有者、ファイル権限を変更  
+```
+sudo chown -R www-data:www-data src/storage src/bootstrap/cache
+sudo chown -R www-data:www-data src/storage/app/public
+sudo chmod -R 777 src/storage src/bootstrap/cache
+sudo chmod -R 777 src/storage/app/public
+```  
+  
 ## その他  
 管理者ユーザー  
 メールアドレス admin@example.com  

@@ -14,19 +14,17 @@ class ShopImportRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'zip_file' => 'required|file|mimes:zip|max:10240',
-
+            'csv_file' => 'required|file|mimes:csv,txt|max:5120',
         ];
     }
 
-    public function messages()
+    public function messages(): array
     {
         return [
-            'zip_file.required' => 'ZIPファイルをアップロードしてください',
-            'zip_file.file' => '有効なファイルを選択してください',
-            'zip_file.mimes' => 'ZIPファイルのみアップロードできます',
-            'zip_file.max' => 'ファイルサイズは10MB以下にしてください',
-
+            'csv_file.required' => 'CSVファイルをアップロードしてください。',
+            'csv_file.file' => 'CSVファイル形式でアップロードしてください。',
+            'csv_file.mimes' => 'CSVファイルのみアップロード可能です。',
+            'csv_file.max' => 'CSVファイルは最大5MBまでです。',
         ];
     }
 }

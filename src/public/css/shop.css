@@ -1,5 +1,5 @@
 .search {
-    width: 60%;
+    width: 65%;
     margin: 0 0 0 auto;
     font-size: 7px;
 }
@@ -10,35 +10,45 @@
     border-radius: 5px;
     box-shadow: 2px 2px 4px rgb(60, 59, 59);
     padding: 5px;
+    font-size: 5px;
 }
 
 .search-form__item-select {
-    width: 24vw;
+    width: 11vw;
     background-color: white;
-    padding: 5px;
+    padding: 2px;
     cursor: pointer;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 140'%3E%3Cpath fill='rgb(175, 174, 174)' d='M70 100L20 40h100z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right 3px center;
-    background-size: 10px;
+    background-position: right 2px center;
+    background-size: 6px;
     border-right: 1px solid rgb(175, 174, 174);
 }
 
 .search-form__item-input {
-    width: 100%;
+    width: 10vw;
     padding: 5px 0 5px 15px;
     font-weight: bold;
     background-color: white;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='rgb(175, 174, 174)' d='M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16a6.471 6.471 0 0 0 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C8.01 14 7 12.99 7 11.5S8.01 9 9.5 9s2.5 1.01 2.5 2.5S10.99 14 9.5 14z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: left 5px center;
-    background-size: 7px;
+    background-position: left 3px center;
+    background-size: 6px;
+}
+
+.sort-info {
+    font-size: 12px;
+    margin: 10px 0;
 }
 
 @media screen and (min-width:768px) {
     .search {
         width: 70%;
         font-size: 1vw;
+    }
+
+    .search-form {
+        font-size: 12px;
     }
 
     .search-form__item-select {
@@ -48,8 +58,12 @@
     }
 
     .search-form__item-input {
-        width: 20vw;
+        width: 16vw;
         padding: 5px 0 5px 3vw;
         background-size: 1.5vw; 
+    }
+
+    .sort-info {
+        font-size: 16px;
     }
 }

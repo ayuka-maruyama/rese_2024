@@ -33,17 +33,12 @@
     </div>
 
     <div class="upload">
-        <h3 class="upload-ttl">ZIPファイルのアップロード</h3>
-        <p class="upload-txt">
-            CSVファイル及び店舗画像を含んだZIP<br>
-            ファイルをアップロードしてください！
-        </p>
+        <h3 class="upload-ttl">CSVファイルのアップロード</h3>
         <form action="{{ route('shop.import') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label for="zip_file" class="zip-label">ZIPファイルを選択</label>
-                <input type="file" name="zip_file" class="form-control" required>
-                @error('zip_file')
+                <label for="zip_file" class="zip-label">CSVファイルを選択</label>
+                <input type="file" name="csv_file" accept=".csv" class="form-control"> @error('zip_file')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
