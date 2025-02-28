@@ -134,5 +134,6 @@ src/storage/app/public/evaluation-images , qrcodes , shop-images
   イタリアン、ラーメン、居酒屋、寿司、焼肉のいずれかを登録  
 ・画像ファイル名  
   店舗イメージに使用する画像ファイル名を拡張子付きで登録（例:pasta.pngなど）  
+  挙動確認の際の画像ファイル名は、「img/evaluations/sushi.jpg」を利用してください。  
 ・店舗管理者  
   usersテーブルでオーナー（role=2）で登録されているユーザーの名前を登録  
