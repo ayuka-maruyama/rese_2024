@@ -67,7 +67,7 @@ class ShopImportController extends Controller
                 'area' => 'required|string|in:東京都,大阪府,福岡県',
                 'genre' => 'required|string|in:寿司,焼肉,イタリアン,居酒屋,ラーメン',
                 'summary' => 'required|string|max:400',
-                'image_url' => ['required', 'string', 'regex:/\.(jpg|jpeg|png)$/i', 'url'],
+                'image_url' => ['required', 'string', 'regex:/\.(jpg|jpeg|png)$/i'],
                 'user_id' => 'required|string|max:50',
             ], [
                 'shop_name.required' => '店舗名を入力してください。',
@@ -85,7 +85,6 @@ class ShopImportController extends Controller
                 'image_url.required' => '画像ファイル名を入力してください。',
                 'image_url.string' => '画像ファイル名は文字列で入力してください。',
                 'image_url.regex' => '画像ファイル名はjpg, jpeg, pngのいずれかの形式にしてください。',
-                'image_url.url' => '画像URLが正しくありません。',
                 'user_id.required' => '店舗管理者名を入力してください。',
                 'user_id.string' => '店舗管理者名は文字列で入力してください。',
                 'user_id.max' => '店舗管理者名は50文字以内で入力してください。',
